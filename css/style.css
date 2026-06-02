@@ -1,4 +1,4 @@
-﻿/* ===========================
+/* ===========================
    VARIABLES
 =========================== */
 :root {
@@ -12,19 +12,27 @@
 /* ===========================
    RESET & BASE
 =========================== */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+}
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   background-color: var(--bg-dark);
   color: #e0e0e0;
   line-height: 1.6;
+}
+
+body.modal-open {
+  overflow: hidden;
 }
 
 a {
@@ -41,14 +49,14 @@ a {
   width: 100%;
   background: rgba(10, 10, 10, 0.9);
   backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(255,255,255,0.07);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
   z-index: 1000;
   transition: background 0.3s ease;
 }
 
 .navbar.scrolled {
   background: rgba(10, 10, 10, 0.98);
-  box-shadow: 0 2px 20px rgba(0,0,0,0.5);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
 }
 
 .nav-container {
@@ -86,18 +94,6 @@ a {
   color: #f472b6;
 }
 
-.footer-links a {
-  color: #9ca3af;
-  font-size: 0.9rem;
-  transition: color 0.3s ease, transform 0.2s ease;
-  display: inline-block;
-}
-
-.footer-links a:hover {
-  color: #f472b6 !important;
-  transform: translateY(-2px);
-}
-
 /* ===========================
    BUTTONS
 =========================== */
@@ -130,7 +126,9 @@ a {
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
-  transition: background 0.25s ease, color 0.25s ease, box-shadow 0.25s ease, transform 0.2s ease;
+  transition: background 0.25s ease, color 0.25s ease, box-shadow 0.25s ease, 
+
+transform 0.2s ease;
 }
 
 .btn-outline:hover {
@@ -150,10 +148,18 @@ a {
   justify-content: center;
   text-align: center;
   padding: 6rem 2rem 4rem;
-  background: radial-gradient(ellipse at top,  #3d0a3e 0%, #2d0a2e 30%, #1a0a1a 60%, #0a0a0f 100%);
+  background: radial-gradient(
+    ellipse at top,
+    #3d0a3e 0%,
+    #2d0a2e 30%,
+    #1a0a1a 60%,
+    #0a0a0f 100%
+  );
 }
 
-.hero-content { max-width: 750px; }
+.hero-content {
+  max-width: 750px;
+}
 
 .hero-tag {
   display: inline-block;
@@ -191,7 +197,6 @@ a {
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
-
 
 .hero-sub {
   color: #9ca3af;
@@ -270,14 +275,15 @@ a {
 }
 
 .service-card {
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 14px;
-    padding: 2rem;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, background 0.3s ease;
-    cursor: pointer;  /* این رو اضافه کن */
-}
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 2rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s 
 
+ease, background 0.3s ease;
+  cursor: pointer;
+}
 
 .service-card:hover {
   transform: translateY(-6px);
@@ -285,7 +291,6 @@ a {
   border-color: rgba(236, 72, 153, 0.5);
   background: rgba(236, 72, 153, 0.06);
 }
-
 
 .service-icon {
   font-size: 2.5rem;
@@ -315,29 +320,28 @@ a {
 }
 
 .portfolio-card {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 14px;
   overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s 
+
+ease, background 0.3s ease;
   cursor: pointer;
 }
 
 .portfolio-card:hover {
-
   transform: translateY(-6px);
-
   box-shadow: 0 16px 40px rgba(244, 114, 182, 0.3);
-
   border-color: rgba(244, 114, 182, 0.5);
-
-  background: rgba(244, 114, 182, 0.06);  /* ← این خط رو اضافه کن */
+  background: rgba(244, 114, 182, 0.06);
 }
 
 .portfolio-img {
   width: 100%;
   height: 200px;
-  object-fit: cover;object-position: center top;
+  object-fit: cover;
+  object-position: center top;
   display: block;
 }
 
@@ -356,25 +360,26 @@ a {
   color: #777;
   font-size: 0.88rem;
 }
-/* line ~326 - بعد از .portfolio-overlay p */
-.btn-download {
-    display: inline-block;
-    margin-top: 12px;
-    padding: 8px 20px;
-    background: linear-gradient(135deg, #6c63ff, #a78bfa);
-    color: #fff;
-    border-radius: 8px;
-    text-decoration: none;
-    font-size: 0.85rem;
-    font-weight: 600;
-    transition: transform 0.2s, box-shadow 0.2s;
+
+.pdf-btn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 6px 14px;
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 20px;
+  font-size: 0.8rem;
+  text-decoration: none;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.3s, transform 0.3s;
 }
 
-.btn-download:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(108, 99, 255, 0.4);
+.portfolio-card:hover .pdf-btn {
+  opacity: 1;
+  transform: translateY(0);
 }
-
 
 /* ===========================
    CONTACT
@@ -397,13 +402,14 @@ a {
 .contact-form textarea {
   width: 100%;
   padding: 0.85rem 1rem;
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 8px;
   color: #e0e0e0;
   font-size: 0.95rem;
   font-family: inherit;
-  transition: border-color 0.3s ease, background 0.3s ease;outline: none;
+  transition: border-color 0.3s ease, background 0.3s ease;
+  outline: none;
 }
 
 .contact-form input:focus,
@@ -454,6 +460,7 @@ a {
   color: #9ca3af;
   font-size: 0.9rem;
   transition: color 0.3s ease, transform 0.2s ease;
+  display: inline-block;
 }
 
 .footer-links a:hover {
@@ -476,31 +483,192 @@ a {
 }
 
 /* ===========================
+   MODAL
+=========================== */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(8px);
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s ease;
+  z-index: 999;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.project-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.95);
+  width: min(900px, calc(100% - 32px));
+  max-height: calc(100vh - 32px);
+  background: #111114;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s ease;
+  overflow: hidden;
+}
+
+.project-modal.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.project-modal-content {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 0;
+  height: 100%;
+}
+
+.modal-image-wrap {
+  background: #0b0b0f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.modal-image-wrap img {
+  width: 100%;
+  max-height: 520px;
+  object-fit: contain;
+  border-radius: 16px;
+}
+
+.modal-text {
+  padding: 28px;
+  color: #f3f3f3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.modal-text h2 {
+  font-size: 2rem;
+  margin-bottom: 12px;
+  color: #fff;
+}
+
+.modal-text p {
+  color: #b7b7b7;
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+.modal-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.modal-tag {
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(173, 87, 255, 0.12);
+  color: #d67cff;
+  border: 1px solid rgba(214, 124, 255, 0.25);
+  font-size: 0.9rem;
+}
+
+.modal-links {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.modal-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 18px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #e56dd6, #9c5cff);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.2s ease;
+}
+
+.modal-btn:hover {
+  transform: translateY(-2px);
+}
+
+.modal-btn-secondary {
+  background: transparent;
+  border: 1px solid rgba(214, 124, 255, 0.35);
+}
+
+.modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 42px;
+  height: 42px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  font-size: 2rem;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 2;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.modal-close:hover {
+  background: rgba(255, 255, 255, 0.14);
+  transform: scale(1.05);
+}
+
+/* ===========================
    RESPONSIVE
 =========================== */
 @media (max-width: 768px) {
-  .nav-links { display: none; }
-  .hero h1 { font-size: 2.2rem; }
-  .form-row { grid-template-columns: 1fr; }
-  .services-grid,
-  .portfolio-grid { grid-template-columns: 1fr; }
-}
-.pdf-btn {
-  display: inline-block;
-  margin-top: 10px;
-  padding: 6px 14px;
-  background: rgba(255,255,255,0.15);
-  color: #fff;
-  border: 1px solid rgba(255,255,255,0.5);
-  border-radius: 20px;
-  font-size: 0.8rem;
-  text-decoration: none;
-  opacity: 0;
-  transform: translateY(8px);
-  transition: opacity 0.3s, transform 0.3s;
-}
+  .nav-links {
+    display: none;
+  }
 
-.portfolio-card:hover .pdf-btn {
-  opacity: 1;
-  transform: translateY(0);
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .services-grid,
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-modal-content {
+    grid-template-columns: 1fr;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+
+  .modal-text {
+    padding: 20px;
+  }
+
+  .modal-text h2 {
+    font-size: 1.6rem;
+  }
+
+  .modal-image-wrap img {
+    max-height: 320px;
+  }
 }
