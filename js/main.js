@@ -2,61 +2,56 @@ const projects = [
     { 
         title: "E-Commerce", 
         desc: "Online Store Concept", 
-        img: "images/saas landing page concept.png" 
+        img: "images/saas landing page concept.png",
+        link: "project1.html" // نام فایل صفحه پروژه شما
     },
     { 
         title: "Analytics Tool", 
         desc: "Data Visualization", 
-        img: "images/TT Interphases.png" 
+        img: "images/TT Interphases.png",
+        link: "project2.html"
     },
     { 
         title: "Digital Marketing", 
         desc: "Marketing Automation", 
-        img: "images/Launch smarter. Grow faster..png" 
-    },
-    { 
-        title: "Real Estate", 
-        desc: "Property Management", 
-        img: "images/Timeless Value.png" 
-    },
-    { 
-        title: "Pet Care App", 
-        desc: "Mobile Application", 
-        img: "images/Copilot_20260519_032312.png" 
-    },
-    { 
-        title: "SaaS Dashboard", 
-        desc: "Modern UI System", 
-        img: "images/Launchory — SaaS Landing Page Concept.png" 
+        img: "images/Launch smarter. Grow faster..png",
+        link: "project3.html"
     }
+    // می‌توانید بقیه را هم اضافه کنید
 ];
 
 function renderPortfolio() {
     const grid = document.getElementById('portfolio-grid');
     if (!grid) return;
 
-    let html = "";
+    grid.innerHTML = ""; // پاکسازی محتوای قبلی
+
     projects.forEach(p => {
-        // استفاده از encodeURI برای تبدیل فاصله‌ها به %20 به صورت استاندارد
         const safePath = encodeURI(p.img);
         
-        html += `
-        <article class="portfolio-card">
-            <img src="${safePath}" alt="${p.title}" class="portfolio-img">
-            <div class="portfolio-overlay">
-                <h3>${p.title}</h3>
-                <p>${p.desc}</p>
+        // ایجاد کارت به صورت یک لینک (Anchor Tag)
+        const card = document.createElement('a');
+        card.href = p.link || "#";
+        card.className = "portfolio-card";
+        card.style.display = "block"; // برای جلوگیری از به هم ریختگی
+        card.style.textDecoration = "none";
+
+        card.innerHTML = `
+            <div class="card-content">
+                <img src="${safePath}" alt="${p.title}" class="portfolio-img" 
+                     onerror="this.src='https://placehold.co/600x400/000/fff?text=Image+Not+Found'">
+                <div class="portfolio-overlay">
+                    <h3>${p.title}</h3>
+                    <p>${p.desc}</p>
+                    <span class="view-project">View Case Study (PDF)</span>
+                </div>
             </div>
-        </article>`;
+        `;
+        grid.appendChild(card);
     });
 
-    grid.innerHTML = html;
-
     const loader = document.querySelector('.loading-screen');
-    if (loader) {
-        loader.style.opacity = '0';
-        setTimeout(() => loader.remove(), 500);
-    }
+    if (loader) loader.style.display = 'none';
 }
 
-window.addEventListener('load', renderPortfolio);
+window.addEventListener('DOMContentLoaded', renderPortfolio);
