@@ -9,19 +9,33 @@ const projects = [
     { title: "Pet Care App", desc: "Smart health tracking", img: "images/copilot.png" }
 ];
 
-const portfolioGrid = document.getElementById('portfolio-grid');
-
 function loadProjects() {
-    portfolioGrid.innerHTML = projects.map(project => `
-        <article class="portfolio-card">
-            <img src="${project.img}" alt="${project.title}" class="portfolio-img">
-            <div class="portfolio-overlay">
-                <h3>${project.title}</h3>
-                <p>${project.desc}</p>
-                ${project.pdf ? `<a href="${project.pdf}" target="_blank" class="pdf-btn">View PDF</a>` : ''}
-            </div>
-        </article>
-    `).join('');
+    const portfolioGrid = document.getElementById('portfolio-grid');
+    if (!portfolioGrid) return;
+
+    portfolioGrid.innerHTML = projects.map(project => {
+        // ایجاد مسیر نسبی برای گیت‌هاب (حذف اسلش اول در صورت وجود)
+        const imagePath = project.img.startsWith('/') ? project.img.substring(1) : project.img;
+        
+        return `
+            <article class="portfolio-card">
+                <img src="${imagePath}" 
+                     alt="${project.title}" 
+                     class="portfolio-img" 
+                     onerror="this.src='https://via.placeholder.com/400x250?text=Image+Not+Found'">
+                <div class="portfolio-overlay">
+                    <h3>${project.title}</h3>
+                    <p>${project.desc}</p>
+                    ${project.pdf ? `<a href="${project.pdf}" target="_blank" class="pdf-btn">View PDF</a>` : ''}
+                </div>
+            </article>
+        `;
+    }).join('');
 }
 
-document.addEventListener('DOMContentLoaded', loadProjects);
+// اطمینان از اجرای کد بعد از لود شدن کامل صفحه
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', loadProjects);
+} else {
+    loadProjects();
+}
