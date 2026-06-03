@@ -1,194 +1,217 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Nova Studio</title>
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 
-  <nav class="navbar" id="navbar">
+  <!-- Navbar -->
+  <header class="navbar" id="navbar">
     <div class="nav-container">
-      <div class="logo">Nova Studio</div>
-      <ul class="nav-links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#portfolio">Portfolio</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </div>
-  </nav>
+      <a href="#" class="logo">Nova Studio</a>
 
-  <section class="hero" id="home">
-    <div class="hero-content">
-      <p class="hero-tag">Creative Digital Agency</p>
-      <h1>We Build <span class="highlight">Digital</span><br/>Experiences</h1>
-      <p class="hero-sub">Transforming ideas into stunning digital realities.<br/>Design, Development & Strategy — all in one place.</p>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#services">Services</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-content fade-in">
+      <span class="hero-tag">Creative Digital Studio</span>
+      <h1>Designing <span class="highlight">Bold Digital Experiences</span></h1>
+      <p class="hero-sub">
+        We build elegant websites, product interfaces, and brand systems that help modern 
+
+businesses stand out.
+      </p>
       <div class="hero-buttons">
-        <a href="#services" class="btn-primary">Our Services</a>
-        <a href="#portfolio" class="btn-outline">View Work</a>
+        <a href="#portfolio" class="btn-primary">View Portfolio</a>
+        <a href="#contact" class="btn-outline">Start a Project</a>
       </div>
     </div>
   </section>
 
+  <!-- Services -->
   <section class="services-section" id="services">
-    <div class="section-header">
-      <p class="section-tag">What We Do</p>
-      <h2>Our Services</h2>
-      <p class="section-sub">We offer a full suite of digital services to help your business grow.</p>
+    <div class="section-header fade-in">
+      <span class="section-tag">Services</span>
+      <h2>What We Do</h2>
+      <p class="section-sub">
+        Tailored digital services for startups, brands, and growing businesses.
+      </p>
     </div>
+
     <div class="services-grid">
-      <div class="service-card fade-in" data-service="UI/UX Design">
-
+      <article class="service-card fade-in" data-service="Web Design">
         <div class="service-icon">🎨</div>
+        <h3>Web Design</h3>
+        <p>Modern, responsive websites with clean UI and conversion-focused layouts.</p>
+      </article>
+
+      <article class="service-card fade-in" data-service="UI/UX Design">
+        <div class="service-icon">🧩</div>
         <h3>UI/UX Design</h3>
-        <p>Beautiful, intuitive interfaces that users love. We craft experiences that convert.</p>
-      </div>
-       <div class="service-card fade-in" data-service="Web Development">
+        <p>Thoughtful product interfaces that balance usability, beauty, and clarity.</p>
+      </article>
 
+      <article class="service-card fade-in" data-service="Brand Identity">
+        <div class="service-icon">🚀</div>
+        <h3>Brand Identity</h3>
+        <p>Visual systems, logos, and creative direction for memorable digital 
 
-        <div class="service-icon">💻</div>
-        <h3>Web Development</h3>
-        <p>Fast, responsive websites and web apps built with modern technologies.</p>
-      </div>
-      <div class="service-card fade-in" data-service="Mobile Apps">
-
-
-        <div class="service-icon">📱</div>
-        <h3>Mobile Apps</h3>
-        <p>Native and cross-platform mobile applications for iOS and Android.</p>
-      </div>
-      <div class="service-card fade-in" data-service="Digital Marketing">
-
-        <div class="service-icon">📈</div>
-        <h3>Digital Marketing</h3>
-        <p>Data-driven strategies to grow your online presence and reach.</p>
-      </div>
-      <div class="service-card fade-in" data-service="SEO Optimization">
-
-        <div class="service-icon">🔍</div>
-        <h3>SEO Optimization</h3>
-        <p>Rank higher on search engines and drive organic traffic to your site.</p>
-      </div>
-     <div class="service-card fade-in" data-service="Cloud Solutions">
-
-        <div class="service-icon">☁️</div>
-        <h3>Cloud Solutions</h3>
-        <p>Scalable cloud infrastructure and DevOps services for your business.</p>
-      </div>
+brands.</p>
+      </article>
     </div>
   </section>
 
+  <!-- Portfolio -->
   <section class="portfolio-section" id="portfolio">
-    <div class="section-header">
-      <p class="section-tag">Our Work</p>
-      <h2>Recent Projects</h2>
-      <p class="section-sub">A selection of projects we're proud of.</p>
+    <div class="section-header fade-in">
+      <span class="section-tag">Portfolio</span>
+      <h2>Selected Work</h2>
+      <p class="section-sub">
+        A collection of recent projects across web, product, and brand design.
+      </p>
     </div>
-<div class="portfolio-grid">
 
-  <div class="portfolio-card fade-in">
-    <img src="images/Launchory — SaaS Landing Page Concept.png" alt="E-Commerce Platform" class="portfolio-img">
-    <div class="portfolio-overlay">
-      <h3>E-Commerce Platform</h3>
-      <p>Full-stack online store with payment integration</p>
+    <div class="portfolio-grid">
+      <article class="portfolio-card fade-in">
+        <img src="images/Launchory — SaaS Landing Page Concept.png" alt="E-Commerce 
+
+Platform" class="portfolio-img" />
+        <div class="portfolio-overlay">
+          <h3>E-Commerce Platform</h3>
+          <p>Full-stack online store with payment integration</p>
+        </div>
+      </article>
+
+      <article class="portfolio-card fade-in">
+        <img src="images/TT Interphases.png" alt="Analytics Dashboard" class="portfolio-
+
+img" />
+        <div class="portfolio-overlay">
+          <h3>Analytics Dashboard</h3>
+          <p>Real-time data visualization for SaaS product</p>
+          <a
+            href="files/Artificial-Intelligence-The-Future-of-Technology.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="pdf-btn"
+          >View PDF</a>
+        </div>
+      </article>
+
+      <article class="portfolio-card fade-in">
+        <img src="images/saas landing page concept.png" alt="SaaS Landing Page" 
+
+class="portfolio-img" />
+        <div class="portfolio-overlay">
+          <h3>SaaS Landing Page</h3>
+          <p>Modern landing page for a SaaS product</p>
+        </div>
+      </article>
+
+      <article class="portfolio-card fade-in">
+        <img src="images/Launchory — SaaS Landing Page Concept (1).png" alt="Startup 
+
+Launch Page" class="portfolio-img" />
+        <div class="portfolio-overlay">
+          <h3>Startup Launch Page</h3>
+          <p>High-converting launch page for startups</p>
+        </div>
+      </article>
+
+      <article class="portfolio-card fade-in">
+        <img src="images/Timeless Value.png" alt="Real Estate Portal" class="portfolio-
+
+img" />
+        <div class="portfolio-overlay">
+          <h3>Real Estate Portal</h3>
+          <p>Property listing and search platform</p>
+          <a
+            href="files/Timeless-Value.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="pdf-btn"
+          >View PDF</a>
+        </div>
+      </article>
+
+      <article class="portfolio-card fade-in">
+        <img src="images/Launch smarter. Grow faster..png" alt="Marketing Tool" 
+
+class="portfolio-img" />
+        <div class="portfolio-overlay">
+          <h3>Marketing Tool</h3>
+          <p>Growth automation platform for startups</p>
+        </div>
+      </article>
+
+      <article class="portfolio-card fade-in">
+        <img src="images/NOVA STUDIO-Square.png" alt="Brand Identity" class="portfolio-
+
+img" />
+        <div class="portfolio-overlay">
+          <h3>Brand Identity</h3>
+          <p>Logo and visual identity design system</p>
+        </div>
+      </article>
+
+      <article class="portfolio-card fade-in">
+        <img src="images/Copilot_20260519_032312.png" alt="Pet Care App" 
+
+class="portfolio-img" />
+        <div class="portfolio-overlay">
+          <h3>Pet Care App</h3>
+          <p>Smart pet health tracking application</p>
+        </div>
+      </article>
     </div>
-  </div>
-
-  <div class="portfolio-card fade-in">
-    <img src="images/TT Interphases.png" alt="Analytics Dashboard" class="portfolio-img">
-    <div class="portfolio-overlay">
-      <h3>Analytics Dashboard</h3>
-      <p>Real-time data visualization for SaaS product</p>
-      <a href="files/Artificial-Intelligence-The-Future-of-Technology.pdf" target="_blank" class="pdf-btn">⬇ View PDF</a>
-    </div>
-  </div>
-
-  <div class="portfolio-card fade-in">
-    <img src="images/saas landing page concept.png" alt="SaaS Landing Page" class="portfolio-img">
-    <div class="portfolio-overlay">
-      <h3>SaaS Landing Page</h3>
-      <p>Modern landing page for a SaaS product</p></div>
-  </div>
-
-  <div class="portfolio-card fade-in">
-    <img src="images/Launchory — SaaS Landing Page Concept (1).png" alt="Startup Launch Page" class="portfolio-img">
-    <div class="portfolio-overlay">
-      <h3>Startup Launch Page</h3>
-      <p>High-converting launch page for startups</p>
-    </div>
-  </div>
-
-  <div class="portfolio-card fade-in">
-    <img src="images/Timeless Value.png" alt="Real Estate Portal" class="portfolio-img">
-    <div class="portfolio-overlay">
-      <h3>Real Estate Portal</h3>
-      <p>Property listing and search platform</p>
-      <a href="files/Timeless-Value.pdf" target="_blank" class="pdf-btn">⬇ View PDF</a>
-    </div>
-  </div>
-
-  <div class="portfolio-card fade-in">
-    <img src="images/Launch smarter. Grow faster..png" alt="Marketing Tool" class="portfolio-img">
-    <div class="portfolio-overlay">
-      <h3>Marketing Tool</h3>
-      <p>Growth automation platform for startups</p>
-    </div>
-  </div>
-
-  <div class="portfolio-card fade-in">
-    <img src="images/NOVA STUDIO-Square.png" alt="Brand Identity" class="portfolio-img">
-    <div class="portfolio-overlay">
-      <h3>Brand Identity</h3>
-      <p>Logo and visual identity design system</p>
-    </div>
-  </div>
-
-  <div class="portfolio-card fade-in">
-    <img src="images/Copilot_20260519_032312.png" alt="Pet Care App" class="portfolio-img">
-    <div class="portfolio-overlay">
-      <h3>Pet Care App</h3>
-      <p>Smart pet health tracking application</p>
-    </div>
-  </div>
-
-</div>
-
-
   </section>
 
- <section class="contact-section" id="contact">
-  <div class="section-header">
-    <p class="section-tag">Get In Touch</p>
-    <h2>Contact Us</h2>
-    <p class="section-sub">Have a project in mind? Let's talk.</p>
-  </div>
-
-  <form id="contactForm" action="https://formspree.io/f/maqkalgp" method="POST" class="contact-form">
-    <div class="form-row">
-      <input type="text" name="name" placeholder="Your Name" required />
-      <input type="email" name="email" placeholder="Your Email" required />
+  <!-- Contact -->
+  <section class="contact-section" id="contact">
+    <div class="section-header fade-in">
+      <span class="section-tag">Contact</span>
+      <h2>Let’s Work Together</h2>
+      <p class="section-sub">
+        Tell us about your project and we’ll get back to you soon.
+      </p>
     </div>
-    <input type="text" id="contactSubject" name="subject" placeholder="Subject" required />
 
-    <textarea rows="5" name="message" placeholder="Your Message" required></textarea>
-    <button type="submit" class="btn-primary">Send Message</button>
-  </form>
+    <form
+      id="contactForm"
+      class="contact-form fade-in"
+      action="https://formspree.io/f/your-form-id"
+      method="POST"
+    >
+      <div class="form-row">
+        <input type="text" name="name" placeholder="Your Name" required />
+        <input type="email" name="email" placeholder="Your Email" required />
+      </div>
 
-  <div id="formSuccess" style="display:none; color:#4ade80; margin-top:1rem; text-align:center; font-weight:600;">
-    ✅ Your message was sent successfully!
-  </div>
+      <input type="text" id="contactSubject" name="subject" placeholder="Subject" />
+      <textarea name="message" placeholder="Your Message" required></textarea>
 
-</section>
+      <button type="submit" class="btn-primary">Send Message</button>
+      <p id="formSuccess" style="display: none;"></p>
+    </form>
+  </section>
 
-
-
+  <!-- Footer -->
   <footer class="footer">
     <div class="footer-bottom">
       <p>© 2026 Nova Studio. All rights reserved.</p>
       <div class="footer-links">
-        <a href="#home">Home</a>
         <a href="#services">Services</a>
         <a href="#portfolio">Portfolio</a>
         <a href="#contact">Contact</a>
@@ -196,10 +219,36 @@
     </div>
   </footer>
 
- 
-<script src="js/main.js"></script>  <!-- خط 146 - دست نزن -->
+  <!-- Modal Overlay -->
+  <div id="modal-overlay" class="modal-overlay"></div>
 
+  <!-- Project Modal -->
+  <div
+    id="project-modal"
+    class="project-modal"
+    aria-hidden="true"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="modal-title"
+  >
+    <button id="modal-close" class="modal-close" aria-label="Close 
 
+modal">&times;</button>
 
-</body>  <!-- خط 147 -->
-</html>  <!-- خط 148 -->
+    <div class="project-modal-content">
+      <div class="modal-image-wrap">
+        <img id="modal-image" src="" alt="" />
+      </div>
+
+      <div class="modal-text">
+        <h2 id="modal-title"></h2>
+        <p id="modal-description"></p>
+        <div id="modal-tags" class="modal-tags"></div>
+        <div id="modal-links" class="modal-links"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
