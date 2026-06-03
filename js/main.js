@@ -2,7 +2,7 @@ const projects = [
     { 
         title: "E-Commerce", 
         desc: "Online Store Concept", 
-        img: "images/saas landing page concept.png" // نام کامل و اصلی را اینجا بنویسید
+        img: "images/saas landing page concept.png" 
     },
     { 
         title: "Analytics Tool", 
@@ -37,8 +37,8 @@ function renderPortfolio() {
 
     let html = "";
     projects.forEach(p => {
-        // استفاده از encodeURIComponent برای مدیریت فاصله‌ها در نام فایل
-        const safePath = p.img.split('/').map(part => encodeURIComponent(part)).join('/');
+        // استفاده از encodeURI برای تبدیل فاصله‌ها به %20 به صورت استاندارد
+        const safePath = encodeURI(p.img);
         
         html += `
         <article class="portfolio-card">
@@ -53,7 +53,10 @@ function renderPortfolio() {
     grid.innerHTML = html;
 
     const loader = document.querySelector('.loading-screen');
-    if (loader) loader.style.display = 'none';
+    if (loader) {
+        loader.style.opacity = '0';
+        setTimeout(() => loader.remove(), 500);
+    }
 }
 
 window.addEventListener('load', renderPortfolio);
