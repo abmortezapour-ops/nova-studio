@@ -67,9 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
           if (msg) {
             msg.style.cssText =
-              "display:block !important; color:#4ade80; margin-top:1rem; 
-
-text-align:center; font-weight:600;";
+              "display:block !important; color:#4ade80; margin-top:1rem; text-align:center; font-weight:600;";
             msg.textContent = "Message sent successfully!";
 
             setTimeout(() => {
@@ -82,9 +80,7 @@ text-align:center; font-weight:600;";
       } catch {
         if (msg) {
           msg.style.cssText =
-            "display:block !important; color:red; margin-top:1rem; text-
-
-align:center; font-weight:600;";
+            "display:block !important; color:red; margin-top:1rem; text-align:center; font-weight:600;";
           msg.textContent = "Error sending message. Please try again.";
         }
       }
@@ -92,9 +88,7 @@ align:center; font-weight:600;";
   }
 
   // Service card click → fill contact form subject
-  document.querySelectorAll(".service-card[data-service]").forEach((card) => 
-
-{
+  document.querySelectorAll(".service-card[data-service]").forEach((card) => {
     card.addEventListener("click", () => {
       const subjectInput = document.getElementById("contactSubject");
       const contactSection = document.getElementById("contact");
@@ -130,11 +124,12 @@ align:center; font-weight:600;";
     modalTags &&
     modalLinks;
 
+  // UPDATED: image paths changed to safe filenames (no spaces / no special chars)
   const projectData = [
     {
       title: "E-Commerce Platform",
       description: "Full-stack online store with payment integration",
-      image: "images/Launchory — SaaS Landing Page Concept.png",
+      image: "images/saas-1.png",
       tags: ["UI/UX", "Web App", "E-Commerce"],
       demoLink: "",
       pdfLink: ""
@@ -142,7 +137,7 @@ align:center; font-weight:600;";
     {
       title: "Analytics Dashboard",
       description: "Real-time data visualization for SaaS product",
-      image: "images/TT Interphases.png",
+      image: "images/tt.png",
       tags: ["Dashboard", "Data Viz", "SaaS"],
       demoLink: "",
       pdfLink: "files/Artificial-Intelligence-The-Future-of-Technology.pdf"
@@ -150,7 +145,7 @@ align:center; font-weight:600;";
     {
       title: "SaaS Landing Page",
       description: "Modern landing page for a SaaS product",
-      image: "images/saas landing page concept.png",
+      image: "images/saas-concept.png",
       tags: ["Landing Page", "SaaS", "Conversion"],
       demoLink: "",
       pdfLink: ""
@@ -158,7 +153,7 @@ align:center; font-weight:600;";
     {
       title: "Startup Launch Page",
       description: "High-converting launch page for startups",
-      image: "images/Launchory — SaaS Landing Page Concept (1).png",
+      image: "images/saas-2.png",
       tags: ["Startup", "Launch Page", "Marketing"],
       demoLink: "",
       pdfLink: ""
@@ -166,7 +161,7 @@ align:center; font-weight:600;";
     {
       title: "Real Estate Portal",
       description: "Property listing and search platform",
-      image: "images/Timeless Value.png",
+      image: "images/timeless.png",
       tags: ["Real Estate", "Portal", "Search"],
       demoLink: "",
       pdfLink: "files/Timeless-Value.pdf"
@@ -174,7 +169,7 @@ align:center; font-weight:600;";
     {
       title: "Marketing Tool",
       description: "Growth automation platform for startups",
-      image: "images/Launch smarter. Grow faster..png",
+      image: "images/marketing.png",
       tags: ["Marketing", "Automation", "Growth"],
       demoLink: "",
       pdfLink: ""
@@ -182,7 +177,7 @@ align:center; font-weight:600;";
     {
       title: "Brand Identity",
       description: "Logo and visual identity design system",
-      image: "images/NOVA STUDIO-Square.png",
+      image: "images/logo.png",
       tags: ["Branding", "Identity", "Logo Design"],
       demoLink: "",
       pdfLink: ""
@@ -190,7 +185,7 @@ align:center; font-weight:600;";
     {
       title: "Pet Care App",
       description: "Smart pet health tracking application",
-      image: "images/Copilot_20260519_032312.png",
+      image: "images/copilot.png",
       tags: ["Mobile App", "Health", "Pets"],
       demoLink: "",
       pdfLink: ""
@@ -249,9 +244,7 @@ align:center; font-weight:600;";
 
     portfolioCards.forEach((card, index) => {
       card.addEventListener("click", (e) => {
-        // If user clicked a real link or button inside card, do not open 
-
-modal
+        // If user clicked a real link or button inside card, do not open modal
         if (e.target.closest("a, button")) return;
 
         const project = projectData[index];
