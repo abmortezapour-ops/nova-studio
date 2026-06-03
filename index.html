@@ -1,157 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nova Studio</title>
-  <!-- استفاده از مسیر نسبی برای اطمینان از لود در گیت‌هاب -->
-  <link rel="stylesheet" href="css/style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nova Studio | Portfolio</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
-<body id="top">
+<body>
 
-  <!-- Navbar -->
-  <header class="navbar">
-    <div class="nav-container">
-      <a href="#top" class="logo">Nova Studio</a>
-      <nav>
-        <ul class="nav-links">
-          <li><a href="#services">Services</a></li>
-          <li><a href="#portfolio">Portfolio</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-
-  <!-- Hero Section (اصلاح شده) -->
-  <section class="hero" id="home">
-    <div class="hero-content">
-      <span class="hero-tag">Creative Digital Studio</span>
-      <h1>Designing <span class="highlight">Bold Digital Experiences</span></h1>
-      <p class="hero-sub">
-        We build elegant websites, product interfaces, and brand systems that help modern businesses stand out.
-      </p>
-      <div class="hero-buttons">
-        <a href="#portfolio" class="btn-primary">View Portfolio</a>
-        <a href="#contact" class="btn-outline">Start a Project</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Services -->
-  <section class="services-section" id="services">
-    <div class="section-header">
-      <span class="section-tag">Services</span>
-      <h2>What We Do</h2>
-    </div>
-    <div class="services-grid">
-      <article class="service-card">
-        <div class="service-icon">🎨</div>
-        <h3>Web Design</h3>
-        <p>Modern, responsive websites with clean UI.</p>
-      </article>
-      <article class="service-card">
-        <div class="service-icon">🧩</div>
-        <h3>UI/UX Design</h3>
-        <p>Thoughtful product interfaces for users.</p>
-      </article>
-      <article class="service-card">
-        <div class="service-icon">🚀</div>
-        <h3>Brand Identity</h3>
-        <p>Visual systems and creative direction.</p>
-      </article>
-    </div>
-  </section>
-
-  <!-- Portfolio (اصلاح شده بر اساس نام فایل‌های استاندارد) -->
-  <section class="portfolio-section" id="portfolio">
-    <div class="section-header">
-      <span class="section-tag">Portfolio</span>
-      <h2>Selected Work</h2>
-    </div>
-
-    <div class="portfolio-grid">
-      <!-- Project 1 -->
-      <article class="portfolio-card">
-        <img src="images/saas-1.png" alt="Project 1" class="portfolio-img" />
-        <div class="portfolio-overlay">
-          <h3>E-Commerce Platform</h3>
-          <p>Full-stack online store</p>
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">Nova Studio</a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
         </div>
-      </article>
+    </header>
 
-      <!-- Project 2 (With PDF) -->
-      <article class="portfolio-card">
-        <img src="images/tt.png" alt="Project 2" class="portfolio-img" />
-        <div class="portfolio-overlay">
-          <h3>Analytics Dashboard</h3>
-          <p>Real-time data visualization</p>
-          <a href="files/Artificial-Intelligence-The-Future-of-Technology.pdf" target="_blank" class="pdf-btn">View PDF</a>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Designing <span>Bold Digital Experiences</span></h1>
+            <p>We build elegant websites and brand systems that help businesses stand out.</p>
+            <div class="hero-buttons">
+                <a href="#portfolio" class="btn-primary">View Portfolio</a>
+                <a href="#contact" class="btn-outline">Start a Project</a>
+            </div>
         </div>
-      </article>
+    </section>
 
-      <!-- Project 3 -->
-      <article class="portfolio-card">
-        <img src="images/saas-concept.png" alt="Project 3" class="portfolio-img" />
-        <div class="portfolio-overlay">
-          <h3>SaaS Landing Page</h3>
-          <p>Modern landing page</p>
+    <section id="services" class="services-section">
+        <div class="section-header">
+            <h2>What We Do</h2>
         </div>
-      </article>
-
-      <!-- Project 4 -->
-      <article class="portfolio-card">
-        <img src="images/saas-2.png" alt="Project 4" class="portfolio-img" />
-        <div class="portfolio-overlay">
-          <h3>Startup Launch Page</h3>
-          <p>High-converting launch page</p>
+        <div class="services-grid">
+            <div class="service-card"><h3>Web Design</h3><p>Modern and responsive.</p></div>
+            <div class="service-card"><h3>UI/UX</h3><p>User-centered interfaces.</p></div>
+            <div class="service-card"><h3>Branding</h3><p>Visual identity systems.</p></div>
         </div>
-      </article>
+    </section>
 
-      <!-- Project 5 -->
-      <article class="portfolio-card">
-        <img src="images/timeless.png" alt="Project 5" class="portfolio-img" />
-        <div class="portfolio-overlay">
-          <h3>Real Estate Portal</h3>
-          <p>Property listing platform</p>
-          <a href="files/Timeless-Value.pdf" target="_blank" class="pdf-btn">View PDF</a>
+    <section id="portfolio" class="portfolio-section">
+        <div class="section-header">
+            <h2>Selected Work</h2>
         </div>
-      </article>
-
-      <!-- Project 6 -->
-      <article class="portfolio-card">
-        <img src="images/marketing.png" alt="Project 6" class="portfolio-img" />
-        <div class="portfolio-overlay">
-          <h3>Marketing Tool</h3>
-          <p>Growth automation platform</p>
+        <div class="portfolio-grid" id="portfolio-grid">
+            <!-- کارت‌ها توسط جاوااسکریپت ساخته می‌شوند، اما برای اطمینان اینجا هم یکی را دستی می‌گذاریم -->
         </div>
-      </article>
+    </section>
 
-      <!-- Project 7 -->
-      <article class="portfolio-card">
-        <img src="images/logo.png" alt="Project 7" class="portfolio-img" />
-        <div class="portfolio-overlay">
-          <h3>Brand Identity</h3>
-          <p>Logo and visual identity</p>
+    <section id="contact" class="contact-section">
+        <div class="section-header">
+            <h2>Let's Work Together</h2>
         </div>
-      </article>
+        <form class="contact-form">
+            <input type="text" placeholder="Name" required>
+            <input type="email" placeholder="Email" required>
+            <textarea placeholder="Message" required></textarea>
+            <button type="submit" class="btn-primary">Send Message</button>
+        </form>
+    </section>
 
-      <!-- Project 8 -->
-      <article class="portfolio-card">
-        <img src="images/copilot.png" alt="Project 8" class="portfolio-img" />
-        <div class="portfolio-overlay">
-          <h3>Pet Care App</h3>
-          <p>Smart health tracking</p>
-        </div>
-      </article>
-    </div>
-  </section>
+    <footer class="footer">
+        <p>&copy; 2026 Nova Studio. All rights reserved.</p>
+    </footer>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <p>© 2026 Nova Studio. All rights reserved.</p>
-  </footer>
-
-  <script src="js/main.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
