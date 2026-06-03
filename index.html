@@ -4,20 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Nova Studio</title>
-
-  <!-- Helps GitHub Pages project sites resolve relative paths more reliably -->
-  <base href="./" />
-
+  <!-- استفاده از مسیر نسبی برای اطمینان از لود در گیت‌هاب -->
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body id="top">
 
   <!-- Navbar -->
-  <header class="navbar" id="navbar">
+  <header class="navbar">
     <div class="nav-container">
       <a href="#top" class="logo">Nova Studio</a>
-
-      <nav aria-label="Primary">
+      <nav>
         <ul class="nav-links">
           <li><a href="#services">Services</a></li>
           <li><a href="#portfolio">Portfolio</a></li>
@@ -27,9 +23,9 @@
     </div>
   </header>
 
-  <!-- Hero -->
-  <section class="hero">
-    <div class="hero-content fade-in">
+  <!-- Hero Section (اصلاح شده) -->
+  <section class="hero" id="home">
+    <div class="hero-content">
       <span class="hero-tag">Creative Digital Studio</span>
       <h1>Designing <span class="highlight">Bold Digital Experiences</span></h1>
       <p class="hero-sub">
@@ -44,200 +40,117 @@
 
   <!-- Services -->
   <section class="services-section" id="services">
-    <div class="section-header fade-in">
+    <div class="section-header">
       <span class="section-tag">Services</span>
       <h2>What We Do</h2>
-      <p class="section-sub">
-        Tailored digital services for startups, brands, and growing businesses.
-      </p>
     </div>
-
     <div class="services-grid">
-      <article class="service-card fade-in" data-service="Web Design">
-        <div class="service-icon" aria-hidden="true">🎨</div>
+      <article class="service-card">
+        <div class="service-icon">🎨</div>
         <h3>Web Design</h3>
-        <p>Modern, responsive websites with clean UI and conversion-focused layouts.</p>
+        <p>Modern, responsive websites with clean UI.</p>
       </article>
-
-      <article class="service-card fade-in" data-service="UI/UX Design">
-        <div class="service-icon" aria-hidden="true">🧩</div>
+      <article class="service-card">
+        <div class="service-icon">🧩</div>
         <h3>UI/UX Design</h3>
-        <p>Thoughtful product interfaces that balance usability, beauty, and clarity.</p>
+        <p>Thoughtful product interfaces for users.</p>
       </article>
-
-      <article class="service-card fade-in" data-service="Brand Identity">
-        <div class="service-icon" aria-hidden="true">🚀</div>
+      <article class="service-card">
+        <div class="service-icon">🚀</div>
         <h3>Brand Identity</h3>
-        <p>Visual systems, logos, and creative direction for memorable digital brands.</p>
+        <p>Visual systems and creative direction.</p>
       </article>
     </div>
   </section>
 
-  <!-- Portfolio -->
+  <!-- Portfolio (اصلاح شده بر اساس نام فایل‌های استاندارد) -->
   <section class="portfolio-section" id="portfolio">
-    <div class="section-header fade-in">
+    <div class="section-header">
       <span class="section-tag">Portfolio</span>
       <h2>Selected Work</h2>
-      <p class="section-sub">
-        A collection of recent projects across web, product, and brand design.
-      </p>
     </div>
 
     <div class="portfolio-grid">
       <!-- Project 1 -->
-      <article class="portfolio-card fade-in">
-        <img src="images/saas-1.png" alt="E-Commerce Platform" class="portfolio-img" loading="lazy" />
+      <article class="portfolio-card">
+        <img src="images/saas-1.png" alt="Project 1" class="portfolio-img" />
         <div class="portfolio-overlay">
           <h3>E-Commerce Platform</h3>
-          <p>Full-stack online store with payment integration</p>
+          <p>Full-stack online store</p>
         </div>
       </article>
 
       <!-- Project 2 (With PDF) -->
-      <article class="portfolio-card fade-in">
-        <img src="images/tt.png" alt="Analytics Dashboard" class="portfolio-img" loading="lazy" />
+      <article class="portfolio-card">
+        <img src="images/tt.png" alt="Project 2" class="portfolio-img" />
         <div class="portfolio-overlay">
           <h3>Analytics Dashboard</h3>
-          <p>Real-time data visualization for SaaS product</p>
-          <a
-            href="files/Artificial-Intelligence-The-Future-of-Technology.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="pdf-btn"
-          >View PDF</a>
+          <p>Real-time data visualization</p>
+          <a href="files/Artificial-Intelligence-The-Future-of-Technology.pdf" target="_blank" class="pdf-btn">View PDF</a>
         </div>
       </article>
 
       <!-- Project 3 -->
-      <article class="portfolio-card fade-in">
-        <img src="images/saas-concept.png" alt="SaaS Landing Page" class="portfolio-img" loading="lazy" />
+      <article class="portfolio-card">
+        <img src="images/saas-concept.png" alt="Project 3" class="portfolio-img" />
         <div class="portfolio-overlay">
           <h3>SaaS Landing Page</h3>
-          <p>Modern landing page for a SaaS product</p>
+          <p>Modern landing page</p>
         </div>
       </article>
 
       <!-- Project 4 -->
-      <article class="portfolio-card fade-in">
-        <img src="images/saas-2.png" alt="Startup Launch Page" class="portfolio-img" loading="lazy" />
+      <article class="portfolio-card">
+        <img src="images/saas-2.png" alt="Project 4" class="portfolio-img" />
         <div class="portfolio-overlay">
           <h3>Startup Launch Page</h3>
-          <p>High-converting launch page for startups</p>
+          <p>High-converting launch page</p>
         </div>
       </article>
 
-      <!-- Project 5 (With PDF) -->
-      <article class="portfolio-card fade-in">
-        <img src="images/timeless.png" alt="Real Estate Portal" class="portfolio-img" loading="lazy" />
+      <!-- Project 5 -->
+      <article class="portfolio-card">
+        <img src="images/timeless.png" alt="Project 5" class="portfolio-img" />
         <div class="portfolio-overlay">
           <h3>Real Estate Portal</h3>
-          <p>Property listing and search platform</p>
-          <a
-            href="files/Timeless-Value.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="pdf-btn"
-          >View PDF</a>
+          <p>Property listing platform</p>
+          <a href="files/Timeless-Value.pdf" target="_blank" class="pdf-btn">View PDF</a>
         </div>
       </article>
 
       <!-- Project 6 -->
-      <article class="portfolio-card fade-in">
-        <img src="images/marketing.png" alt="Marketing Tool" class="portfolio-img" loading="lazy" />
+      <article class="portfolio-card">
+        <img src="images/marketing.png" alt="Project 6" class="portfolio-img" />
         <div class="portfolio-overlay">
           <h3>Marketing Tool</h3>
-          <p>Growth automation platform for startups</p>
+          <p>Growth automation platform</p>
         </div>
       </article>
 
       <!-- Project 7 -->
-      <article class="portfolio-card fade-in">
-        <img src="images/logo.png" alt="Brand Identity" class="portfolio-img" loading="lazy" />
+      <article class="portfolio-card">
+        <img src="images/logo.png" alt="Project 7" class="portfolio-img" />
         <div class="portfolio-overlay">
           <h3>Brand Identity</h3>
-          <p>Logo and visual identity design system</p>
+          <p>Logo and visual identity</p>
         </div>
       </article>
 
       <!-- Project 8 -->
-      <article class="portfolio-card fade-in">
-        <img src="images/copilot.png" alt="Pet Care App" class="portfolio-img" loading="lazy" />
+      <article class="portfolio-card">
+        <img src="images/copilot.png" alt="Project 8" class="portfolio-img" />
         <div class="portfolio-overlay">
           <h3>Pet Care App</h3>
-          <p>Smart pet health tracking application</p>
+          <p>Smart health tracking</p>
         </div>
       </article>
     </div>
   </section>
 
-  <!-- Contact -->
-  <section class="contact-section" id="contact">
-    <div class="section-header fade-in">
-      <span class="section-tag">Contact</span>
-      <h2>Let’s Work Together</h2>
-      <p class="section-sub">
-        Tell us about your project and we’ll get back to you soon.
-      </p>
-    </div>
-
-    <form
-      id="contactForm"
-      class="contact-form fade-in"
-      action="https://formspree.io/f/your-form-id"
-      method="POST"
-    >
-      <div class="form-row">
-        <input type="text" name="name" placeholder="Your Name" autocomplete="name" required />
-        <input type="email" name="email" placeholder="Your Email" autocomplete="email" required />
-      </div>
-
-      <input type="text" id="contactSubject" name="subject" placeholder="Subject" />
-      <textarea name="message" placeholder="Your Message" required></textarea>
-
-      <button type="submit" class="btn-primary">Send Message</button>
-      <p id="formSuccess" style="display: none;"></p>
-    </form>
-  </section>
-
   <!-- Footer -->
   <footer class="footer">
-    <div class="footer-bottom">
-      <p>© 2026 Nova Studio. All rights reserved.</p>
-      <div class="footer-links">
-        <a href="#services">Services</a>
-        <a href="#portfolio">Portfolio</a>
-        <a href="#contact">Contact</a>
-      </div>
-    </div>
+    <p>© 2026 Nova Studio. All rights reserved.</p>
   </footer>
-
-  <!-- Modal Overlay -->
-  <div id="modal-overlay" class="modal-overlay"></div>
-
-  <!-- Project Modal -->
-  <div
-    id="project-modal"
-    class="project-modal"
-    aria-hidden="true"
-    role="dialog"
-    aria-modal="true"
-    aria-labelledby="modal-title"
-  >
-    <button id="modal-close" class="modal-close" aria-label="Close modal">&times;</button>
-
-    <div class="project-modal-content">
-      <div class="modal-image-wrap">
-        <img id="modal-image" src="" alt="" />
-      </div>
-
-      <div class="modal-text">
-        <h2 id="modal-title"></h2>
-        <p id="modal-description"></p>
-        <div id="modal-tags" class="modal-tags"></div>
-        <div id="modal-links" class="modal-links"></div>
-      </div>
-    </div>
-  </div>
 
   <script src="js/main.js"></script>
 </body>
