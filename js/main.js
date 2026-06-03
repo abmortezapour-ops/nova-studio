@@ -7,7 +7,8 @@ const projects = [
     { title: "SaaS Dashboard", desc: "Modern UI System", img: "images/saas-2.png" }
 ];
 
-document.addEventListener('DOMContentLoaded', () => {
+// استفاده از این تابع باعث می‌شود به محض آماده شدن ساختار، کارت‌ها رندر شوند
+function renderProjects() {
     const grid = document.getElementById('portfolio-grid');
     if (!grid) return;
 
@@ -16,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const pdfLink = p.pdf ? `<a href="${p.pdf}" target="_blank" class="pdf-btn">View PDF</a>` : "";
         html += `
         <article class="portfolio-card">
-            <img src="${p.img}" alt="${p.title}" class="portfolio-img" onerror="this.src='https://via.placeholder.com/400x250?text=Image+Not+Found'">
+            <img src="./${p.img}" alt="${p.title}" class="portfolio-img" onerror="this.src='https://via.placeholder.com/400x250?text=Image+Not+Found'">
             <div class="portfolio-overlay">
                 <h3>${p.title}</h3>
                 <p>${p.desc}</p>
@@ -26,4 +27,17 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     grid.innerHTML = html;
-});
+    
+    // مخفی کردن لودینگ اگر وجود داشته باشد
+    const loader = document.querySelector('.loading-screen');
+    if (loader) {
+        loader.style.display = 'none';
+    }
+}
+
+// اجرا در هر دو حالت برای اطمینان ۱۰۰٪
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', renderProjects);
+} else {
+    renderProjects();
+}
