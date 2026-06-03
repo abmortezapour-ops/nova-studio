@@ -1,10 +1,34 @@
 const projects = [
-    { title: "E-Commerce", desc: "Online Store Concept", img: "images/saas-concept.png" },
-    { title: "Analytics Tool", desc: "Data Visualization", img: "images/tt.png" },
-    { title: "Digital Marketing", desc: "Marketing Automation", img: "images/marketing.png" },
-    { title: "Real Estate", desc: "Property Management", img: "images/timeless.png" },
-    { title: "Pet Care App", desc: "Mobile Application", img: "images/copilot.png" },
-    { title: "SaaS Dashboard", desc: "Modern UI System", img: "images/saas-2.png" }
+    { 
+        title: "E-Commerce", 
+        desc: "Online Store Concept", 
+        img: "images/saas landing page concept.png" // نام کامل و اصلی را اینجا بنویسید
+    },
+    { 
+        title: "Analytics Tool", 
+        desc: "Data Visualization", 
+        img: "images/TT Interphases.png" 
+    },
+    { 
+        title: "Digital Marketing", 
+        desc: "Marketing Automation", 
+        img: "images/Launch smarter. Grow faster..png" 
+    },
+    { 
+        title: "Real Estate", 
+        desc: "Property Management", 
+        img: "images/Timeless Value.png" 
+    },
+    { 
+        title: "Pet Care App", 
+        desc: "Mobile Application", 
+        img: "images/Copilot_20260519_032312.png" 
+    },
+    { 
+        title: "SaaS Dashboard", 
+        desc: "Modern UI System", 
+        img: "images/Launchory — SaaS Landing Page Concept.png" 
+    }
 ];
 
 function renderPortfolio() {
@@ -13,9 +37,12 @@ function renderPortfolio() {
 
     let html = "";
     projects.forEach(p => {
+        // استفاده از encodeURIComponent برای مدیریت فاصله‌ها در نام فایل
+        const safePath = p.img.split('/').map(part => encodeURIComponent(part)).join('/');
+        
         html += `
         <article class="portfolio-card">
-            <img src="./${p.img}" alt="${p.title}" class="portfolio-img" onerror="this.src='https://via.placeholder.com/400x250?text=Image+Not+Found'">
+            <img src="${safePath}" alt="${p.title}" class="portfolio-img">
             <div class="portfolio-overlay">
                 <h3>${p.title}</h3>
                 <p>${p.desc}</p>
@@ -25,20 +52,8 @@ function renderPortfolio() {
 
     grid.innerHTML = html;
 
-    // --- بخش حیاتی: مخفی کردن لودینگ ---
     const loader = document.querySelector('.loading-screen');
-    if (loader) {
-        loader.style.opacity = '0';
-        setTimeout(() => {
-            loader.style.display = 'none';
-        }, 500);
-    }
+    if (loader) loader.style.display = 'none';
 }
 
-// اطمینان از اجرا پس از لود کامل صفحه
 window.addEventListener('load', renderPortfolio);
-
-// یک اجرای یدکی برای زمانی که صفحه سریع لود می‌شود
-if (document.readyState === 'complete') {
-    renderPortfolio();
-}
