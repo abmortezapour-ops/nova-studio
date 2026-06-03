@@ -3,70 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nova Studio | Portfolio</title>
+    <title>Nova Studio</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-
-    <header class="navbar">
-        <div class="nav-container">
-            <a href="#" class="logo">Nova Studio</a>
-            <nav>
-                <ul class="nav-links">
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#portfolio">Portfolio</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Designing <span>Bold Digital Experiences</span></h1>
-            <p>We build elegant websites and brand systems that help businesses stand out.</p>
-            <div class="hero-buttons">
-                <a href="#portfolio" class="btn-primary">View Portfolio</a>
-                <a href="#contact" class="btn-outline">Start a Project</a>
-            </div>
-        </div>
-    </section>
+    <nav class="navbar">
+        <a href="#" class="logo">Nova Studio</a>
+        <ul class="nav-links">
+            <li><a href="#services">Services</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
 
     <section id="services" class="services-section">
-        <div class="section-header">
-            <h2>What We Do</h2>
-        </div>
+        <h2 class="section-header">What We Do</h2>
         <div class="services-grid">
-            <div class="service-card"><h3>Web Design</h3><p>Modern and responsive.</p></div>
-            <div class="service-card"><h3>UI/UX</h3><p>User-centered interfaces.</p></div>
-            <div class="service-card"><h3>Branding</h3><p>Visual identity systems.</p></div>
+            <div class="service-item"><h3>Web Design</h3><p>Modern and responsive.</p></div>
+            <div class="service-item"><h3>UI/UX</h3><p>User-centered interfaces.</p></div>
+            <div class="service-item"><h3>Branding</h3><p>Visual identity systems.</p></div>
         </div>
     </section>
 
     <section id="portfolio" class="portfolio-section">
-        <div class="section-header">
-            <h2>Selected Work</h2>
-        </div>
-        <div class="portfolio-grid" id="portfolio-grid">
-            <!-- کارت‌ها توسط جاوااسکریپت ساخته می‌شوند، اما برای اطمینان اینجا هم یکی را دستی می‌گذاریم -->
+        <h2 class="section-header">Selected Work</h2>
+        <div id="portfolio-grid" class="portfolio-grid">
+            <!-- کارت‌ها توسط JS اینجا ساخته می‌شوند -->
         </div>
     </section>
 
     <section id="contact" class="contact-section">
-        <div class="section-header">
-            <h2>Let's Work Together</h2>
-        </div>
+        <h2 class="section-header">Contact Us</h2>
         <form class="contact-form">
-            <input type="text" placeholder="Name" required>
-            <input type="email" placeholder="Email" required>
-            <textarea placeholder="Message" required></textarea>
+            <input type="text" placeholder="Name">
+            <input type="email" placeholder="Email">
+            <textarea placeholder="Message"></textarea>
             <button type="submit" class="btn-primary">Send Message</button>
         </form>
     </section>
-
-    <footer class="footer">
-        <p>&copy; 2026 Nova Studio. All rights reserved.</p>
-    </footer>
 
     <script src="js/main.js"></script>
 </body>
