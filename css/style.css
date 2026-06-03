@@ -1,16 +1,15 @@
-/* 1. Global Styles */
+/* 1. Reset & Base */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Segoe UI', Arial, sans-serif;
 }
 
 body {
     background-color: #000;
     color: #fff;
     line-height: 1.6;
-    overflow-x: hidden;
 }
 
 /* 2. Navigation */
@@ -19,151 +18,122 @@ nav {
     justify-content: space-between;
     align-items: center;
     padding: 20px 5%;
-    background: rgba(0, 0, 0, 0.9);
+    background: rgba(0,0,0,0.95);
     position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
+    top: 0; width: 100%; z-index: 1000;
 }
 
-.logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #ff00ff;
-}
+.logo { color: #ff00ff; font-size: 1.5rem; font-weight: bold; text-decoration: none; }
 
-nav ul {
+nav ul { display: flex; list-style: none; }
+nav ul li { margin-left: 25px; }
+nav ul li a { color: #fff; text-decoration: none; transition: 0.3s; }
+nav ul li a:hover { color: #ff00ff; }
+
+/* 3. Hero Section (بازسازی بخش بالا) */
+#hero {
+    height: 100vh;
     display: flex;
-    list-style: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0 10%;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('../images/hero-bg.jpg'); /* اگر عکسی دارید */
+    background-size: cover;
 }
 
-nav ul li {
-    margin-left: 30px;
-}
+#hero h1 { font-size: 4rem; color: #fff; margin-bottom: 10px; }
+#hero p { font-size: 1.2rem; color: #ccc; margin-bottom: 30px; }
 
-nav ul li a {
+.btn {
+    padding: 12px 30px;
+    background: #ff00ff;
     color: #fff;
     text-decoration: none;
-    font-weight: 500;
-    transition: 0.3s;
+    border-radius: 5px;
+    font-weight: bold;
 }
 
-nav ul li a:hover {
-    color: #ff00ff;
+/* 4. Services Section (اصلاح نمایش خدمات) */
+#services {
+    padding: 80px 10%;
+    background: #0a0a0a;
 }
 
-/* 3. Portfolio Section (اصلاح شده و نهایی) */
+.services-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.service-item {
+    background: #111;
+    padding: 30px;
+    border-radius: 15px;
+    border-bottom: 3px solid #ff00ff;
+}
+
+.service-item h3 { color: #ff00ff; margin-bottom: 15px; }
+
+/* 5. Portfolio Section (اصلاح شده - فقط مخصوص بخش پورتفولیو) */
 #portfolio {
-    padding: 100px 5% 50px;
-    background: #050505;
+    padding: 80px 5%;
 }
 
 .section-title {
     text-align: center;
     font-size: 2.5rem;
     margin-bottom: 50px;
-    color: #fff;
-    letter-spacing: 2px;
 }
 
 #portfolio-grid {
     display: grid !important;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)) !important;
-    gap: 30px !important;
-    max-width: 1200px !important;
-    margin: 0 auto !important;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important;
+    gap: 25px !important;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .portfolio-card {
-    position: relative !important;
-    display: block !important;
-    height: 400px !important;
-    border-radius: 20px !important;
-    overflow: hidden !important;
-    text-decoration: none !important;
-    background: #111;
-    transition: transform 0.4s ease, box-shadow 0.4s ease !important;
-}
-
-.portfolio-card:hover {
-    transform: translateY(-10px) !important;
-    box-shadow: 0 15px 40px rgba(255, 0, 255, 0.2) !important;
+    position: relative;
+    height: 350px;
+    border-radius: 15px;
+    overflow: hidden;
+    display: block;
+    text-decoration: none;
 }
 
 .portfolio-img {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important;
-    transition: transform 0.5s ease !important;
-}
-
-.portfolio-card:hover .portfolio-img {
-    transform: scale(1.1) !important;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.5s;
 }
 
 .portfolio-overlay {
-    position: absolute !important;
-    inset: 0 !important;
-    background: linear-gradient(transparent, rgba(0, 0, 0, 0.9)) !important;
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: flex-end !important;
-    padding: 30px !important;
-    color: white !important;
-    opacity: 1 !important;
-}
-
-.portfolio-overlay h3 {
-    font-size: 1.5rem;
-    margin: 0;
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,0.9));
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 20px;
     color: #fff;
 }
 
-.portfolio-overlay p {
-    font-size: 0.9rem;
-    margin: 5px 0 20px;
-    color: #ccc;
-}
-
 .pdf-button {
-    background: #ff00ff !important;
-    color: white !important;
-    padding: 12px 25px !important;
-    border-radius: 50px !important;
-    text-align: center !important;
-    font-weight: bold !important;
-    font-size: 0.9rem !important;
-    width: 100% !important;
-    transition: 0.3s !important;
-    border: none !important;
-}
-
-.portfolio-card:hover .pdf-button {
-    background: #fff !important;
-    color: #000 !important;
-}
-
-/* 4. Loading Screen */
-.loading-screen {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: #000;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-    transition: opacity 0.5s ease;
+    background: #ff00ff;
+    color: white;
+    padding: 8px 0;
+    border-radius: 5px;
+    text-align: center;
+    margin-top: 10px;
+    font-weight: bold;
 }
 
 /* Responsive */
 @media (max-width: 768px) {
-    #portfolio-grid {
-        grid-template-columns: 1fr !important;
-    }
-    .section-title {
-        font-size: 2rem;
-    }
+    #hero h1 { font-size: 2.5rem; }
+    #portfolio-grid { grid-template-columns: 1fr !important; }
 }
