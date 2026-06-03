@@ -49,3 +49,16 @@ body { background: #0a0a0a; color: white; font-family: sans-serif; line-height: 
 
 .contact-form { max-width: 500px; margin: 0 auto; display: flex; flex-direction: column; gap: 15px; }
 .contact-form input, .contact-form textarea { padding: 12px; background: #1a1a1a; border: 1px solid #333; color: white; border-radius: 5px; }
+.services-grid, .portfolio-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+    min-height: 200px; /* برای اینکه بخش خالی نماند */
+}
+
+.service-item, .portfolio-card {
+    flex: 1 1 300px; /* اجازه بدهید کارت‌ها بزرگ شوند */
+    max-width: 400px;
+}
