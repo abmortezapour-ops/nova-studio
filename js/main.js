@@ -1,45 +1,33 @@
-const projects = [
-    { title: "Project 1", desc: "Design Concept", img: "images/p1.png", link: "p1.pdf" },
-    { title: "Project 2", desc: "UI/UX Design", img: "images/p2.png", link: "p2.pdf" },
-    { title: "Project 3", desc: "Branding", img: "images/p3.png", link: "p3.pdf" },
-    { title: "Project 4", desc: "Marketing", img: "images/p4.png", link: "p4.pdf" },
-    { title: "Project 5", desc: "Web App", img: "images/p5.png", link: "p5.pdf" },
-    { title: "Project 6", desc: "Interface", img: "images/p6.png", link: "p6.pdf" },
-    { title: "Project 7", desc: "Visual Identity", img: "images/p7.png", link: "p7.pdf" },
-    { title: "Project 8", desc: "SaaS Landing", img: "images/p8.png", link: "p8.pdf" }
-];
+document.addEventListener('DOMContentLoaded', () => {
+    const portfolioGrid = document.getElementById('portfolio-grid');
 
-function renderPortfolio() {
-    const grid = document.getElementById('portfolio-grid');
-    if (!grid) return;
+    // لیست پروژه‌ها - نام فایل‌ها را دقیقاً بر اساس آنچه در پوشه files و images دارید چک کنید
+    const projects = [
+        { title: "Project 1", image: "images/p1.png", link: "files/project1.pdf", type: "pdf" },
+        { title: "Project 2", image: "images/p2.png", link: "files/project2.mp4", type: "video" }, // مثال برای ویدیو
+        { title: "Project 3", image: "images/p3.png", link: "files/project3.pdf", type: "pdf" },
+        { title: "Project 4", image: "images/p4.png", link: "files/project4.pdf", type: "pdf" },
+        { title: "Project 5", image: "images/p5.png", link: "files/project5.pdf", type: "pdf" },
+        { title: "Project 6", image: "images/p6.png", link: "files/project6.pdf", type: "pdf" },
+        { title: "Project 7", image: "images/p7.png", link: "files/project7.pdf", type: "pdf" },
+        { title: "Project 8", image: "images/p8.png", link: "files/project8.pdf", type: "pdf" }
+    ];
 
-    grid.innerHTML = ""; 
-
-    projects.forEach(p => {
-        const card = document.createElement('a');
-        card.href = p.link || "#";
-        card.className = "portfolio-card";
-        card.target = "_blank";
-
-        card.innerHTML = `
-            <div class="card-content">
-                <img src="${p.img}" alt="${p.title}" class="portfolio-img">
+    function loadProjects() {
+        if (!portfolioGrid) return;
+        
+        portfolioGrid.innerHTML = projects.map(project => `
+            <a href="${project.link}" class="portfolio-card" target="_blank">
+                <img src="${project.image}" alt="${project.title}" class="portfolio-img" 
+                     onerror="this.src='https://via.placeholder.com/400x400?text=Nova+Studio'">
                 <div class="portfolio-overlay">
-                    <h3>${p.title}</h3>
-                    <p>${p.desc}</p>
-                    <div class="pdf-button">View PDF</div>
+                    <h3>${project.title}</h3>
+                    <p>Click to View ${project.type.toUpperCase()}</p>
+                    <div class="pdf-button">VIEW PROJECT</div>
                 </div>
-            </div>
-        `;
-        grid.appendChild(card);
-    });
-
-    // مخفی کردن لودینگ بعد از رندر شدن کارت‌ها
-    const loader = document.querySelector('.loading-screen');
-    if (loader) {
-        loader.style.opacity = '0';
-        setTimeout(() => loader.style.display = 'none', 500);
+            </a>
+        `).join('');
     }
-}
 
-window.addEventListener('load', renderPortfolio);
+    loadProjects();
+});
