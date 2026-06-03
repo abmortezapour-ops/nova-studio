@@ -4,16 +4,20 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Nova Studio</title>
+
+  <!-- Helps GitHub Pages project sites resolve relative paths more reliably -->
+  <base href="./" />
+
   <link rel="stylesheet" href="css/style.css" />
 </head>
-<body>
+<body id="top">
 
   <!-- Navbar -->
   <header class="navbar" id="navbar">
     <div class="nav-container">
-      <a href="#" class="logo">Nova Studio</a>
+      <a href="#top" class="logo">Nova Studio</a>
 
-      <nav>
+      <nav aria-label="Primary">
         <ul class="nav-links">
           <li><a href="#services">Services</a></li>
           <li><a href="#portfolio">Portfolio</a></li>
@@ -50,19 +54,19 @@
 
     <div class="services-grid">
       <article class="service-card fade-in" data-service="Web Design">
-        <div class="service-icon">🎨</div>
+        <div class="service-icon" aria-hidden="true">🎨</div>
         <h3>Web Design</h3>
         <p>Modern, responsive websites with clean UI and conversion-focused layouts.</p>
       </article>
 
       <article class="service-card fade-in" data-service="UI/UX Design">
-        <div class="service-icon">🧩</div>
+        <div class="service-icon" aria-hidden="true">🧩</div>
         <h3>UI/UX Design</h3>
         <p>Thoughtful product interfaces that balance usability, beauty, and clarity.</p>
       </article>
 
       <article class="service-card fade-in" data-service="Brand Identity">
-        <div class="service-icon">🚀</div>
+        <div class="service-icon" aria-hidden="true">🚀</div>
         <h3>Brand Identity</h3>
         <p>Visual systems, logos, and creative direction for memorable digital brands.</p>
       </article>
@@ -82,7 +86,7 @@
     <div class="portfolio-grid">
       <!-- Project 1 -->
       <article class="portfolio-card fade-in">
-        <img src="images/saas-1.png" alt="E-Commerce Platform" class="portfolio-img" />
+        <img src="images/saas-1.png" alt="E-Commerce Platform" class="portfolio-img" loading="lazy" />
         <div class="portfolio-overlay">
           <h3>E-Commerce Platform</h3>
           <p>Full-stack online store with payment integration</p>
@@ -91,7 +95,7 @@
 
       <!-- Project 2 (With PDF) -->
       <article class="portfolio-card fade-in">
-        <img src="images/tt.png" alt="Analytics Dashboard" class="portfolio-img" />
+        <img src="images/tt.png" alt="Analytics Dashboard" class="portfolio-img" loading="lazy" />
         <div class="portfolio-overlay">
           <h3>Analytics Dashboard</h3>
           <p>Real-time data visualization for SaaS product</p>
@@ -106,7 +110,7 @@
 
       <!-- Project 3 -->
       <article class="portfolio-card fade-in">
-        <img src="images/saas-concept.png" alt="SaaS Landing Page" class="portfolio-img" />
+        <img src="images/saas-concept.png" alt="SaaS Landing Page" class="portfolio-img" loading="lazy" />
         <div class="portfolio-overlay">
           <h3>SaaS Landing Page</h3>
           <p>Modern landing page for a SaaS product</p>
@@ -115,7 +119,7 @@
 
       <!-- Project 4 -->
       <article class="portfolio-card fade-in">
-        <img src="images/saas-2.png" alt="Startup Launch Page" class="portfolio-img" />
+        <img src="images/saas-2.png" alt="Startup Launch Page" class="portfolio-img" loading="lazy" />
         <div class="portfolio-overlay">
           <h3>Startup Launch Page</h3>
           <p>High-converting launch page for startups</p>
@@ -124,7 +128,7 @@
 
       <!-- Project 5 (With PDF) -->
       <article class="portfolio-card fade-in">
-        <img src="images/timeless.png" alt="Real Estate Portal" class="portfolio-img" />
+        <img src="images/timeless.png" alt="Real Estate Portal" class="portfolio-img" loading="lazy" />
         <div class="portfolio-overlay">
           <h3>Real Estate Portal</h3>
           <p>Property listing and search platform</p>
@@ -139,7 +143,7 @@
 
       <!-- Project 6 -->
       <article class="portfolio-card fade-in">
-        <img src="images/marketing.png" alt="Marketing Tool" class="portfolio-img" />
+        <img src="images/marketing.png" alt="Marketing Tool" class="portfolio-img" loading="lazy" />
         <div class="portfolio-overlay">
           <h3>Marketing Tool</h3>
           <p>Growth automation platform for startups</p>
@@ -148,7 +152,7 @@
 
       <!-- Project 7 -->
       <article class="portfolio-card fade-in">
-        <img src="images/logo.png" alt="Brand Identity" class="portfolio-img" />
+        <img src="images/logo.png" alt="Brand Identity" class="portfolio-img" loading="lazy" />
         <div class="portfolio-overlay">
           <h3>Brand Identity</h3>
           <p>Logo and visual identity design system</p>
@@ -157,7 +161,7 @@
 
       <!-- Project 8 -->
       <article class="portfolio-card fade-in">
-        <img src="images/copilot.png" alt="Pet Care App" class="portfolio-img" />
+        <img src="images/copilot.png" alt="Pet Care App" class="portfolio-img" loading="lazy" />
         <div class="portfolio-overlay">
           <h3>Pet Care App</h3>
           <p>Smart pet health tracking application</p>
@@ -183,8 +187,8 @@
       method="POST"
     >
       <div class="form-row">
-        <input type="text" name="name" placeholder="Your Name" required />
-        <input type="email" name="email" placeholder="Your Email" required />
+        <input type="text" name="name" placeholder="Your Name" autocomplete="name" required />
+        <input type="email" name="email" placeholder="Your Email" autocomplete="email" required />
       </div>
 
       <input type="text" id="contactSubject" name="subject" placeholder="Subject" />
