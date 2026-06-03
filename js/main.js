@@ -1,28 +1,25 @@
 const projects = [
-    { title: "E-Commerce Platform", desc: "Full-stack online store", img: "images/saas-concept.png" }, // اصلاح شد
-    { title: "Analytics Dashboard", desc: "Real-time data visualization", img: "images/tt.png", pdf: "files/Artificial-Intelligence-The-Future-of-Technology.pdf" },
-    { title: "SaaS Landing Page", desc: "Modern landing page", img: "images/saas-2.png" }, // اصلاح شد
-    { title: "Startup Launch Page", desc: "High-converting page", img: "images/marketing.png" }, // اصلاح شد
-    { title: "Real Estate Portal", desc: "Property listing platform", img: "images/timeless.png", pdf: "files/Timeless-Value.pdf" },
-    { title: "Marketing Tool", desc: "Growth automation", img: "images/logo.png" }, // اصلاح شد
-    { title: "Brand Identity", desc: "Logo design system", img: "images/copilot.png" }, // اصلاح شد
-    { title: "Pet Care App", desc: "Smart health tracking", img: "images/saas-concept.png" } // تکرار برای پر شدن گرید
+    { title: "E-Commerce", desc: "Online Store", img: "images/saas-concept.png" },
+    { title: "Analytics", desc: "Data Viz", img: "images/tt.png", pdf: "files/Artificial-Intelligence-The-Future-of-Technology.pdf" },
+    { title: "Landing Page", desc: "Modern UI", img: "images/saas-2.png" },
+    { title: "Marketing Tool", desc: "Automation", img: "images/marketing.png" },
+    { title: "Real Estate", desc: "Property Portal", img: "images/timeless.png", pdf: "files/Timeless-Value.pdf" },
+    { title: "Brand Identity", desc: "Logo System", img: "images/logo.png" },
+    { title: "Pet Care", desc: "Smart App", img: "images/copilot.png" },
+    { title: "Launch Page", desc: "Startup", img: "images/saas-concept.png" }
 ];
 
 function loadProjects() {
-    const portfolioGrid = document.getElementById('portfolio-grid');
-    if (!portfolioGrid) return;
+    const grid = document.getElementById('portfolio-grid');
+    if (!grid) return;
 
-    portfolioGrid.innerHTML = projects.map(project => `
+    grid.innerHTML = projects.map(p => `
         <article class="portfolio-card">
-            <img src="${project.img}" 
-                 alt="${project.title}" 
-                 class="portfolio-img" 
-                 onerror="this.src='https://via.placeholder.com/400x250?text=Image+Not+Found'">
+            <img src="${p.img}" alt="${p.title}" class="portfolio-img" onerror="this.src='https://via.placeholder.com/400x200?text=Check+Image+Name'">
             <div class="portfolio-overlay">
-                <h3>${project.title}</h3>
-                <p>${project.desc}</p>
-                ${project.pdf ? `<a href="${project.pdf}" target="_blank" class="pdf-btn">View PDF</a>` : ''}
+                <h3>${p.title}</h3>
+                <p>${p.desc}</p>
+                ${p.pdf ? `<a href="${p.pdf}" target="_blank" class="pdf-btn">View PDF</a>` : ''}
             </div>
         </article>
     `).join('');
