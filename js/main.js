@@ -1,3 +1,4 @@
+// لیست پروژه‌ها با آدرس صحیح پوشه images
 const projects = [
     { title: "E-Commerce", desc: "Online Store Concept", img: "images/saas-concept.png" },
     { title: "Analytics Tool", desc: "Data Visualization", img: "images/tt.png" },
@@ -7,36 +8,40 @@ const projects = [
     { title: "SaaS Dashboard", desc: "Modern UI System", img: "images/saas-2.png" }
 ];
 
-function init() {
+function renderPortfolio() {
+    console.log("شروع ساخت پورتفولیو...");
     const grid = document.getElementById('portfolio-grid');
     
     if (!grid) {
-        console.error("خطا: المان portfolio-grid پیدا نشد! مطمئن شوید در HTML وجود دارد.");
+        console.error("خطا: portfolio-grid پیدا نشد!");
         return;
     }
 
     let html = "";
     projects.forEach(p => {
         html += `
-        <article class="portfolio-card">
-            <img src="./${p.img}" alt="${p.title}" class="portfolio-img" onerror="this.src='https://via.placeholder.com/400x250?text=Image+Error'">
-            <div class="portfolio-overlay">
-                <h3>${p.title}</h3>
+        <article class="portfolio-card" style="border: 1px solid #333; padding: 10px; border-radius: 10px; background: rgba(255,255,255,0.05);">
+            <img src="./${p.img}" alt="${p.title}" style="width: 100%; border-radius: 5px;" onerror="this.src='https://via.placeholder.com/400x250?text=Image+Not+Found'">
+            <div class="portfolio-info" style="margin-top: 10px;">
+                <h3 style="color: #ff00ff;">${p.title}</h3>
                 <p>${p.desc}</p>
             </div>
         </article>`;
     });
 
     grid.innerHTML = html;
-    console.log("کارت‌ها با موفقیت رندر شدند.");
+    console.log("پورتفولیو با موفقیت ساخته شد.");
 
-    // حذف لودینگ
-    const loader = document.querySelector('.loading-screen');
+    // حذف اجباری لودینگ
+    const loader = document.getElementById('loading-screen') || document.querySelector('.loading-screen');
     if (loader) {
-        loader.style.opacity = '0';
-        setTimeout(() => loader.style.display = 'none', 500);
+        loader.remove(); // حذف کامل از صفحه
     }
 }
 
-// اجرای مطمئن
-window.addEventListener('load', init);
+// اجرای اسکریپت به محض لود شدن
+if (document.readyState === 'complete' || document.readyState === 'interactive') {
+    renderPortfolio();
+} else {
+    window.addEventListener('DOMContentLoaded', renderPortfolio);
+}
