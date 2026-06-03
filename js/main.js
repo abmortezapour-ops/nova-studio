@@ -11,16 +11,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const grid = document.getElementById('portfolio-grid');
     if (!grid) return;
 
-    grid.innerHTML = projects.map(p => `
+    let html = "";
+    projects.forEach(p => {
+        const pdfLink = p.pdf ? `<a href="${p.pdf}" target="_blank" class="pdf-btn">View PDF</a>` : "";
+        html += `
         <article class="portfolio-card">
-            <img src="${p.img}" alt="${p.title}" class="portfolio-img" 
-                 onerror="this.onerror=null; this.src='https://via.placeholder.com/400x220?text=Image+Not+Found';">
+            <img src="${p.img}" alt="${p.title}" class="portfolio-img" onerror="this.src='https://via.placeholder.com/400x220?text=Image+Not+Found'">
             <div class="portfolio-overlay">
                 <h3>${p.title}</h3>
                 <p>${p.desc}</p>
-                ${p.pdf ? `<a href="${p.pdf}" target="_blank" class="pdf-btn">View PDF</a>` : ''}
+                ${pdfLink}
             </div>
-        </article>
-    `).join('');
+        </article>`;
+    });
+    grid.innerHTML = html;
 });
-
