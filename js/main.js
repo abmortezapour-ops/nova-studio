@@ -3,47 +3,44 @@ const projects = [
         title: "E-Commerce", 
         desc: "Online Store Concept", 
         img: "images/saas landing page concept.png",
-        link: "project1.html" // نام فایل صفحه پروژه شما
+        link: "project1.pdf" // آدرس فایل PDF یا صفحه پروژه
     },
     { 
         title: "Analytics Tool", 
         desc: "Data Visualization", 
         img: "images/TT Interphases.png",
-        link: "project2.html"
+        link: "project2.pdf"
     },
     { 
         title: "Digital Marketing", 
         desc: "Marketing Automation", 
         img: "images/Launch smarter. Grow faster..png",
-        link: "project3.html"
+        link: "project3.pdf"
     }
-    // می‌توانید بقیه را هم اضافه کنید
 ];
 
 function renderPortfolio() {
     const grid = document.getElementById('portfolio-grid');
     if (!grid) return;
 
-    grid.innerHTML = ""; // پاکسازی محتوای قبلی
+    grid.innerHTML = ""; 
 
     projects.forEach(p => {
-        const safePath = encodeURI(p.img);
+        // استفاده از encodeURIComponent برای حل مشکل فاصله و کاراکترهای خاص در نام فایل
+        const safePath = p.img.split('/').map(part => encodeURIComponent(part)).join('/');
         
-        // ایجاد کارت به صورت یک لینک (Anchor Tag)
         const card = document.createElement('a');
         card.href = p.link || "#";
         card.className = "portfolio-card";
-        card.style.display = "block"; // برای جلوگیری از به هم ریختگی
-        card.style.textDecoration = "none";
+        card.target = "_blank"; // باز شدن PDF در تب جدید
 
         card.innerHTML = `
             <div class="card-content">
-                <img src="${safePath}" alt="${p.title}" class="portfolio-img" 
-                     onerror="this.src='https://placehold.co/600x400/000/fff?text=Image+Not+Found'">
+                <img src="${safePath}" alt="${p.title}" class="portfolio-img">
                 <div class="portfolio-overlay">
                     <h3>${p.title}</h3>
                     <p>${p.desc}</p>
-                    <span class="view-project">View Case Study (PDF)</span>
+                    <div class="pdf-button">View Case Study (PDF)</div>
                 </div>
             </div>
         `;
@@ -54,4 +51,4 @@ function renderPortfolio() {
     if (loader) loader.style.display = 'none';
 }
 
-window.addEventListener('DOMContentLoaded', renderPortfolio);
+window.addEventListener('load', renderPortfolio);
