@@ -1,46 +1,26 @@
 const projects = [
-    { title: "AI Technology", category: "Motion", img: "images/p1.png", link: "files/Artificial-Intelligence-The-Future-of-Technology.pdf" },
-    { title: "Timeless Design", category: "Web", img: "images/p2.png", link: "files/Timeless-Value.pdf" },
-    { title: "Nova Logo", category: "Branding", img: "images/p3.png", link: "#" },
-    { title: "Marketing Pro", category: "UI/UX", img: "images/p4.png", link: "#" },
-    { title: "SaaS Concept", category: "Design", img: "images/p5.png", link: "#" },
-    { title: "Interface Studio", category: "Motion", img: "images/p6.png", link: "#" },
-    { title: "Digital Value", category: "Visuals", img: "images/p7.png", link: "files/Timeless-Value.pdf" },
-    { title: "Future Launch", category: "Concept", img: "images/p8.png", link: "#" }
+    { title: "E-Commerce Platform", category: "Web Development", image: "images/p1.png" },
+    { title: "Mobile Banking App", category: "UI/UX Design", image: "images/p2.png" },
+    { title: "Social Media Dashboard", category: "Web App", image: "images/p3.png" },
+    { title: "Fitness Tracking App", category: "Mobile App", image: "images/p4.png" },
+    { title: "NFT Marketplace", category: "Blockchain", image: "images/p5.png" },
+    { title: "Travel Booking Site", category: "Web Design", image: "images/p6.png" }
 ];
 
-const container = document.getElementById('portfolio-container');
+const portfolioGrid = document.getElementById('portfolio-grid');
 
-if(container) {
-    container.innerHTML = ''; 
-    projects.forEach(proj => {
-        const isPDF = proj.link.toLowerCase().endsWith('.pdf');
-        
-        const cardHTML = `
-            <div class="portfolio-card" onclick="window.open('${proj.link}', '_blank')">
-                <img src="${proj.img}" class="portfolio-img" alt="${proj.title}">
-                <div class="portfolio-overlay">
-                    <div class="card-info">
-                        <h3>${proj.title}</h3>
-                        <p>${proj.category}</p>
-                    </div>
-                    ${isPDF ? `<span style="color:#ff007f; font-size:12px;">View PDF</span>` : ''}
-                </div>
+function loadProjects() {
+    if(!portfolioGrid) return; // جلوگیری از خطا در صورت نبودن المان
+    
+    portfolioGrid.innerHTML = projects.map(project => `
+        <div class="portfolio-card">
+            <img src="${project.image}" alt="${project.title}" onerror="this.src='https://via.placeholder.com/400x300?text=Image+Not+Found'">
+            <div class="portfolio-overlay">
+                <p style="color: #ff007f; font-size: 0.8rem; font-weight: bold; text-transform: uppercase;">${project.category}</p>
+                <h3 style="margin: 5px 0 0 0; color: white; font-size: 1.4rem;">${project.title}</h3>
             </div>
-        `;
-        container.innerHTML += cardHTML;
-    });
+        </div>
+    `).join('');
 }
 
-// اسکرول نرم و پر کردن خودکار فرم
-document.querySelectorAll('.service-item').forEach(item => {
-    item.addEventListener('click', () => {
-        const service = item.getAttribute('data-service');
-        const messageBox = document.querySelector('.contact-form textarea');
-        document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
-        if(messageBox) {
-            messageBox.value = `Hello Nova Studio,\nI am interested in: ${service}.`;
-            messageBox.focus();
-        }
-    });
-});
+document.addEventListener('DOMContentLoaded', loadProjects);
