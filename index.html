@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nova Studio | Portfolio</title>
+    <title>Nova Studio | Creative Digital Agency</title>
     <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
+    <!-- Navbar -->
     <nav class="navbar">
         <a href="#" class="logo">Nova Studio</a>
         <ul class="nav-links">
@@ -18,51 +18,70 @@
         </ul>
     </nav>
 
-    <section class="hero">
-        <h1>Creative Digital Solutions</h1>
-        <p>Elevating brands through premium design and motion.</p>
-        <a href="#portfolio" class="btn-primary">View Our Work</a>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <p class="hero-kicker">Creative Digital Agency</p>
+            <h1>We Build Digital Experiences</h1>
+            <p class="hero-description">
+                Transforming ideas into stunning digital realities. <br>
+                Design, Development & Strategy — all in one place.
+            </p>
+            <div class="hero-actions">
+                <a href="#services" class="btn-primary">Our Services</a>
+                <a href="#portfolio" class="btn-secondary">View Work</a>
+            </div>
+        </div>
     </section>
 
-    <section id="services" class="services-section">
+    <!-- Services Section -->
+    <section id="services" class="services">
         <div class="container">
-            <h2 class="section-header">Our Services</h2>
+            <p class="section-kicker">What We Do</p>
+            <h2 class="section-header">Expertise & Services</h2>
             <div class="services-grid">
-                <div class="service-item" data-service="Web Design"><h3>Web Design</h3><p>Modern responsive websites.</p></div>
-                <div class="service-item" data-service="UI/UX Design"><h3>UI/UX Design</h3><p>User-centered interfaces.</p></div>
-                <div class="service-item" data-service="Branding"><h3>Branding</h3><p>Visual identity systems.</p></div>
-                <div class="service-item" data-service="App Design"><h3>App Design</h3><p>Mobile-first experiences.</p></div>
-                <div class="service-item" data-service="Motion Graphics"><h3>Motion Graphics</h3><p>Engaging visual stories.</p></div>
-                <div class="service-item" data-service="Video Editing"><h3>Video Editing</h3><p>Professional post-production.</p></div>
-            </div>
-        </div>
-    </section>
-
-    <section id="portfolio" class="portfolio-section">
-        <div class="container">
-            <h2 class="section-header">Our Portfolio</h2>
-            <div class="portfolio-grid" id="portfolio-container">
-                <!-- جزییات توسط JS پر می‌شود -->
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="contact-section">
-        <div class="container">
-            <h2 class="section-header">Contact Me</h2>
-            <div class="contact-wrapper">
-                <form action="https://formspree.io/f/maqkalgp" method="POST" class="contact-form" id="my-form">
-                    <input type="text" name="name" placeholder="Your Name" required>
-                    <input type="email" name="email" placeholder="Your Email" required>
-                    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-                    <button type="submit" class="btn-primary">Send Message</button>
-                    <div id="form-status" class="status-message"></div>
-                </form>
-
-                <div class="payment-box">
-                    <p>Ready to start your project?</p>
-                    <a href="YOUR_PAYMENT_LINK" target="_blank" class="pay-btn">Pay Project Deposit</a>
+                <div class="service-item">
+                    <div class="service-icon">✦</div>
+                    <h3>Web Design</h3>
+                    <p>Modern, high-converting interfaces tailored for your brand.</p>
                 </div>
+                <div class="service-item">
+                    <div class="service-icon">✦</div>
+                    <h3>Development</h3>
+                    <p>Scalable, high-performance web applications and websites.</p>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon">✦</div>
+                    <h3>Branding</h3>
+                    <p>Visual identities that make your business stand out from the crowd.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <p class="section-kicker">Selected Projects</p>
+            <h2 class="section-header">Our Latest Work</h2>
+            <div class="portfolio-grid" id="portfolio-grid">
+                <!-- Content generated by main.js -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="contact-wrapper">
+                <p class="section-kicker">Get In Touch</p>
+                <h2 class="section-header">Let's Create Together</h2>
+                <form class="contact-form">
+                    <input type="text" placeholder="Full Name" required>
+                    <input type="email" placeholder="Email Address" required>
+                    <textarea placeholder="Tell us about your project" rows="5" required></textarea>
+                    <button type="submit" class="btn-primary">Send Message</button>
+                </form>
             </div>
         </div>
     </section>
