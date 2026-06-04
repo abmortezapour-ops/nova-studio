@@ -199,3 +199,20 @@ button:hover { background: #cc00cc; transform: scale(1.02); }
     .contact-form { padding: 2rem; }
     .section-title { font-size: 2.2rem; margin-bottom: 2.5rem; }
 }
+/* اصلاح فاصله بین بخش خدمات و پورتفولیو */
+.services {
+    margin-bottom: 100px !important; /* فاصله از بیرون بخش خدمات */
+}
+
+.portfolio-section {
+    padding-top: 80px !important; /* فاصله از داخل بخش پورتفولیو */
+}
+
+/* زیباتر کردن تیتر Our Portfolio */
+.section-header {
+    margin-bottom: 50px !important; /* فاصله تیتر از عکس‌های زیرش */
+    font-size: 2.5rem;
+    background: linear-gradient(to right, #ffffff, #ff007f);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
