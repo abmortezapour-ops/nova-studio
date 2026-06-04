@@ -194,3 +194,28 @@ input, textarea {
     .nav-links { display: none; } /* برای سادگی در موبایل فعلاً مخفی شد */
     .hero h1 { font-size: 2.5rem; }
 }
+/* فیکس کردن نمایش تصاویر */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.portfolio-item {
+    position: relative;
+    overflow: hidden; /* جلوگیری از بیرون زدن عکس */
+    border-radius: 15px;
+    height: 350px; /* یا هر مقداری که دوست دارید */
+    background: #111;
+}
+
+.portfolio-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* عکس را به صورت کامل در کادر فیت می‌کند بدون تغییر شکل */
+    transition: transform 0.5s ease;
+}
+
+.portfolio-item:hover img {
+    transform: scale(1.1); /* افکت زوم هنگام هاور */
+}
