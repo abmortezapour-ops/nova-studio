@@ -12,9 +12,8 @@ const projects = [
 const container = document.getElementById('portfolio-container');
 
 if(container) {
-    container.innerHTML = ''; // پاکسازی محتوای قدیمی
+    container.innerHTML = ''; 
     projects.forEach(proj => {
-        // چک کردن اینکه آیا فایل PDF است یا خیر
         const isPDF = proj.link.toLowerCase().endsWith('.pdf');
         
         const cardHTML = `
@@ -25,7 +24,7 @@ if(container) {
                         <h3>${proj.title}</h3>
                         <p>${proj.category}</p>
                     </div>
-                    ${isPDF ? `<div class="pdf-tag">View PDF</div>` : ''}
+                    ${isPDF ? `<span style="color:#ff007f; font-size:12px;">View PDF</span>` : ''}
                 </div>
             </div>
         `;
@@ -33,7 +32,7 @@ if(container) {
     });
 }
 
-// اسکرول نرم برای بخش سرویس‌ها
+// اسکرول نرم و پر کردن خودکار فرم
 document.querySelectorAll('.service-item').forEach(item => {
     item.addEventListener('click', () => {
         const service = item.getAttribute('data-service');
