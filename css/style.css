@@ -216,3 +216,22 @@ button:hover { background: #cc00cc; transform: scale(1.02); }
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+.payment-box{
+    text-align:center;
+    margin-top:40px;
+}
+
+.pay-btn{
+    display:inline-block;
+    padding:14px 30px;
+    background: linear-gradient(45deg,#ff007f,#ff4da6);
+    color:white;
+    border-radius:30px;
+    text-decoration:none;
+    font-weight:600;
+    transition:0.3s;
+}
+
+.pay-btn:hover{
+    transform:scale(1.05);
+}
