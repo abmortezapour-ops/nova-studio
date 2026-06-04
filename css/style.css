@@ -1,5 +1,5 @@
 * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-body { background: #000; color: #fff; line-height: 1.6; }
+body { background: #000; color: #fff; line-height: 1.6; scroll-behavior: smooth; }
 
 .navbar { display: flex; justify-content: space-between; padding: 25px 8%; position: fixed; width: 100%; background: rgba(0,0,0,0.9); z-index: 1000; }
 .logo { color: #ff00ff; font-size: 1.8rem; font-weight: bold; text-decoration: none; }
@@ -8,8 +8,17 @@ body { background: #000; color: #fff; line-height: 1.6; }
 .nav-links a { color: #fff; text-decoration: none; transition: 0.3s; }
 .nav-links a:hover { color: #ff00ff; }
 
-.hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
-.hero h1 { font-size: 4rem; margin-bottom: 20px; }
+.hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 0 10%; }
+
+/* اصلاح گرادینت متن هیرو: سفید به صورتی */
+.hero h1 { 
+    font-size: clamp(2.5rem, 8vw, 4.5rem); 
+    margin-bottom: 20px; 
+    background: linear-gradient(to right, #ffffff, #ff00ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
 
 .btn-primary { 
     padding: 15px 35px; background: #ff00ff; color: #fff; border-radius: 50px; 
@@ -18,9 +27,8 @@ body { background: #000; color: #fff; line-height: 1.6; }
 .btn-primary:hover { transform: scale(1.1); box-shadow: 0 0 20px #ff00ff; }
 
 .services-section, .portfolio-section, .contact-section { padding: 100px 8%; }
-.section-header { text-align: center; font-size: 2.5rem; margin-bottom: 60px; }
+.section-header { text-align: center; font-size: 2.5rem; margin-bottom: 60px; color: #fff; }
 
-/* Services Hover */
 .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; }
 .service-item { 
     background: #0a0a0a; padding: 40px; border-radius: 20px; border: 1px solid #1a1a1a; 
@@ -29,21 +37,25 @@ body { background: #000; color: #fff; line-height: 1.6; }
 .service-item:hover { border-color: #ff00ff; transform: translateY(-10px); background: #111; }
 .service-item h3 { color: #ff00ff; margin-bottom: 10px; }
 
-/* Portfolio Grid */
+/* پورتفولیو و اصلاح رنگ متن کارت‌ها به صورتی */
 .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
 .portfolio-card { 
     position: relative; height: 350px; border-radius: 20px; overflow: hidden; 
-    display: block; text-decoration: none; 
+    display: block; text-decoration: none; border: 1px solid #1a1a1a;
 }
 .portfolio-img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
 .portfolio-card:hover .portfolio-img { transform: scale(1.1); }
 .portfolio-overlay { 
-    position: absolute; inset: 0; background: linear-gradient(transparent, rgba(0,0,0,0.8)); 
+    position: absolute; inset: 0; background: linear-gradient(transparent, rgba(0,0,0,0.9)); 
     display: flex; flex-direction: column; justify-content: flex-end; padding: 25px; 
 }
 
+/* تغییر متن کارت‌ها به صورتی */
+.portfolio-overlay h3 { color: #ff00ff; font-size: 1.5rem; margin-bottom: 5px; }
+.portfolio-overlay p { color: #ff00ff; opacity: 0.9; font-weight: 500; }
+
 .contact-form { max-width: 600px; margin: auto; display: flex; flex-direction: column; gap: 20px; }
 .contact-form input, .contact-form textarea { 
-    padding: 18px; background: #0a0a0a; border: 1px solid #222; color: #fff; border-radius: 12px; 
+    padding: 18px; background: #0a0a0a; border: 1px solid #222; color: #fff; border-radius: 12px; font-size: 1rem;
 }
-.contact-form input:focus { border-color: #ff00ff; outline: none; }
+.contact-form input:focus, .contact-form textarea:focus { border-color: #ff00ff; outline: none; }
