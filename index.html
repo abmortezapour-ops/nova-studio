@@ -44,15 +44,26 @@
         </div>
     </section>
 
-    <section id="contact" class="contact-section">
-        <h2 class="section-header">Contact Us</h2>
-        <form class="contact-form">
-            <input type="text" placeholder="Name" required>
-            <input type="email" placeholder="Email" required>
-            <textarea rows="5" placeholder="Your Message"></textarea>
-            <button type="submit" class="btn-primary">Send Message</button>
-        </form>
-    </section>
+  <section id="contact" class="contact">
+    <form action="https://formspree.io/f/maqkalgp" method="POST" class="contact-form">
+        <h2>Contact Me</h2>
+        
+        <!-- فیلد نام با ویژگی name برای ذخیره شدن در دیتابیس Formspree و مرورگر -->
+        <input type="text" name="name" placeholder="Your Name" required>
+        
+        <!-- فیلد ایمیل -->
+        <input type="email" name="email" placeholder="Your Email" required>
+        
+        <!-- فیلد پیام -->
+        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+        
+        <!-- این خط باعث می‌شود بعد از ارسال، کاربر به یک صفحه خاص برنگردد و در سایت بماند یا پیام تشکر ببیند (اختیاری) -->
+        <input type="hidden" name="_subject" value="New Submission from Nova Studio!">
+        
+        <button type="submit">Send Message</button>
+    </form>
+</section>
+
 
     <script src="js/main.js"></script>
 </body>
