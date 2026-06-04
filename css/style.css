@@ -128,94 +128,56 @@ body {
 }
 
 /* بخش پورتفولیو */
+/* ==========================================================================
+   Portfolio Section - اصلاح شده
+   ========================================================================== */
 .portfolio-section {
     padding: 100px 0;
+    background-color: #000;
 }
 
 .portfolio-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-}
-
-.portfolio-item {
-    height: 300px;
-    background: #222;
-    border-radius: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-}
-
-/* بخش تماس و دکمه پرداخت */
-.contact-section {
-    padding: 100px 0;
-    text-align: center;
-}
-
-.contact-form {
-    max-width: 600px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-input, textarea {
-    padding: 15px;
-    background: #111;
-    border: 1px solid #333;
-    color: #fff;
-    border-radius: 8px;
-}
-
-.payment-cta {
-    margin-top: 40px;
-    padding: 20px;
-    border: 1px dashed #ff007f;
-    border-radius: 15px;
-}
-
-.pay-btn {
-    display: inline-block;
-    margin-top: 15px;
-    padding: 12px 25px;
-    background: linear-gradient(45deg, #ff007f, #b30059);
-    color: #fff;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-}
-
-/* موبایل */
-@media (max-width: 768px) {
-    .navbar { padding: 20px; }
-    .nav-links { display: none; } /* برای سادگی در موبایل فعلاً مخفی شد */
-    .hero h1 { font-size: 2.5rem; }
-}
-/* فیکس کردن نمایش تصاویر */
-img {
-    max-width: 100%;
-    height: auto;
-    display: block;
+    gap: 25px;
+    padding: 0 20px;
 }
 
 .portfolio-item {
     position: relative;
-    overflow: hidden; /* جلوگیری از بیرون زدن عکس */
-    border-radius: 15px;
-    height: 350px; /* یا هر مقداری که دوست دارید */
+    height: 350px; /* ارتفاع ثابت برای باکس‌ها */
+    border-radius: 20px;
+    overflow: hidden; /* این خط بسیار مهم است: جلوگیری از بیرون زدن عکس */
     background: #111;
+    border: 1px solid #222;
 }
 
 .portfolio-item img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* عکس را به صورت کامل در کادر فیت می‌کند بدون تغییر شکل */
+    object-fit: cover; /* عکس را در کادر فیت می‌کند بدون تغییر شکل */
     transition: transform 0.5s ease;
+    display: block;
 }
 
+/* افکت روی عکس هنگام هاور */
 .portfolio-item:hover img {
-    transform: scale(1.1); /* افکت زوم هنگام هاور */
+    transform: scale(1.1);
+    filter: brightness(0.7);
 }
+
+/* استایل کلی برای همه تصاویر سایت جهت جلوگیری از بهم ریختگی */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* اصلاح چیدمان بخش Services که تحت تاثیر قرار گرفته بود */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    width: 100%;
+    margin: 0 auto;
+}
+
