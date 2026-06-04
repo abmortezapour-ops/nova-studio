@@ -2,52 +2,78 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <title>Nova Studio</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nova Studio | Digital Excellence</title>
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <nav class="navbar">
-        <a href="#" class="logo">Nova Studio</a>
-        <ul class="nav-links">
-            <li><a href="#services">Services</a></li>
-            <li><a href="#portfolio">Portfolio</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
 
-    <header class="hero">
-        <h1>Welcome to Nova Studio</h1>
-        <p>We create digital excellence and modern experiences.</p>
-        <a href="#portfolio" class="btn-primary">View Our Work</a>
-    </header>
+<!-- NAVBAR -->
+<nav class="navbar">
+    <a href="#" class="logo">Nova Studio</a>
+    <ul class="nav-links">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
 
-    <section id="services" class="services-section">
-        <h2 class="section-header">What We Do</h2>
-        <div class="services-grid">
-            <div class="service-item"><h3>Web Design</h3><p>Modern and responsive.</p></div>
-            <div class="service-item"><h3>UI/UX</h3><p>User-centered interfaces.</p></div>
-            <div class="service-item"><h3>Branding</h3><p>Visual identity systems.</p></div>
+<!-- HERO -->
+<section class="hero">
+    <h1>Welcome to Nova Studio</h1>
+    <p>Creative digital experiences for modern brands.</p>
+    <a href="#services" class="btn-primary">Explore Services</a>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="services-section">
+    <h2 class="section-header">Our Services</h2>
+
+    <div class="services-grid">
+        <div class="service-item" data-service="Web Design">
+            <h3>Web Design</h3>
+            <p>Modern responsive websites.</p>
         </div>
-    </section>
 
-    <section id="portfolio" class="portfolio-section">
-        <h2 class="section-header">Selected Work</h2>
-        <div id="portfolio-grid" class="portfolio-grid">
-            <!-- کارت‌ها توسط JS ساخته می‌شوند -->
+        <div class="service-item" data-service="UI/UX Design">
+            <h3>UI/UX Design</h3>
+            <p>User-centered digital interfaces.</p>
         </div>
-    </section>
 
-    <section id="contact" class="contact-section">
-        <h2 class="section-header">Contact Us</h2>
-        <form class="contact-form">
-            <input type="text" placeholder="Name" required>
-            <input type="email" placeholder="Email" required>
-            <textarea placeholder="Message" rows="5" required></textarea>
-            <button type="submit" class="btn-primary">Send Message</button>
-        </form>
-    </section>
+        <div class="service-item" data-service="Branding">
+            <h3>Branding</h3>
+            <p>Strong visual identity systems.</p>
+        </div>
 
-    <script src="./js/main.js"></script>
+        <div class="service-item" data-service="App Design">
+            <h3>App Design</h3>
+            <p>Mobile-first experiences.</p>
+        </div>
+
+        <div class="service-item" data-service="Motion Graphics">
+            <h3>Motion Graphics</h3>
+            <p>Creative animated visuals.</p>
+        </div>
+
+        <div class="service-item" data-service="Consultation">
+            <h3>Consultation</h3>
+            <p>Strategy & digital growth.</p>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact-section">
+    <h2 class="section-header">Contact Us</h2>
+
+    <form class="contact-form">
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea rows="6" placeholder="Your Message"></textarea>
+        <button type="submit" class="btn-primary">Send Message</button>
+    </form>
+</section>
+
+<script src="js/main.js"></script>
 </body>
 </html>
