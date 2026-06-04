@@ -1,61 +1,87 @@
-* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-body { background: #000; color: #fff; line-height: 1.6; scroll-behavior: smooth; }
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
 
-.navbar { display: flex; justify-content: space-between; padding: 25px 8%; position: fixed; width: 100%; background: rgba(0,0,0,0.9); z-index: 1000; }
-.logo { color: #ff00ff; font-size: 1.8rem; font-weight: bold; text-decoration: none; }
-.nav-links { display: flex; list-style: none; }
-.nav-links li { margin-left: 30px; }
-.nav-links a { color: #fff; text-decoration: none; transition: 0.3s; }
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+body { background: #000; color: #fff; line-height: 1.6; }
+
+/* Header & Nav */
+nav { display: flex; justify-content: space-between; align-items: center; padding: 2rem 10%; background: rgba(0,0,0,0.9); position: sticky; top: 0; z-index: 1000; }
+.logo { font-size: 1.8rem; font-weight: 800; color: #ff00ff; }
+.nav-links a { color: #fff; text-decoration: none; margin-left: 2rem; transition: 0.3s; }
 .nav-links a:hover { color: #ff00ff; }
 
-.hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 0 10%; }
-
-/* اصلاح گرادینت متن هیرو: سفید به صورتی */
+/* Hero Section with Gradient Text */
+.hero { height: 80vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 0 10%; }
 .hero h1 { 
-    font-size: clamp(2.5rem, 8vw, 4.5rem); 
-    margin-bottom: 20px; 
-    background: linear-gradient(to right, #ffffff, #ff00ff);
+    font-size: 4rem; 
+    margin-bottom: 1rem; 
+    background: linear-gradient(90deg, #ffffff, #ff00ff);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    background-clip: text;
 }
 
-.btn-primary { 
-    padding: 15px 35px; background: #ff00ff; color: #fff; border-radius: 50px; 
-    text-decoration: none; border: none; cursor: pointer; transition: 0.4s; font-weight: bold;
-}
-.btn-primary:hover { transform: scale(1.1); box-shadow: 0 0 20px #ff00ff; }
+/* Portfolio Grid */
+.portfolio { padding: 5rem 10%; }
+.section-title { font-size: 2.5rem; margin-bottom: 3rem; text-align: center; }
+.portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
 
-.services-section, .portfolio-section, .contact-section { padding: 100px 8%; }
-.section-header { text-align: center; font-size: 2.5rem; margin-bottom: 60px; color: #fff; }
-
-.services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; }
-.service-item { 
-    background: #0a0a0a; padding: 40px; border-radius: 20px; border: 1px solid #1a1a1a; 
-    cursor: pointer; transition: 0.3s; 
-}
-.service-item:hover { border-color: #ff00ff; transform: translateY(-10px); background: #111; }
-.service-item h3 { color: #ff00ff; margin-bottom: 10px; }
-
-/* پورتفولیو و اصلاح رنگ متن کارت‌ها به صورتی */
-.portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+/* Portfolio Card & Hover Effects */
 .portfolio-card { 
-    position: relative; height: 350px; border-radius: 20px; overflow: hidden; 
-    display: block; text-decoration: none; border: 1px solid #1a1a1a;
+    position: relative; 
+    height: 400px; 
+    border-radius: 20px; 
+    overflow: hidden; 
+    cursor: pointer;
+    background: #111;
 }
+
 .portfolio-img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
-.portfolio-card:hover .portfolio-img { transform: scale(1.1); }
+
 .portfolio-overlay { 
-    position: absolute; inset: 0; background: linear-gradient(transparent, rgba(0,0,0,0.9)); 
-    display: flex; flex-direction: column; justify-content: flex-end; padding: 25px; 
+    position: absolute; 
+    inset: 0; 
+    background: linear-gradient(to top, rgba(0,0,0,0.9) 20%, transparent); 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: flex-end; 
+    padding: 30px; 
 }
 
-/* تغییر متن کارت‌ها به صورتی */
-.portfolio-overlay h3 { color: #ff00ff; font-size: 1.5rem; margin-bottom: 5px; }
-.portfolio-overlay p { color: #ff00ff; opacity: 0.9; font-weight: 500; }
+.card-info h3 { color: #ff00ff; font-size: 1.5rem; margin-bottom: 5px; }
+.card-info p { color: #ff00ff; opacity: 0.8; font-size: 0.9rem; }
 
-.contact-form { max-width: 600px; margin: auto; display: flex; flex-direction: column; gap: 20px; }
-.contact-form input, .contact-form textarea { 
-    padding: 18px; background: #0a0a0a; border: 1px solid #222; color: #fff; border-radius: 12px; font-size: 1rem;
+/* PDF Tag Style - Hidden by default */
+.pdf-tag {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: #ff00ff;
+    color: white;
+    padding: 6px 15px;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 0.8rem;
+    opacity: 0; /* مخفی در حالت عادی */
+    transform: scale(0.8);
+    transition: 0.3s all ease-in-out;
 }
-.contact-form input:focus, .contact-form textarea:focus { border-color: #ff00ff; outline: none; }
+
+/* Hover States */
+.portfolio-card:hover .portfolio-img { transform: scale(1.1); }
+.portfolio-card:hover .pdf-tag { 
+    opacity: 1; /* نمایش هنگام هاور */
+    transform: scale(1); 
+}
+
+/* Services */
+.services { padding: 5rem 10%; background: #050505; }
+.services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
+.service-item { background: #111; padding: 2rem; border-radius: 15px; cursor: pointer; transition: 0.3s; border: 1px solid #222; }
+.service-item:hover { border-color: #ff00ff; transform: translateY(-5px); }
+
+/* Contact Form */
+.contact { padding: 5rem 10%; text-align: center; }
+.contact-form { max-width: 600px; margin: 2rem auto; display: flex; flex-direction: column; gap: 1rem; }
+input, textarea { background: #111; border: 1px solid #222; padding: 1rem; color: #fff; border-radius: 8px; }
+button { background: #ff00ff; color: #fff; border: none; padding: 1rem; border-radius: 8px; font-weight: bold; cursor: pointer; }
+
+@media (max-width: 768px) { .hero h1 { font-size: 2.5rem; } .nav-links { display: none; } }
