@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nova Studio | Portfolio</title>
     <link rel="stylesheet" href="css/style.css">
-    <!-- افزودن فونت گوگل برای ظاهر حرفه‌ای تر -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -26,60 +25,48 @@
     </section>
 
     <section id="services" class="services-section">
-        <h2 class="section-header">Our Services</h2>
-        <div class="services-grid">
-            <div class="service-item" data-service="Web Design"><h3>Web Design</h3><p>Modern responsive websites.</p></div>
-            <div class="service-item" data-service="UI/UX Design"><h3>UI/UX Design</h3><p>User-centered interfaces.</p></div>
-            <div class="service-item" data-service="Branding"><h3>Branding</h3><p>Visual identity systems.</p></div>
-            <div class="service-item" data-service="App Design"><h3>App Design</h3><p>Mobile-first experiences.</p></div>
-            <div class="service-item" data-service="Motion Graphics"><h3>Motion Graphics</h3><p>Engaging visual stories.</p></div>
-            <div class="service-item" data-service="Video Editing"><h3>Video Editing</h3><p>Professional post-production.</p></div>
+        <div class="container">
+            <h2 class="section-header">Our Services</h2>
+            <div class="services-grid">
+                <div class="service-item" data-service="Web Design"><h3>Web Design</h3><p>Modern responsive websites.</p></div>
+                <div class="service-item" data-service="UI/UX Design"><h3>UI/UX Design</h3><p>User-centered interfaces.</p></div>
+                <div class="service-item" data-service="Branding"><h3>Branding</h3><p>Visual identity systems.</p></div>
+                <div class="service-item" data-service="App Design"><h3>App Design</h3><p>Mobile-first experiences.</p></div>
+                <div class="service-item" data-service="Motion Graphics"><h3>Motion Graphics</h3><p>Engaging visual stories.</p></div>
+                <div class="service-item" data-service="Video Editing"><h3>Video Editing</h3><p>Professional post-production.</p></div>
+            </div>
         </div>
     </section>
 
     <section id="portfolio" class="portfolio-section">
-        <h2 class="section-header">Our Portfolio</h2>
-        <div class="portfolio-grid" id="portfolio-container">
-            <!-- پروژه‌ها توسط جاوااسکریپت اینجا ساخته می‌شوند -->
+        <div class="container">
+            <h2 class="section-header">Our Portfolio</h2>
+            <div class="portfolio-grid" id="portfolio-container">
+                <!-- جزییات توسط JS پر می‌شود -->
+            </div>
         </div>
     </section>
 
-  <section id="contact" class="contact">
-    <form action="https://formspree.io/f/maqkalgp" method="POST" class="contact-form">
-        <h2>Contact Me</h2>
-        
-        <!-- فیلد نام با ویژگی name برای ذخیره شدن در دیتابیس Formspree و مرورگر -->
-        <input type="text" name="name" placeholder="Your Name" required>
-        
-        <!-- فیلد ایمیل -->
-        <input type="email" name="email" placeholder="Your Email" required>
-        
-        <!-- فیلد پیام -->
-        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-        
-        <!-- این خط باعث می‌شود بعد از ارسال، کاربر به یک صفحه خاص برنگردد و در سایت بماند یا پیام تشکر ببیند (اختیاری) -->
-        <input type="hidden" name="_subject" value="New Submission from Nova Studio!">
-        
-        <button type="submit">Send Message</button>
-   <!-- این باکس پیام موفقیت است -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2 class="section-header">Contact Me</h2>
+            <div class="contact-wrapper">
+                <form action="https://formspree.io/f/maqkalgp" method="POST" class="contact-form" id="my-form">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+                    <button type="submit" class="btn-primary">Send Message</button>
+                    <div id="form-status" class="status-message"></div>
+                </form>
 
-    <div id="form-status" class="status-message"></div>
-       </form> 
-     <form id="contact-form">
-  ...
-</form>
-
-<div class="payment-box">
-  <p>Ready to start your project?</p>
-  <a href="YOUR_PAYMENT_LINK" target="_blank" class="pay-btn">
-    Pay Project Deposit
-  </a>
-</div>
- 
-</section>
-
+                <div class="payment-box">
+                    <p>Ready to start your project?</p>
+                    <a href="YOUR_PAYMENT_LINK" target="_blank" class="pay-btn">Pay Project Deposit</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <script src="js/main.js"></script>
 </body>
 </html>
-
