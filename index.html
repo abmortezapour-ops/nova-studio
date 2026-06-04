@@ -2,78 +2,57 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Nova Studio</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nova Studio | Portfolio</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-<!-- NAVBAR -->
-<nav class="navbar">
-    <a href="#" class="logo">Nova Studio</a>
-    <ul class="nav-links">
-        <li><a href="#services">Services</a></li>
-        <li><a href="#portfolio">Portfolio</a></li>
-        <li><a href="#contact">Contact</a></li>
-    </ul>
-</nav>
+    <nav class="navbar">
+        <a href="#" class="logo">Nova Studio</a>
+        <ul class="nav-links">
+            <li><a href="#services">Services</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
 
-<!-- HERO -->
-<section class="hero">
-    <h1>Welcome to Nova Studio</h1>
-    <p>Creative digital experiences for modern brands.</p>
-    <a href="#services" class="btn-primary">Explore Services</a>
-</section>
+    <section class="hero">
+        <h1>Creative Digital Solutions</h1>
+        <p>Elevating brands through premium design and motion.</p>
+        <a href="#portfolio" class="btn-primary">View Our Work</a>
+    </section>
 
-<!-- SERVICES -->
-<section id="services" class="services-section">
-    <h2 class="section-header">Our Services</h2>
-
-    <div class="services-grid">
-        <div class="service-item" data-service="Web Design">
-            <h3>Web Design</h3>
-            <p>Modern responsive websites.</p>
+    <section id="services" class="services-section">
+        <h2 class="section-header">Our Services</h2>
+        <div class="services-grid">
+            <div class="service-item" data-service="Web Design"><h3>Web Design</h3><p>Modern responsive websites.</p></div>
+            <div class="service-item" data-service="UI/UX Design"><h3>UI/UX Design</h3><p>User-centered interfaces.</p></div>
+            <div class="service-item" data-service="Branding"><h3>Branding</h3><p>Visual identity systems.</p></div>
+            <div class="service-item" data-service="App Design"><h3>App Design</h3><p>Mobile-first experiences.</p></div>
+            <div class="service-item" data-service="Motion Graphics"><h3>Motion Graphics</h3><p>Engaging visual stories.</p></div>
+            <div class="service-item" data-service="Video Editing"><h3>Video Editing</h3><p>Professional post-production.</p></div>
         </div>
+    </section>
 
-        <div class="service-item" data-service="UI/UX Design">
-            <h3>UI/UX Design</h3>
-            <p>User-centered digital interfaces.</p>
+    <!-- بخش پورتفولیو که برگشت -->
+    <section id="portfolio" class="portfolio-section">
+        <h2 class="section-header">Our Portfolio</h2>
+        <div class="portfolio-grid" id="portfolio-container">
+            <!-- پروژه‌ها توسط جاوااسکریپت اینجا ساخته می‌شوند -->
         </div>
+    </section>
 
-        <div class="service-item" data-service="Branding">
-            <h3>Branding</h3>
-            <p>Strong visual identity systems.</p>
-        </div>
+    <section id="contact" class="contact-section">
+        <h2 class="section-header">Contact Us</h2>
+        <form class="contact-form">
+            <input type="text" placeholder="Name" required>
+            <input type="email" placeholder="Email" required>
+            <textarea rows="5" placeholder="Your Message"></textarea>
+            <button type="submit" class="btn-primary">Send Message</button>
+        </form>
+    </section>
 
-        <div class="service-item" data-service="App Design">
-            <h3>App Design</h3>
-            <p>Mobile-first experiences.</p>
-        </div>
-
-        <div class="service-item" data-service="Motion Graphics">
-            <h3>Motion Graphics</h3>
-            <p>Creative animated visuals.</p>
-        </div>
-
-        <div class="service-item" data-service="Consultation">
-            <h3>Consultation</h3>
-            <p>Strategy & digital growth.</p>
-        </div>
-    </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact" class="contact-section">
-    <h2 class="section-header">Contact Us</h2>
-
-    <form class="contact-form">
-        <input type="text" placeholder="Your Name" required>
-        <input type="email" placeholder="Your Email" required>
-        <textarea rows="6" placeholder="Your Message"></textarea>
-        <button type="submit" class="btn-primary">Send Message</button>
-    </form>
-</section>
-
-<script src="js/main.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
