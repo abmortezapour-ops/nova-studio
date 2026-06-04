@@ -126,3 +126,68 @@ button:hover { background: #cc00cc; }
     .services-grid, .portfolio-grid { grid-template-columns: 1fr; }
     .service-item { border-color: #333; } /* وضوح بیشتر در موبایل */
 }
+/* --- Contact Section Fix (Tablet Visibility) --- */
+
+.contact {
+    padding: 5rem 10%;
+    background: #000;
+}
+
+.contact-form {
+    max-width: 700px;
+    margin: 3rem auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    background: #0a0a0a;          /* بک‌گراند مشخص */
+    padding: 2.5rem;
+    border-radius: 20px;
+    border: 2px solid #222;       /* ضخیم‌تر برای دیده شدن */
+    box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+    transition: 0.3s;
+}
+
+.contact-form:hover {
+    border-color: #ff00ff;
+}
+
+/* Inputs */
+.contact-form input,
+.contact-form textarea {
+    background: #111;
+    border: 2px solid #333;      /* ضخیم‌تر */
+    padding: 1rem;
+    color: #fff;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: 0.3s;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: #ff00ff;
+    outline: none;
+}
+
+/* Button */
+.contact-form button {
+    background: #ff00ff;
+    color: #fff;
+    border: none;
+    padding: 1rem;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.contact-form button:hover {
+    background: #cc00cc;
+}
+
+/* Tablet Enhancement */
+@media (max-width: 1024px) {
+    .contact-form {
+        border-color: #333;   /* کمی روشن‌تر برای تبلت */
+    }
+}
