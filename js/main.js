@@ -1,28 +1,33 @@
-// 1. لیست پروژه‌های پورتفولیو
+// 1. لیست کامل ۸ پروژه پورتفولیو
 const projects = [
-    { title: "Project One", category: "Motion", img: "images/p1.png", link: "files/project1.pdf" },
-    { title: "Project Two", category: "Web", img: "images/p2.png", link: "files/project2.mp4" },
-    { title: "Project Three", category: "Branding", img: "images/p3.png", link: "files/project3.pdf" },
-    { title: "Project Four", category: "UI/UX", img: "images/p4.png", link: "files/project4.pdf" },
-    { title: "Project Five", category: "Design", img: "images/p5.png", link: "files/project5.pdf" },
-    { title: "Project Six", category: "Motion", img: "images/p6.png", link: "files/project6.mp4" }
+    { title: "AI Technology", category: "Motion", img: "images/p1.png", link: "files/Artificial-Intelligence-The-Future-of-Technology.pdf" },
+    { title: "Timeless Design", category: "Web", img: "images/p2.png", link: "files/Timeless-Value.pdf" },
+    { title: "Nova Logo", category: "Branding", img: "images/p3.png", link: "#" },
+    { title: "Marketing Pro", category: "UI/UX", img: "images/p4.png", link: "#" },
+    { title: "SaaS Concept", category: "Design", img: "images/p5.png", link: "#" },
+    { title: "Interface Studio", category: "Motion", img: "images/p6.png", link: "#" },
+    { title: "Digital Value", category: "Visuals", img: "images/p7.png", link: "files/Timeless-Value.pdf" },
+    { title: "Future Launch", category: "Concept", img: "images/p8.png", link: "#" }
 ];
 
-// 2. ساخت کارت‌های پورتفولیو
+// 2. ساخت خودکار کارت‌ها در صفحه
 const container = document.getElementById('portfolio-container');
-projects.forEach(proj => {
-    container.innerHTML += `
-        <a href="${proj.link}" target="_blank" class="portfolio-card">
-            <img src="${proj.img}" class="portfolio-img" alt="${proj.title}">
-            <div class="portfolio-overlay">
-                <h3>${proj.title}</h3>
-                <p>${proj.category}</p>
-            </div>
-        </a>
-    `;
-});
 
-// 3. انتخاب سرویس و اسکرول به فرم تماس
+if(container) {
+    projects.forEach(proj => {
+        container.innerHTML += `
+            <a href="${proj.link}" target="_blank" class="portfolio-card">
+                <img src="${proj.img}" class="portfolio-img" alt="${proj.title}">
+                <div class="portfolio-overlay">
+                    <h3>${proj.title}</h3>
+                    <p>${proj.category}</p>
+                </div>
+            </a>
+        `;
+    });
+}
+
+// 3. اسکرول به فرم تماس هنگام کلیک روی سرویس‌ها
 document.querySelectorAll('.service-item').forEach(item => {
     item.addEventListener('click', () => {
         const service = item.getAttribute('data-service');
@@ -30,7 +35,9 @@ document.querySelectorAll('.service-item').forEach(item => {
         
         document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
         
-        messageBox.value = `Hello Nova Studio,\nI am interested in: ${service}.\nPlease provide more info.`;
-        messageBox.focus();
+        if(messageBox) {
+            messageBox.value = `Hello Nova Studio,\nI am interested in: ${service}.\nPlease provide more info.`;
+            messageBox.focus();
+        }
     });
 });
