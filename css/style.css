@@ -147,11 +147,20 @@ nav {
     margin-bottom: 50px;
 }
 
+/* --- Services Section (Updated to 2 Columns) --- */
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
+    grid-template-columns: repeat(2, 1fr); /* اجبار به ۲ ستون در دسکتاپ */
+    gap: 30px;
 }
+
+/* برای اینکه در موبایل دوباره ۱ ستونه شود */
+@media (max-width: 768px) {
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
 
 .service-card {
     background: var(--card-bg);
@@ -245,15 +254,71 @@ nav {
 .pdf-link { background: var(--primary); color: #fff; }
 
 /* --- Contact & Footer --- */
-.contact {
-    padding: 100px 0;
-    text-align: center;
+/* --- Contact Section Fix --- */
+.contact-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+    background: var(--card-bg);
+    padding: 50px;
+    border-radius: 20px;
+    border: 1px solid #1a1a1a;
 }
 
+.contact-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* نام و ایمیل در یک خط */
+    gap: 20px;
+    text-align: left;
+}
+
+.contact-form textarea,
+.contact-form .btn-primary {
+    grid-column: span 2; /* پیام و دکمه تمام‌عرض */
+}
+
+.contact-form input, 
+.contact-form textarea {
+    width: 100%;
+    padding: 15px;
+    background: #050505;
+    border: 1px solid #222;
+    border-radius: 8px;
+    color: white;
+    font-family: inherit;
+    outline: none;
+    transition: 0.3s;
+}
+
+.contact-form input:focus, 
+.contact-form textarea:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 10px rgba(255, 0, 127, 0.1);
+}
+
+.contact-form textarea {
+    height: 150px;
+    resize: vertical;
+}
+
+.contact-form .btn-primary {
+    cursor: pointer;
+    border: none;
+    margin-top: 10px;
+}
+
+/* رفع مشکل فوتر و لینک پرداخت */
 .deposit-link {
-    display: inline-block;
-    margin-top: 20px;
+    display: block;
+    margin-top: 30px;
+    color: var(--text-dim);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+
+.deposit-link a {
     color: var(--primary);
     text-decoration: none;
-    border-bottom: 1px solid var(--primary);
+    font-weight: bold;
 }
+
