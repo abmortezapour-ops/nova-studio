@@ -9,6 +9,7 @@ const portfolioData = [
     { id: 8, title: "Studio X", img: "images/p8.png" }
 ];
 
+
 const grid = document.getElementById('portfolio-grid');
 
 if (grid) {
