@@ -3,83 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nova Studio | Professional Agency</title>
-    
-    <!-- مسیر اصلاح شده برای پوشه css -->
+    <title>Nova Studio | Creative Agency</title>
     <link rel="stylesheet" href="css/style.css">
-    
-    <!-- فونت Google برای ظاهر حرفه‌ای‌تر -->
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <header>
-        <nav class="container">
-            <div class="logo">NOVA STUDIO</div>
-            <ul class="nav-links">
-                <li><a href="#services">Services</a></li>
-                <li><a href="#portfolio">Portfolio</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
+        <div class="container">
+            <nav>
+                <div class="logo">NOVA STUDIO</div>
+                <ul class="nav-links">
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
     <section class="hero">
-        <div class="kicker">Creative Agency</div>
-        <h1>Building Digital Excellence</h1>
-        <p>We create premium digital experiences for forward-thinking brands.</p>
-        <div class="hero-btns">
+        <div class="container">
+            <p style="text-transform: uppercase; letter-spacing: 3px; font-size: 14px; color: #6c4cff;">Creative Agency</p>
+            <h1>Building Digital<br>Excellence</h1>
+            <p style="max-width: 600px; margin: 0 auto 30px; opacity: 0.8;">We create premium digital experiences for forward-thinking brands. Our mission is to blend art with technology.</p>
             <a href="#contact" class="btn-primary">Start Your Project</a>
         </div>
     </section>
 
-    <section id="services" class="services container">
-        <h2 class="section-title">Our Services</h2>
-        <div class="services-grid">
-            <div class="service-card" data-service="Web Design">
-                <div class="service-icon">✦</div>
-                <h3>Web Design</h3>
-                <p>Modern, responsive, and high-performance websites.</p>
-            </div>
-            <div class="service-card" data-service="Video & Motion">
-                <div class="service-icon">🎬</div>
-                <h3>Video & Motion</h3>
-                <p>Engaging motion graphics and video production.</p>
-            </div>
-            <div class="service-card" data-service="Brand Identity">
-                <div class="service-icon">💎</div>
-                <h3>Brand Identity</h3>
-                <p>Unique branding that sets you apart.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="portfolio" class="container">
-        <h2 class="section-title">Our Portfolio</h2>
-        <div id="portfolio-grid" class="portfolio-grid">
-            <!-- پروژه‌ها توسط JS لود می‌شوند -->
-        </div>
-    </section>
-
-    <section id="contact">
-        <div class="contact-wrapper">
-            <h2 style="margin-bottom:20px">Let's Create Together</h2>
-            <form action="https://formspree.io/f/maqkalgp" method="POST" id="my-form" class="contact-form">
-                <input type="text" name="name" placeholder="Name" required>
-                <input type="email" name="email" placeholder="Email" required>
-                <textarea id="message-area" name="message" placeholder="Your Message" required></textarea>
-                
-                <button type="submit" id="submit-btn" class="btn-primary">Send Message</button>
-                <p id="form-status" style="margin-top: 15px; text-align: center; font-weight: bold; display: none;"></p>
-            </form>
-
-            <div class="deposit-link">
-                <a href="#" id="deposit-btn">PAY PROJECT DEPOSIT</a>
+    <section id="services">
+        <div class="container">
+            <h2 class="section-title">Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div style="font-size: 30px; margin-bottom: 15px;">✦</div>
+                    <h3>Web Design</h3>
+                    <p>Modern, responsive, and high-performance websites tailored to your brand's unique needs.</p>
+                </div>
+                <div class="service-card">
+                    <div style="font-size: 30px; margin-bottom: 15px;">🎥</div>
+                    <h3>Video & Motion</h3>
+                    <p>Engaging motion graphics and professional video production that tells your story effectively.</p>
+                </div>
+                <div class="service-card">
+                    <div style="font-size: 30px; margin-bottom: 15px;">💎</div>
+                    <h3>Brand Identity</h3>
+                    <p>Unique branding strategy and visual identity systems that set you apart from the competition.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- مسیر اصلاح شده برای پوشه js -->
+    <section id="portfolio">
+        <div class="container">
+            <h2 class="section-title">Our Portfolio</h2>
+            <div id="portfolio-grid" class="portfolio-grid">
+                <!-- Projects will be loaded here from main.js -->
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" style="padding: 100px 0; text-align: center;">
+        <div class="container">
+            <h2 class="section-title">Let's Work Together</h2>
+            <p style="margin-bottom: 40px; opacity: 0.7;">Ready to start your next big project?</p>
+            <a href="mailto:hello@novastudio.com" class="btn-primary">Send us a Message</a>
+        </div>
+    </section>
+
+    <footer style="padding: 50px 0; border-top: 1px solid #1a1a1a; text-align: center; opacity: 0.5; font-size: 14px;">
+        <div class="container">
+            <p>&copy; 2026 Nova Studio. All rights reserved.</p>
+        </div>
+    </footer>
+
     <script src="js/main.js"></script>
 </body>
 </html>
