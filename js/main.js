@@ -1,19 +1,17 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Scroll and fill form from cards
+    // 1. Service Card Interaction
     const serviceCards = document.querySelectorAll('.service-card');
     const messageArea = document.getElementById('message-area');
 
-    if (serviceCards && messageArea) {
-        serviceCards.forEach(card => {
-            card.addEventListener('click', () => {
-                const serviceName = card.getAttribute('data-service');
-                document.querySelector('#contact').scrollIntoView({ behavior: 'smooth' });
-                messageArea.value = `Hi, I'm interested in your "${serviceName}" service.`;
-            });
+    serviceCards.forEach(card => {
+        card.addEventListener('click', () => {
+            const serviceName = card.getAttribute('data-service');
+            document.querySelector('#contact').scrollIntoView({ behavior: 'smooth' });
+            if(messageArea) messageArea.value = `Hi, I'm interested in your "${serviceName}" service.`;
         });
-    }
+    });
 
-    // Deposit Button Logic
+    // 2. Deposit Button
     const depositBtn = document.getElementById('deposit-btn');
     if (depositBtn) {
         depositBtn.addEventListener('click', (e) => {
@@ -23,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Formspree AJAX Submission
+    // 3. Formspree AJAX
     const form = document.getElementById("my-form");
     const status = document.getElementById("form-status");
     const btn = document.getElementById("submit-btn");
@@ -60,5 +58,24 @@ document.addEventListener('DOMContentLoaded', () => {
                 btn.disabled = false;
             });
         });
+    }
+
+    // 4. Portfolio Grid (Placeholder images)
+    const grid = document.getElementById('portfolio-grid');
+    if(grid) {
+        for(let i=1; i<=3; i++) {
+            const card = document.createElement('div');
+            card.className = 'portfolio-card';
+            card.innerHTML = `
+                <img src="images/p${i}.png" alt="Project ${i}">
+                <div class="portfolio-overlay">
+                    <h3>Project ${i}</h3>
+                    <div class="card-btns">
+                        <a href="#" class="view-btn">View Case</a>
+                    </div>
+                </div>
+            `;
+            grid.appendChild(card);
+        }
     }
 });
