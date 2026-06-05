@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nova Studio | Professional Agency</title>
+    <!-- مسیر فایل CSS را چک کن، اگر در پوشه نیست همین درسته -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Header Section -->
     <header>
         <nav>
             <div class="logo">NOVA STUDIO</div>
@@ -20,14 +20,12 @@
         </nav>
     </header>
 
-    <!-- Hero Section -->
     <section class="hero">
         <h1>Building Digital Excellence</h1>
         <p>We create premium digital experiences for forward-thinking brands.</p>
         <a href="#contact" class="btn-primary">Start Your Project</a>
     </section>
 
-    <!-- Services Section -->
     <section id="services">
         <h2>Our Services</h2>
         <div class="services-container">
@@ -46,35 +44,32 @@
         </div>
     </section>
 
-    <!-- Portfolio Section -->
     <section id="portfolio">
         <h2>Our Portfolio</h2>
-        <div id="portfolio-grid" class="portfolio-grid">
-            <!-- Projects will be populated by main.js -->
-        </div>
+        <div id="portfolio-grid" class="portfolio-grid"></div>
     </section>
 
-    <!-- Contact Section -->
     <section id="contact">
         <h2>Let's Create Together</h2>
         <div class="contact-wrapper">
             <form action="https://formspree.io/f/maqkalgp" method="POST" id="my-form">
-                <input type="text" name="name" placeholder="Name" required>
-                <input type="email" name="email" placeholder="Email" required>
-                <textarea id="message-area" name="message" placeholder="Your Message" required></textarea>
+                <div class="form-row" style="display: flex; gap: 10px; margin-bottom: 10px;">
+                    <input type="text" name="name" placeholder="Name" required style="flex: 1; padding: 12px; border-radius: 8px; border: 1px solid #333; background: #111; color: white;">
+                    <input type="email" name="email" placeholder="Email" required style="flex: 1; padding: 12px; border-radius: 8px; border: 1px solid #333; background: #111; color: white;">
+                </div>
+                <textarea id="message-area" name="message" placeholder="Your Message" required style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #333; background: #111; color: white; min-height: 100px; margin-bottom: 15px; box-sizing: border-box;"></textarea>
                 
                 <button type="submit" id="submit-btn" class="btn-primary">Send Message</button>
-                
-                <!-- پیام موفقیت -->
                 <p id="form-status" style="margin-top: 15px; text-align: center; font-weight: bold; display: none;"></p>
             </form>
 
-            <div class="deposit-link">
+            <div class="deposit-link" style="margin-top: 20px; text-align: center;">
                 <a href="#" id="deposit-btn">PAY PROJECT DEPOSIT</a>
             </div>
         </div>
     </section>
 
+    <!-- دقت کن: اگر فایل main.js در پوشه js است، آدرس زیر درست است -->
     <script src="js/main.js"></script>
 </body>
 </html>
