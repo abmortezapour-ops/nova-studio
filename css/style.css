@@ -321,4 +321,53 @@ nav {
     text-decoration: none;
     font-weight: bold;
 }
+/* ---------- UI Improvements / Overrides ---------- */
+
+/* Hover effect for main buttons */
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba(255, 0, 127, 0.35);
+    filter: brightness(1.1);
+}
+
+/* Make service cards clickable feeling */
+.service-card {
+    cursor: pointer;
+}
+
+/* Improve portfolio buttons visibility */
+.view-btn {
+    background: rgba(255,255,255,0.95);
+    color: #000;
+    border: 2px solid var(--primary);
+}
+
+.view-btn:hover {
+    background: var(--primary);
+    color: #fff;
+}
+
+/* Better centered contact wrapper */
+.contact-wrapper {
+    margin: 60px auto;
+    max-width: 650px;
+}
+
+/* Mobile improvements */
+@media (max-width:768px){
+
+    .contact-wrapper{
+        padding:30px;
+        margin:40px 20px;
+    }
+
+    .contact-form{
+        grid-template-columns:1fr;
+    }
+
+    .contact-form textarea,
+    .contact-form .btn-primary{
+        grid-column:span 1;
+    }
+}
 
