@@ -1,102 +1,50 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nova Studio | Elite Agency</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
-    <style>
-        :root { --primary: #ff007f; --secondary: #8a2be2; --bg: #050005; }
-        * { margin:0; padding:0; box-sizing:border-box; font-family:'Inter',sans-serif; scroll-behavior: smooth; }
-        body { background: var(--bg); color: white; overflow-x: hidden; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+// لیست پروژه‌ها دقیقاً با نام فایل‌های موجود در پوشه images تو
+const portfolioData = [
+    { id: 1, title: "Modern Design", desc: "توضیحات پروژه اول: طراحی رابط کاربری مدرن با استانداردهای روز.", img: "images/p1.png", pdf: "files/p1.pdf" },
+    { id: 2, title: "Creative Branding", desc: "توضیحات پروژه دوم: هویت بصری و لوگوی اختصاصی.", img: "images/p2.png", pdf: "files/p2.pdf" },
+    { id: 3, title: "Web Solution", desc: "توضیحات پروژه سوم: پیاده‌سازی وب‌سایت با سرعت و کارایی بالا.", img: "images/p3.png", pdf: "files/p3.pdf" },
+    { id: 4, title: "Digital Marketing", desc: "توضیحات پروژه چهارم: استراتژی رشد و تبلیغات نئونی.", img: "images/p4.png", pdf: "" },
+    { id: 5, title: "Tech Interface", desc: "توضیحات پروژه پنجم: طراحی پنل‌های مدیریتی پیچیده.", img: "images/p5.png", pdf: "" },
+    { id: 6, title: "Mobile App", desc: "توضیحات پروژه ششم: اپلیکیشن موبایل با تجربه کاربری عالی.", img: "images/p6.png", pdf: "" },
+    { id: 7, title: "Visual Identity", desc: "توضیحات پروژه هفتم: خلق دنیای بصری برند.", img: "images/p7.png", pdf: "" },
+    { id: 8, title: "Nova Future", desc: "توضیحات پروژه هشتم: پروژه‌های آینده‌محور استودیو.", img: "images/p8.png", pdf: "" }
+];
 
-        /* Header & Nav */
-        header { padding: 20px 0; background: rgba(5,0,5,0.9); backdrop-filter: blur(10px); position: fixed; width: 100%; top: 0; z-index: 1000; border-bottom: 1px solid rgba(255,0,127,0.1); }
-        nav { display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-size: 22px; font-weight: 900; color: var(--primary); text-decoration: none; letter-spacing: 2px; }
-        .nav-links { display: flex; gap: 25px; list-style: none; }
-        .nav-links a { text-decoration: none; color: white; font-size: 14px; }
-
-        /* Hero */
-        .hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: radial-gradient(circle at center, #2b002b 0%, #050005 70%); }
-        .hero h1 { font-size: clamp(40px, 8vw, 80px); font-weight: 900; margin: 20px 0; }
-
-        /* Services Cards */
-        .services { padding: 100px 0; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 50px; }
-        .card { background: rgba(255,255,255,0.03); padding: 40px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.05); transition: 0.3s; cursor: pointer; }
-        .card:hover { border-color: var(--primary); transform: translateY(-5px); background: rgba(255,0,127,0.05); }
-
-        /* Portfolio Items with PDF Button */
-        .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; margin-top: 50px; }
-        .portfolio-item { position: relative; border-radius: 15px; overflow: hidden; aspect-ratio: 4/3; background: #151515; cursor: pointer; }
-        .portfolio-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
-        .portfolio-item:hover img { transform: scale(1.1); filter: brightness(0.5); }
-        
-        .pdf-btn {
-            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-            background: var(--primary); color: white; padding: 10px 20px; border-radius: 5px;
-            text-decoration: none; font-weight: bold; opacity: 0; transition: 0.3s; z-index: 5;
-        }
-        .portfolio-item:hover .pdf-btn { opacity: 1; }
-
-        /* Contact Form */
-        .contact-box { background: linear-gradient(135deg, rgba(255,0,127,0.05), rgba(138,43,226,0.05)); border: 1px solid rgba(255,0,127,0.2); border-radius: 30px; padding: 60px; margin: 100px 0; }
-        form { display: flex; flex-direction: column; gap: 15px; max-width: 600px; margin: 30px auto; }
-        input, textarea { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 15px; border-radius: 10px; color: white; outline: none; }
-        input:focus, textarea:focus { border-color: var(--primary); }
-        button { background: linear-gradient(45deg, var(--primary), var(--secondary)); border: none; padding: 15px; border-radius: 10px; color: white; font-weight: bold; cursor: pointer; box-shadow: 0 0 20px rgba(255,0,127,0.3); }
-
-        /* Modal for Captions */
-        .modal { display: none; position: fixed; z-index: 2000; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); justify-content: center; align-items: center; }
-        .modal-content { background: #111; padding: 40px; border-radius: 20px; max-width: 500px; text-align: center; border: 1px solid var(--primary); }
-        .close-modal { position: absolute; top: 20px; right: 30px; font-size: 40px; cursor: pointer; }
-    </style>
-</head>
-<body>
-
-    <header>
-        <div class="container"><nav><a href="#" class="logo">NOVA STUDIO</a><ul class="nav-links"><li><a href="#services">Services</a></li><li><a href="#portfolio">Portfolio</a></li><li><a href="#contact">Contact</a></li></ul></nav></div>
-    </header>
-
-    <section class="hero"><h1>Building Digital<br>Excellence</h1></section>
-
-    <section id="services" class="services container">
-        <h2 style="text-align: center;">Our Services</h2>
-        <div class="grid">
-            <div class="card" onclick="selectService('UI/UX Design')"><h3>UI/UX Design</h3><p>Click to select this service</p></div>
-            <div class="card" onclick="selectService('Web Development')"><h3>Web Development</h3><p>Click to select this service</p></div>
-            <div class="card" onclick="selectService('Motion Graphics')"><h3>Motion Graphics</h3><p>Click to select this service</p></div>
+// رندر کردن تصاویر در گرید پورتفولیو
+const grid = document.getElementById('portfolio-grid');
+if (grid) {
+    grid.innerHTML = portfolioData.map(item => `
+        <div class="portfolio-item" onclick="openModal('${item.title}', '${item.desc}')">
+            <img src="${item.img}" alt="${item.title}" onerror="this.src='https://via.placeholder.com/400x300?text=Image+Not+Found'">
+            ${item.pdf ? `<a href="${item.pdf}" class="pdf-btn" target="_blank" onclick="event.stopPropagation()">View PDF</a>` : ''}
         </div>
-    </section>
+    `).join('');
+}
 
-    <section id="portfolio" class="container">
-        <h2 style="text-align: center;">Portfolio</h2>
-        <div id="portfolio-grid" class="portfolio-grid"></div>
-    </section>
+// تابع انتخاب سرویس و اسکرول به فرم تماس
+function selectService(serviceName) {
+    const messageBox = document.getElementById('message-box');
+    if(messageBox) {
+        messageBox.value = `سلام، من به سرویس "${serviceName}" علاقمند هستم. لطفا راهنمایی کنید.`;
+        document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+    }
+}
 
-    <section id="contact" class="container">
-        <div class="contact-box">
-            <h2 style="text-align: center;">Let's Connect</h2>
-            <form action="https://formspree.io/f/maqkalgp" method="POST">
-                <input type="text" name="name" placeholder="Your Name" required>
-                <input type="email" name="email" placeholder="Your Email" required>
-                <textarea name="message" id="message-box" rows="5" placeholder="Tell us about your project..." required></textarea>
-                <button type="submit">Send Message</button>
-            </form>
-        </div>
-    </section>
+// مدیریت مودال (کپشن)
+function openModal(title, desc) {
+    document.getElementById('modal-title').innerText = title;
+    document.getElementById('modal-desc').innerText = desc;
+    document.getElementById('captionModal').style.display = "flex";
+    document.body.style.overflow = "hidden"; // جلوگیری از اسکرول صفحه هنگام باز بودن مودال
+}
 
-    <!-- Modal -->
-    <div id="captionModal" class="modal">
-        <span class="close-modal" onclick="closeModal()">&times;</span>
-        <div class="modal-content">
-            <h2 id="modal-title" style="color:var(--primary)"></h2>
-            <p id="modal-desc" style="margin-top:20px; line-height:1.8;"></p>
-        </div>
-    </div>
+function closeModal() {
+    document.getElementById('captionModal').style.display = "none";
+    document.body.style.overflow = "auto";
+}
 
-    <script src="js/main.js"></script>
-</body>
-</html>
+// بستن مودال با کلیک روی فضای خالی
+window.onclick = function(event) {
+    const modal = document.getElementById('captionModal');
+    if (event.target == modal) closeModal();
+}
