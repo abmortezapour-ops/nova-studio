@@ -371,24 +371,21 @@ nav {
     }
 }
 /* --- Style for Pay Project Deposit Link --- */
-.deposit-link {
-    margin-top: 25px;
-    display: block;
-    font-size: 0.95rem;
-}
-
+/* --- Optimized Deposit Link --- */
 .deposit-link a {
-    color: var(--primary); /* رنگ صورتی */
-    text-decoration: none;
-    font-weight: 600;
-    padding-bottom: 2px;
-    border-bottom: 1px solid transparent; /* خط زیر مخفی */
-    transition: all 0.3s ease;
+    color: #ff007f !important; /* رنگ صورتی Nova */
+    text-decoration: none !important;
+    font-weight: bold !important;
+    font-size: 1.1rem !important;
+    transition: all 0.3s ease-in-out !important;
+    display: inline-block;
+    margin-top: 10px;
+    border-bottom: 2px solid transparent;
 }
 
 .deposit-link a:hover {
-    color: #ff4d94; /* کمی روشن‌تر در حالت هوور */
-    border-bottom: 1px solid var(--primary); /* ظاهر شدن خط زیر */
-    text-shadow: 0 0 8px rgba(255, 0, 127, 0.4); /* ایجاد یک درخشش ملایم */
+    color: #ffffff !important; /* در هوور سفید شود */
+    text-shadow: 0 0 15px #ff007f, 0 0 5px #ff007f !important; /* درخشش نئونی */
+    transform: scale(1.05);
+    border-bottom: 2px solid #ff007f;
 }
-
