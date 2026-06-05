@@ -1,68 +1,77 @@
-const projects = [
-    { title: "AI Technology Lab", category: "Web Development", image: "images/p1.png", link: "#", pdf: "files/Artificial-Intelligence-The-Future-of-Technology.pdf" },
-    { title: "Modern Brand Identity", category: "Branding", image: "images/p2.png", link: "#", pdf: "files/Timeless-Value.pdf" },
-    { title: "Social Dashboard", category: "Web Design", image: "images/p3.png", link: "#", pdf: null },
-    { title: "Mobile Fitness App", category: "UI/UX Design", image: "images/p4.png", link: "#", pdf: null },
-    { title: "Corporate Catalog", category: "Graphics", image: "images/p5.png", link: "#", pdf: null },
-    { title: "Cinema Edit Pro", category: "Video Editing", image: "images/p6.png", link: "#", pdf: null },
-    { title: "E-commerce Launch", category: "E-commerce", image: "images/p7.png", link: "#", pdf: null },
-    { title: "Minimalist Poster", category: "Digital Art", image: "images/p8.png", link: "#", pdf: null }
-];
-
-function loadProjects() {
-    const portfolioGrid = document.getElementById('portfolio-grid');
-    if(!portfolioGrid) return;
-    
-    portfolioGrid.innerHTML = projects.map(project => `
-        <div class="portfolio-card">
-            <img src="${project.image}" alt="${project.title}">
-            <div class="portfolio-overlay">
-                <p class="proj-cat">${project.category}</p>
-                <h3 class="proj-title">${project.title}</h3>
-                <div class="card-btns">
-                    <a href="${project.link}" class="view-btn">Project Details</a>
-                    ${project.pdf ? `<a href="${project.pdf}" target="_blank" class="pdf-link">View PDF</a>` : ''}
-                </div>
-            </div>
-        </div>
-    `).join('');
-}
-
 document.addEventListener('DOMContentLoaded', () => {
-    // ۱. لود کردن پروژه‌ها
-    loadProjects();
 
-    // ۲. اسکرول به فرم تماس با کلیک روی کارت‌های سرویس
-    document.querySelectorAll('.service-card').forEach(card => {
+    // 1. منطق کارت‌های سرویس (اسکرول به فرم و پر کردن پیام)
+    const serviceCards = document.querySelectorAll('.service-card');
+    const messageArea = document.getElementById('message-area');
+
+    serviceCards.forEach(card => {
         card.addEventListener('click', () => {
-            const serviceName = card.querySelector('h3').innerText;
-            const messageBox = document.querySelector('.contact-form textarea');
-            if(messageBox) {
-                document.querySelector('#contact').scrollIntoView({ behavior: 'smooth' });
-                messageBox.value = `Hi, I'm interested in your "${serviceName}" service.`;
-                messageBox.focus();
-            }
+            const serviceName = card.getAttribute('data-service');
+            document.querySelector('#contact').scrollIntoView({ behavior: 'smooth' });
+            messageArea.value = `Hi, I'm interested in your "${serviceName}" service.`;
         });
     });
 
-    // ۳. اصلاح عملکرد لینک پرداخت (Pay Project Deposit)
-    const depositLink = document.querySelector('.deposit-link a');
-    const submitBtn = document.querySelector('.contact-form .btn-primary');
+    // 2. منطق لینک پرداخت
+    const depositBtn = document.getElementById('deposit-btn');
+    depositBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        depositBtn.innerText = "...Redirecting to Payment";
+        depositBtn.style.color = "#ff007f";
+        setTimeout(() => {
+            alert("Redirecting to secure gateway...");
+        }, 1000);
+    });
 
-    if (depositLink && submitBtn) {
-        depositLink.addEventListener('click', function(e) {
-            e.preventDefault();
-            const originalText = submitBtn.innerText;
+    // 3. منطق فرم AJAX (ارسال بدون رفرش)
+    const form = document.getElementById("my-form");
+    const status = document.getElementById("form-status");
+    const btn = document.getElementById("submit-btn");
+
+    if (form) {
+        form.addEventListener("submit", async function(event) {
+            event.preventDefault(); 
             
-            submitBtn.innerText = "Redirecting to Payment...";
-            submitBtn.style.background = "linear-gradient(45deg, #00ff88, #00bd65)"; // سبز شدن دکمه
-            
-            setTimeout(() => {
-                alert("Redirecting to secure payment gateway...");
-                // window.location.href = "لینک درگاه شما";
-                submitBtn.innerText = originalText;
-                submitBtn.style.background = ""; // برگشت به رنگ اصلی
-            }, 1500);
+            const data = new FormData(event.target);
+            btn.innerText = "Sending...";
+            btn.disabled = true;
+
+            fetch(event.target.action, {
+                method: form.method,
+                body: data,
+                headers: { 'Accept': 'application/json' }
+            }).then(response => {
+                if (response.ok) {
+                    status.innerHTML = "✓ Message sent successfully!";
+                    status.style.display = "block";
+                    status.style.color = "#00ff88"; // سبز موفقیت
+                    form.reset();
+                    btn.innerText = "Send Message";
+                    btn.disabled = false;
+                    setTimeout(() => { status.style.display = "none"; }, 5000);
+                } else {
+                    status.innerHTML = "Oops! Something went wrong.";
+                    status.style.display = "block";
+                    status.style.color = "#ff4444"; // قرمز خطا
+                    btn.disabled = false;
+                }
+            }).catch(error => {
+                status.innerHTML = "Error connecting to server.";
+                status.style.display = "block";
+                btn.disabled = false;
+            });
+        });
+    }
+
+    // 4. لود کردن نمونه کارها (در صورت نیاز به لیست)
+    const projects = ["Project 1", "Project 2", "Project 3"];
+    const grid = document.getElementById('portfolio-grid');
+    if(grid) {
+        projects.forEach(p => {
+            const div = document.createElement('div');
+            div.className = 'project-card';
+            div.innerText = p;
+            grid.appendChild(div);
         });
     }
 });
