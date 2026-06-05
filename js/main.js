@@ -1,16 +1,16 @@
-// ۱. دیتای پروژه‌ها - تصاویر باید در پوشه images با این نام‌ها باشند
+// 1. Portfolio Data - Professional English Descriptions
 const portfolioData = [
-    { id: 1, title: "Modern Brand Identity", desc: "طراحی هویت بصری مدرن و نئونی برای برندهای تکنولوژی.", img: "images/p1.png", pdf: "files/p1.pdf" },
-    { id: 2, title: "Crypto Dashboard", desc: "رابط کاربری پیشرفته برای پلتفرم‌های تبادل ارز دیجیتال.", img: "images/p2.png", pdf: "" },
-    { id: 3, title: "Nova E-Commerce", desc: "طراحی و توسعه وب‌سایت فروشگاهی با سرعت بارگذاری فوق‌العاده.", img: "images/p3.png", pdf: "" },
-    { id: 4, title: "Mobile App Design", desc: "تجربه کاربری منحصر‌به‌فرد برای اپلیکیشن‌های iOS و Android.", img: "images/p4.png", pdf: "" },
-    { id: 5, title: "Motion Graphics", desc: "ساخت ویدیوهای تبلیغاتی کوتاه و جذاب برای سوشال مدیا.", img: "images/p5.png", pdf: "" },
-    { id: 6, title: "3D Product Render", desc: "رندرینگ سه بعدی محصولات با کیفیت 4K جهت استفاده در وب.", img: "images/p6.png", pdf: "" },
-    { id: 7, title: "Social Media Pack", desc: "طراحی قالب‌های حرفه‌ای برای پست و استوری اینستاگرام.", img: "images/p7.png", pdf: "" },
-    { id: 8, title: "Corporate UI Kit", desc: "طراحی سیستم طراحی (Design System) برای سازمان‌های بزرگ.", img: "images/p8.png", pdf: "" }
+    { id: 1, title: "Modern Brand Identity", desc: "Modern neon visual identity design for leading tech brands.", img: "images/p1.png", pdf: "files/p1.pdf" },
+    { id: 2, title: "Crypto Dashboard", desc: "Advanced UI design for cryptocurrency exchange platforms.", img: "images/p2.png", pdf: "" },
+    { id: 3, title: "Nova E-Commerce", desc: "High-performance online store design with ultra-fast loading speed.", img: "images/p3.png", pdf: "" },
+    { id: 4, title: "Mobile App Design", desc: "Unique user experience (UX) for iOS and Android applications.", img: "images/p4.png", pdf: "" },
+    { id: 5, title: "Motion Graphics", desc: "Engaging promotional videos for social media marketing.", img: "images/p5.png", pdf: "" },
+    { id: 6, title: "3D Product Render", desc: "High-quality 4K 3D product rendering for web integration.", img: "images/p6.png", pdf: "" },
+    { id: 7, title: "Social Media Pack", desc: "Professional template design for Instagram posts and stories.", img: "images/p7.png", pdf: "" },
+    { id: 8, title: "Corporate UI Kit", desc: "Comprehensive Design System for large-scale organizations.", img: "images/p8.png", pdf: "" }
 ];
 
-// ۲. رندر کردن خودکار بخش پورتفولیو در گرید
+// 2. Render Portfolio Grid
 const grid = document.getElementById('portfolio-grid');
 if (grid) {
     grid.innerHTML = portfolioData.map(item => `
@@ -21,21 +21,21 @@ if (grid) {
     `).join('');
 }
 
-// ۳. تابع انتخاب سرویس و اسکرول به فرم تماس
+// 3. Select Service and Auto-Fill Form (English)
 function selectService(serviceName) {
     const messageBox = document.getElementById('message-box');
     if (messageBox) {
-        messageBox.value = "درود؛ من به سرویس «" + serviceName + "» علاقمند هستم. لطفاً برای جزئیات بیشتر با من در تماس باشید.";
+        messageBox.value = "Hi! I'm interested in the '" + serviceName + "' service. Please contact me with more details.";
         document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
         messageBox.focus();
     }
 }
 
-// ۴. مدیریت ارسال فرم به صورت AJAX (بدون رفرش صفحه)
+// 4. AJAX Form Submission
 const contactForm = document.getElementById('contact-form');
 if (contactForm) {
     contactForm.onsubmit = async (e) => {
-        e.preventDefault(); // جلوگیری از رفتن به صفحه Formspree
+        e.preventDefault();
         
         const submitBtn = contactForm.querySelector('.submit-btn');
         const originalBtnText = submitBtn.innerText;
@@ -51,21 +51,20 @@ if (contactForm) {
             });
 
             if (response.ok) {
-                // نمایش پیام موفقیت سبز رنگ
+                // Success message
                 const successMsg = document.getElementById('success-msg');
                 successMsg.style.display = 'block';
                 
-                contactForm.reset(); // پاک کردن فرم
+                contactForm.reset();
                 
-                // مخفی کردن پیام بعد از ۵ ثانیه
                 setTimeout(() => {
                     successMsg.style.display = 'none';
                 }, 5000);
             } else {
-                alert("خطایی رخ داد. لطفاً دوباره تلاش کنید.");
+                alert("Something went wrong. Please try again.");
             }
         } catch (error) {
-            alert("ارسال پیام با خطا مواجه شد. اتصال اینترنت را بررسی کنید.");
+            alert("Error sending message. Please check your connection.");
         } finally {
             submitBtn.innerText = originalBtnText;
             submitBtn.disabled = false;
@@ -73,14 +72,14 @@ if (contactForm) {
     };
 }
 
-// ۵. توابع کنترل مودال (پنجره بازشونده توضیحات)
+// 5. Modal Control Functions
 function openModal(title, desc) {
     const modal = document.getElementById('captionModal');
     if (modal) {
         document.getElementById('modal-title').innerText = title;
         document.getElementById('modal-desc').innerText = desc;
         modal.style.display = "flex";
-        document.body.style.overflow = "hidden"; // جلوگیری از اسکرول صفحه وقتی مودال باز است
+        document.body.style.overflow = "hidden";
     }
 }
 
@@ -92,7 +91,6 @@ function closeModal() {
     }
 }
 
-// بستن مودال در صورت کلیک خارج از کادر محتوا
 window.onclick = function(event) {
     const modal = document.getElementById('captionModal');
     if (event.target == modal) {
