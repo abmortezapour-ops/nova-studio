@@ -22,13 +22,7 @@ if (grid) {
 }
 
 // 3. Select Service and Auto-Fill Form (English)
-function selectService(serviceName) {
-    const messageBox = document.getElementById('message-box');
-    if (messageBox) {
-        messageBox.value = "Hi! I'm interested in the '" + serviceName + "' service. Please contact me with more details.";
-        document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
-        messageBox.focus();
-    }
+
 }
 
 // 4. AJAX Form Submission
