@@ -351,3 +351,27 @@ nav {
     .hero-btns { flex-direction: column; width: 100%; }
     .btn-primary, .btn-secondary { width: 100%; }
 }
+/* --- Final Fix for Pay Project Deposit --- */
+.deposit-link {
+    display: block !important;
+    text-align: center !important;
+    margin-top: 25px !important;
+    width: 100% !important;
+}
+
+.deposit-link a {
+    color: #ff007f !important;
+    text-decoration: none !important;
+    font-weight: 700 !important;
+    font-size: 1.1rem !important;
+    padding: 5px 10px !important;
+    border-bottom: 2px solid rgba(255, 0, 127, 0.3) !important;
+    transition: all 0.3s ease-in-out !important;
+}
+
+.deposit-link a:hover {
+    color: #ffffff !important;
+    text-shadow: 0 0 15px #ff007f, 0 0 5px #ff007f !important;
+    border-bottom: 2px solid #ff007f !important;
+    letter-spacing: 1px !important;
+}
