@@ -46,3 +46,22 @@ document.querySelectorAll('.service-card').forEach(card => {
         messageBox.focus();
     });
 });
+// انیمیشن و پیام برای پرداخت بیعانه
+const depositLink = document.querySelector('.deposit-link a');
+if (depositLink) {
+    depositLink.addEventListener('click', function(e) {
+        e.preventDefault(); // جلوگیری از پرش صفحه
+        
+        // ایجاد یک افکت درخشش لحظه‌ای روی دکمه ارسال
+        const submitBtn = document.querySelector('.contact-form .btn-primary');
+        submitBtn.innerHTML = "Redirecting to Payment...";
+        submitBtn.style.background = "linear-gradient(45deg, #00ff88, #00bd65)"; // تغییر رنگ به سبز به نشانه تایید
+        
+        setTimeout(() => {
+            alert("Redirecting to secure payment gateway...");
+            // window.location.href = "لینک درگاه پرداخت شما"; 
+            submitBtn.innerHTML = "Send Message";
+            submitBtn.style.background = ""; // بازگشت به حالت اول
+        }, 1000);
+    });
+}
