@@ -49,23 +49,24 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // ۳. انیمیشن و پیام برای پرداخت بیعانه
+     // ۳. انیمیشن و پیام برای پرداخت بیعانه
     const depositLink = document.querySelector('.deposit-link a');
     const submitBtn = document.querySelector('.contact-form .btn-primary');
 
     if (depositLink && submitBtn) {
         depositLink.addEventListener('click', function(e) {
             e.preventDefault();
-            const originalText = submitBtn.innerHTML;
+            // تغییر ظاهر دکمه اصلی فرم برای بازخورد به کاربر
+            const originalText = submitBtn.innerText;
             
-            submitBtn.innerHTML = "Redirecting to Payment...";
-            submitBtn.style.background = "linear-gradient(45deg, #00ff88, #00bd65)";
+            submitBtn.innerText = "Redirecting to Payment...";
+            submitBtn.style.filter = "hue-rotate(90deg)"; // تغییر رنگ لحظه‌ای به سبز/آبی
             
             setTimeout(() => {
                 alert("Redirecting to secure payment gateway...");
-                // window.location.href = "لینک درگاه پرداخت شما"; 
-                submitBtn.innerHTML = originalText;
-                submitBtn.style.background = "";
-            }, 1000);
+                // window.location.href = "https://your-payment-link.com"; // لینک خود را اینجا بگذارید
+                submitBtn.innerText = originalText;
+                submitBtn.style.filter = "none";
+            }, 1500);
         });
     }
-}); // تمام آکولادها اینجا به درستی بسته شدند
