@@ -375,3 +375,27 @@ nav {
     border-bottom: 2px solid #ff007f !important;
     letter-spacing: 1px !important;
 }
+/* Contact Section Fixes */
+.contact-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.deposit-link {
+    margin-top: 10px;
+}
+
+.deposit-link a {
+    color: #ff007f !important;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.deposit-link a:hover {
+    color: #fff !important;
+    text-shadow: 0 0 15px #ff007f, 0 0 30px #ff007f;
+    border-bottom-color: #fff !important;
+}
