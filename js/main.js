@@ -1,81 +1,66 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // 1. Service Card Interaction
-    const serviceCards = document.querySelectorAll('.service-card');
-    const messageArea = document.getElementById('message-area');
+const projects = [
+{
+title:"Luxury Brand Website",
+category:"Web Design",
+img:"https://images.unsplash.com/photo-1547658719-da2b51169166"
+},
+{
+title:"Startup Landing Page",
+category:"UI / UX",
+img:"https://images.unsplash.com/photo-1559028012-481c04fa702d"
+},
+{
+title:"Mobile App Interface",
+category:"App Design",
+img:"https://images.unsplash.com/photo-1519389950473-47ba0277781c"
+},
+{
+title:"Creative Agency Site",
+category:"Web Design",
+img:"https://images.unsplash.com/photo-1507238691740-187a5b1d37b8"
+},
+{
+title:"Ecommerce Experience",
+category:"UX Design",
+img:"https://images.unsplash.com/photo-1498050108023-c5249f4df085"
+},
+{
+title:"Modern Dashboard",
+category:"Product Design",
+img:"https://images.unsplash.com/photo-1467232004584-a241de8bcf5d"
+},
+{
+title:"Tech Brand Identity",
+category:"Branding",
+img:"https://images.unsplash.com/photo-1522199710521-72d69614c702"
+},
+{
+title:"Creative Portfolio",
+category:"Web Design",
+img:"https://images.unsplash.com/photo-1492724441997-5dc865305da7"
+}
+];
 
-    serviceCards.forEach(card => {
-        card.addEventListener('click', () => {
-            const serviceName = card.getAttribute('data-service');
-            document.querySelector('#contact').scrollIntoView({ behavior: 'smooth' });
-            if(messageArea) messageArea.value = `Hi, I'm interested in your "${serviceName}" service.`;
-        });
-    });
+const portfolioGrid = document.getElementById("portfolio-grid");
 
-    // 2. Deposit Button
-    const depositBtn = document.getElementById('deposit-btn');
-    if (depositBtn) {
-        depositBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            depositBtn.innerText = "...Redirecting to Payment";
-            setTimeout(() => { alert("Redirecting to secure gateway..."); }, 1000);
-        });
-    }
+function loadProjects(){
 
-    // 3. Formspree AJAX
-    const form = document.getElementById("my-form");
-    const status = document.getElementById("form-status");
-    const btn = document.getElementById("submit-btn");
+if(!portfolioGrid) return;
 
-    if (form) {
-        form.addEventListener("submit", async function(event) {
-            event.preventDefault(); 
-            const data = new FormData(event.target);
-            btn.innerText = "Sending...";
-            btn.disabled = true;
+portfolioGrid.innerHTML = projects.map(project => `
+<div class="portfolio-card">
 
-            fetch(event.target.action, {
-                method: form.method,
-                body: data,
-                headers: { 'Accept': 'application/json' }
-            }).then(response => {
-                if (response.ok) {
-                    status.innerHTML = "✓ Message sent successfully!";
-                    status.style.display = "block";
-                    status.style.color = "#00ff88";
-                    form.reset();
-                    btn.innerText = "Send Message";
-                    btn.disabled = false;
-                    setTimeout(() => { status.style.display = "none"; }, 5000);
-                } else {
-                    status.innerHTML = "Oops! Something went wrong.";
-                    status.style.display = "block";
-                    status.style.color = "#ff4444";
-                    btn.disabled = false;
-                }
-            }).catch(error => {
-                status.innerHTML = "Connection Error.";
-                status.style.display = "block";
-                btn.disabled = false;
-            });
-        });
-    }
+<img src="${project.img}" alt="${project.title}">
 
-    // 4. Portfolio Grid (Placeholder images)
-    const grid = document.getElementById('portfolio-grid');
-    if(grid) {
-        for(let i=1; i<=3; i++) {
-            const card = document.createElement('div');
-            card.className = 'portfolio-card';
-            card.innerHTML = `
-                <img src="images/p${i}.png" alt="Project ${i}">
-                <div class="portfolio-overlay">
-                    <h3>Project ${i}</h3>
-                    <div class="card-btns">
-                        <a href="#" class="view-btn">View Case</a>
-                    </div>
-                </div>
-            `;
-            grid.appendChild(card);
-        }
-    }
-});
+<div class="portfolio-overlay">
+<h3>${project.title}</h3>
+<p>${project.category}</p>
+<a href="#" class="view-btn">View Case Study</a>
+</div>
+
+</div>
+`).join("");
+
+}
+
+document.addEventListener("DOMContentLoaded",loadProjects);
