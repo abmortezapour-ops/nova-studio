@@ -29,44 +29,40 @@ function loadProjects() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    // ۱. بارگذاری پروژه‌ها
+    // ۱. لود کردن پروژه‌ها
     loadProjects();
 
-    // ۲. عملکرد کلیک روی کارت‌های سرویس
+    // ۲. اسکرول به فرم تماس با کلیک روی کارت‌های سرویس
     document.querySelectorAll('.service-card').forEach(card => {
-        card.style.cursor = 'pointer';
         card.addEventListener('click', () => {
             const serviceName = card.querySelector('h3').innerText;
-            const contactSection = document.querySelector('#contact');
             const messageBox = document.querySelector('.contact-form textarea');
-            
-            if(contactSection && messageBox) {
-                contactSection.scrollIntoView({ behavior: 'smooth' });
-                messageBox.value = `Hi, I'm interested in your "${serviceName}" service. Please provide more details.`;
+            if(messageBox) {
+                document.querySelector('#contact').scrollIntoView({ behavior: 'smooth' });
+                messageBox.value = `Hi, I'm interested in your "${serviceName}" service.`;
                 messageBox.focus();
             }
         });
     });
 
-    // ۳. انیمیشن و پیام برای پرداخت بیعانه
-     // ۳. انیمیشن و پیام برای پرداخت بیعانه
+    // ۳. اصلاح عملکرد لینک پرداخت (Pay Project Deposit)
     const depositLink = document.querySelector('.deposit-link a');
     const submitBtn = document.querySelector('.contact-form .btn-primary');
 
     if (depositLink && submitBtn) {
         depositLink.addEventListener('click', function(e) {
             e.preventDefault();
-            // تغییر ظاهر دکمه اصلی فرم برای بازخورد به کاربر
             const originalText = submitBtn.innerText;
             
             submitBtn.innerText = "Redirecting to Payment...";
-            submitBtn.style.filter = "hue-rotate(90deg)"; // تغییر رنگ لحظه‌ای به سبز/آبی
+            submitBtn.style.background = "linear-gradient(45deg, #00ff88, #00bd65)"; // سبز شدن دکمه
             
             setTimeout(() => {
                 alert("Redirecting to secure payment gateway...");
-                // window.location.href = "https://your-payment-link.com"; // لینک خود را اینجا بگذارید
+                // window.location.href = "لینک درگاه شما";
                 submitBtn.innerText = originalText;
-                submitBtn.style.filter = "none";
+                submitBtn.style.background = ""; // برگشت به رنگ اصلی
             }, 1500);
         });
     }
+});
