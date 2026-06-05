@@ -1,32 +1,42 @@
-/* Nova Studio - Ultra Pink & Purple (Zero Blue Version) */
+/* Nova Studio - Official Global Professional CSS */
+
 :root {
-    --primary: #ff007f;    /* سرخابی (جایگزین بنفش مایل به آبی) */
-    --secondary: #ff00ff;  /* صورتی نئون */
-    --bg: #050005;         /* مشکی گرم */
+    --primary: #ff007f;    /* Deep Pink / Fuchsia */
+    --secondary: #ff00ff;  /* Neon Magenta */
+    --bg: #050005;         /* Ultra Dark Background */
+    --card-bg: #0d010d;    /* Subtle Card Background */
+    --text-color: #ffffff;
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
+/* 1. Global Styles */
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
 
 body {
     background-color: var(--bg);
-    color: #fff;
-    font-family: 'Inter', sans-serif;
+    color: var(--text-color);
+    line-height: 1.6;
+    overflow-x: hidden;
 }
 
+/* 2. Hero Section */
 .hero {
     height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* تغییر از بنفش به ارغوانی تیره برای حذف آبی */
+    text-align: center;
     background: radial-gradient(circle at center, #2b002b 0%, #050005 100%);
 }
 
 .hero h1 {
     font-size: clamp(40px, 10vw, 90px);
     font-weight: 900;
-    /* حذف گرادیانت متن که باعث سایه آبی میشد */
     color: #ffffff; 
     text-shadow: 0 0 30px rgba(255, 0, 127, 0.4);
     margin-bottom: 20px;
@@ -34,13 +44,13 @@ body {
 
 .btn-primary {
     background: linear-gradient(45deg, var(--primary), var(--secondary));
-    padding: 20px 50px;
+    padding: 18px 45px;
     border-radius: 50px;
     color: white;
     font-weight: bold;
     text-decoration: none;
     box-shadow: 0 0 30px rgba(255, 0, 127, 0.5);
-    transition: 0.3s;
+    transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .btn-primary:hover {
@@ -48,30 +58,85 @@ body {
     box-shadow: 0 0 50px rgba(255, 0, 255, 0.7);
 }
 
-/* بخش‌های دیگر */
-.services-grid, .portfolio-grid {
+/* 3. Portfolio Grid Fix */
+.portfolio-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-    padding: 50px 0;
-}
-.portfolio-item{
-    position: relative;
-    overflow: visible;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+    padding: 60px 5%;
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
-.pdf-btn{
+.portfolio-item {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    aspect-ratio: 1 / 1; /* کارت‌های مربعی شیک شبیه Dribbble */
+    cursor: pointer;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    background: var(--card-bg);
+    transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.portfolio-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.portfolio-item:hover {
+    transform: translateY(-10px);
+    border-color: var(--secondary);
+    box-shadow: 0 15px 40px rgba(255, 0, 255, 0.2);
+}
+
+.portfolio-item:hover img {
+    transform: scale(1.1);
+}
+
+/* 4. PDF Button - The Neon Pink Border Fix */
+.pdf-btn {
     position: absolute;
-    bottom: 10px;
-    right: 10px;
-    z-index: 10;
-    padding: 6px 12px;
-    font-size: 12px;
+    bottom: 15px;
+    right: 15px;
+    z-index: 50; /* نمایش قطعی روی عکس */
+    padding: 8px 16px;
+    font-size: 11px;
+    font-weight: 800;
     color: #fff;
     text-decoration: none;
-    background: rgba(0,0,0,0.6);
-    border: 1px solid #ff2bd6;
-    border-radius: 6px;
-    box-shadow: 0 0 8px #ff2bd6;
-    transition: 0.3s;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(8px); /* افکت شیشه‌ای حرفه‌ای */
+    border: 2px solid var(--secondary); /* لبه صورتی نئون */
+    border-radius: 8px;
+    box-shadow: 0 0 12px rgba(255, 0, 255, 0.5);
+    transition: all 0.3s ease;
+}
+
+.pdf-btn:hover {
+    background: var(--secondary);
+    color: #000;
+    box-shadow: 0 0 25px var(--secondary);
+    transform: translateY(-2px);
+}
+
+/* 5. Services Section */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    padding: 80px 5%;
+}
+
+/* 6. Footer & Others */
+footer {
+    text-align: center;
+    padding: 40px;
+    border-top: 1px solid rgba(255, 0, 255, 0.1);
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 14px;
 }
