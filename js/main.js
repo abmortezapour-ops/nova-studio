@@ -1,24 +1,41 @@
 const portfolioData = [
-    { id: 1, title: "Modern Brand", img: "images/p1.png" },
-    { id: 2, title: "Digital Art", img: "images/p2.png" },
-    { id: 3, title: "Web Design", img: "images/p3.png" },
-    { id: 4, title: "Mobile App", img: "images/p4.png" },
-    { id: 5, title: "Cyber Punk", img: "images/p5.png" },
-    { id: 6, title: "Neon Vision", img: "images/p6.png" },
-    { id: 7, title: "UI Concept", img: "images/p7.png" },
-    { id: 8, title: "Studio X", img: "images/p8.png" }
+    { id: 1, title: "Modern Brand", desc: "A complete rebranding for a tech startup focusing on neon aesthetics.", img: "images/p1.png", pdf: "files/brand.pdf" },
+    { id: 2, title: "Cyber App", desc: "Mobile application interface with dark mode and high contrast colors.", img: "images/p2.png", pdf: "" },
+    { id: 3, title: "Web Vision", desc: "A high-performance portfolio website for a famous photographer.", img: "images/p3.png", pdf: "files/web.pdf" },
+    { id: 4, title: "Neon Motion", desc: "3D animations and motion graphics for a music festival.", img: "images/p4.png", pdf: "" }
 ];
 
-
+// رندر کردن پورتفولیو
 const grid = document.getElementById('portfolio-grid');
-
 if (grid) {
     grid.innerHTML = portfolioData.map(item => `
-        <div class="portfolio-item">
-            <img src="${item.img}" alt="${item.title}" onerror="this.src='https://via.placeholder.com/400x250/2b002b/ff007f?text=Project+Image'">
-            <div style="position:absolute; bottom:0; left:0; right:0; padding:20px; background:linear-gradient(transparent, rgba(0,0,0,0.8));">
-                <h4 style="color:white; margin:0;">${item.title}</h4>
-            </div>
+        <div class="portfolio-item" onclick="openModal('${item.title}', '${item.desc}')">
+            <img src="${item.img}" alt="${item.title}">
+            ${item.pdf ? `<a href="${item.pdf}" class="pdf-btn" target="_blank">View PDF</a>` : ''}
         </div>
     `).join('');
+}
+
+// انتخاب سرویس و انتقال به باکس پیام
+function selectService(serviceName) {
+    const messageBox = document.getElementById('message-box');
+    messageBox.value = `I am interested in ${serviceName}. Let's talk about...`;
+    document.getElementById('contact').scrollIntoView();
+}
+
+// مدیریت مودال (کپشن)
+function openModal(title, desc) {
+    document.getElementById('modal-title').innerText = title;
+    document.getElementById('modal-desc').innerText = desc;
+    document.getElementById('captionModal').style.display = "flex";
+}
+
+function closeModal() {
+    document.getElementById('captionModal').style.display = "none";
+}
+
+// بستن مودال با کلیک بیرون از کادر
+window.onclick = function(event) {
+    const modal = document.getElementById('captionModal');
+    if (event.target == modal) closeModal();
 }
