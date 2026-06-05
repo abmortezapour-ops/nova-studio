@@ -389,3 +389,7 @@ nav {
     transform: scale(1.05);
     border-bottom: 2px solid #ff007f;
 }
+document.querySelector('.deposit-link a').addEventListener('click', function(e) {
+    console.log("Redirecting to payment...");
+    // اینجا می‌توانید کد مربوط به درگاه پرداخت یا الرت را بگذارید
+});
