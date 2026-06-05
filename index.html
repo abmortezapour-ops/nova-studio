@@ -81,29 +81,26 @@
     </section>
 
     <!-- Contact Section -->
-
-<section id="contact" class="contact"> 
-        <div class="container">
-            
-               <p class="kicker">Get In Touch</p>
-                <h2 class="section-title">Let's Create Together</h2>
-                <div class="contact-wrapper">
-                <form class="contact-form">
-                   <input type="text" name="name" placeholder="Name" required>
-
-                    <input type="email" placeholder="Email" required>
-                    <textarea placeholder="Your Message" rows="5" required></textarea>
-                    <button type="submit" class="btn-primary">Send Message</button>
-                </form>
-
-                <div class="payment-area">
-                       <p>Ready to start your project? <a href="#" class="deposit-link">Pay Project Deposit</a></p>
-
-                </div>
-            </div>
+<section id="contact" class="container">
+    <div class="contact-wrapper">
+        <h2 class="section-title">Let's Create Together</h2>
+        
+        <!-- فرم متصل شده به Formspree شما -->
+        <form action="https://formspree.io/f/maqkalgp" method="POST" class="contact-form">
+            <input type="text" name="name" placeholder="Name" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <textarea name="message" placeholder="Your Message" required></textarea>
+            <button type="submit" class="btn-primary">Send Message</button>
+        </form>
+        
+        <p style="margin-top:25px; color:#888; font-size: 0.9rem;">Ready to start your project?</p>
+        
+        <!-- لینک پرداخت با استایل مستقیم برای اطمینان از نمایش -->
+        <div class="deposit-link">
+            <a href="#" style="color: #ff007f !important; text-decoration: none !important; font-weight: bold !important; border-bottom: 2px solid #ff007f !important; padding-bottom: 2px;">Pay Project Deposit</a>
         </div>
-    </section>
-
+    </div>
+</section>
 
     <script src="js/main.js"></script>
 </body>
