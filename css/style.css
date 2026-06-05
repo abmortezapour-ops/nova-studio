@@ -1,142 +1,86 @@
-/* Nova Studio - Official Global Professional CSS */
+/* Nova Studio - Final Professional CSS */
 
 :root {
-    --primary: #ff007f;    /* Deep Pink / Fuchsia */
-    --secondary: #ff00ff;  /* Neon Magenta */
-    --bg: #050005;         /* Ultra Dark Background */
-    --card-bg: #0d010d;    /* Subtle Card Background */
+    --primary: #ff007f;
+    --secondary: #ff00ff;
+    --bg: #050005;
     --text-color: #ffffff;
 }
 
-/* 1. Global Styles */
-* { 
-    margin: 0; 
-    padding: 0; 
-    box-sizing: border-box; 
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
 
-body {
-    background-color: var(--bg);
-    color: var(--text-color);
-    line-height: 1.6;
-    overflow-x: hidden;
-}
+body { background-color: var(--bg); color: var(--text-color); overflow-x: hidden; }
 
-/* 2. Hero Section */
-.hero {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    background: radial-gradient(circle at center, #2b002b 0%, #050005 100%);
-}
-
-.hero h1 {
-    font-size: clamp(40px, 10vw, 90px);
-    font-weight: 900;
-    color: #ffffff; 
-    text-shadow: 0 0 30px rgba(255, 0, 127, 0.4);
-    margin-bottom: 20px;
-}
-
-.btn-primary {
-    background: linear-gradient(45deg, var(--primary), var(--secondary));
-    padding: 18px 45px;
-    border-radius: 50px;
-    color: white;
-    font-weight: bold;
-    text-decoration: none;
-    box-shadow: 0 0 30px rgba(255, 0, 127, 0.5);
-    transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.btn-primary:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 50px rgba(255, 0, 255, 0.7);
-}
-
-/* 3. Portfolio Grid Fix */
+/* --- Portfolio Grid Layout --- */
 .portfolio-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 30px;
     padding: 60px 5%;
-    max-width: 1400px;
-    margin: 0 auto;
 }
 
 .portfolio-item {
-    position: relative;
-    border-radius: 16px;
+    position: relative !important; /* بسیار مهم برای قرارگیری دکمه */
+    border-radius: 20px;
     overflow: hidden;
-    aspect-ratio: 1 / 1; /* کارت‌های مربعی شیک شبیه Dribbble */
+    aspect-ratio: 1 / 1;
     cursor: pointer;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    background: var(--card-bg);
-    transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: 0.4s;
 }
 
 .portfolio-item img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.6s ease;
 }
 
-.portfolio-item:hover {
-    transform: translateY(-10px);
-    border-color: var(--secondary);
-    box-shadow: 0 15px 40px rgba(255, 0, 255, 0.2);
-}
-
-.portfolio-item:hover img {
-    transform: scale(1.1);
-}
-
-/* 4. PDF Button - The Neon Pink Border Fix */
+/* --- The PDF Button Fix (Neon Pink & Positioned) --- */
 .pdf-btn {
-    position: absolute;
-    bottom: 15px;
-    right: 15px;
-    z-index: 50; /* نمایش قطعی روی عکس */
-    padding: 8px 16px;
-    font-size: 11px;
-    font-weight: 800;
-    color: #fff;
-    text-decoration: none;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    background: rgba(0, 0, 0, 0.7);
-    backdrop-filter: blur(8px); /* افکت شیشه‌ای حرفه‌ای */
-    border: 2px solid var(--secondary); /* لبه صورتی نئون */
-    border-radius: 8px;
-    box-shadow: 0 0 12px rgba(255, 0, 255, 0.5);
-    transition: all 0.3s ease;
+    position: absolute !important;
+    bottom: 15px !important;
+    right: 15px !important;
+    left: auto !important; /* خنثی کردن وسط چین بودن احتمالی */
+    top: auto !important;  /* خنثی کردن وسط چین بودن احتمالی */
+    transform: none !important;
+    z-index: 100 !important;
+    
+    padding: 8px 16px !important;
+    font-size: 11px !important;
+    font-weight: bold !important;
+    color: #ffffff !important;
+    text-decoration: none !important;
+    background: rgba(0, 0, 0, 0.8) !important;
+    
+    border: 2px solid #ff00ff !important; /* لبه صورتی نئون */
+    border-radius: 8px !important; /* تبدیل از بیضی به مستطیل شیک */
+    box-shadow: 0 0 15px rgba(255, 0, 255, 0.6) !important;
+    transition: 0.3s all ease !important;
 }
 
 .pdf-btn:hover {
-    background: var(--secondary);
-    color: #000;
-    box-shadow: 0 0 25px var(--secondary);
-    transform: translateY(-2px);
+    background: #ff00ff !important;
+    color: #000 !important;
+    box-shadow: 0 0 25px #ff00ff !important;
 }
 
-/* 5. Services Section */
-.services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 25px;
-    padding: 80px 5%;
+/* --- Other Elements --- */
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle at center, #2b002b 0%, #050005 100%);
 }
 
-/* 6. Footer & Others */
-footer {
-    text-align: center;
-    padding: 40px;
-    border-top: 1px solid rgba(255, 0, 255, 0.1);
-    color: rgba(255, 255, 255, 0.5);
-    font-size: 14px;
+.hero h1 { font-size: clamp(40px, 8vw, 80px); text-shadow: 0 0 20px var(--primary); }
+
+.btn-primary {
+    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    padding: 15px 40px;
+    border-radius: 50px;
+    color: white;
+    text-decoration: none;
+    box-shadow: 0 0 20px var(--primary);
 }
