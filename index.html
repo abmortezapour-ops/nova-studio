@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nova Studio | Elite Agency</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    
     <style>
         :root { --primary: #ff007f; --secondary: #8a2be2; --bg: #050005; }
         * { margin:0; padding:0; box-sizing:border-box; font-family:'Inter',sans-serif; scroll-behavior: smooth; }
@@ -60,6 +61,36 @@
         /* Success Message Overlay */
         #success-msg { display: none; position: fixed; top: 20px; right: 20px; background: #00ffcc; color: black; padding: 20px 40px; border-radius: 10px; font-weight: bold; z-index: 3000; animation: slideIn 0.5s ease; }
         @keyframes slideIn { from { transform: translateX(100%); } to { transform: translateX(0); } }
+        /* استایل دکمه‌های پرداخت و تماس */
+.pay-btn { 
+    display: inline-block; 
+    padding: 12px 30px; 
+    background: transparent; 
+    text-decoration: none; 
+    border-radius: 12px; 
+    font-weight: bold; 
+    transition: 0.3s; 
+    border: 2px solid;
+    text-transform: uppercase;
+    font-size: 14px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+/* افکت نئونی برای تلگرام */
+.pay-btn[href*="t.me"]:hover {
+    background: #0088cc !important;
+    color: white !important;
+    box-shadow: 0 0 20px rgba(0,136,204,0.6);
+}
+
+/* افکت نئونی برای روبیکا */
+.pay-btn[href*="rubika"]:hover {
+    background: #ba26ad !important;
+    color: white !important;
+    box-shadow: 0 0 20px rgba(186,38,173,0.6);
+}
+
     </style>
 </head>
 <body>
