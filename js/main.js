@@ -30,3 +30,19 @@ function loadProjects() {
 }
 
 document.addEventListener('DOMContentLoaded', loadProjects);
+// عملکرد کلیک روی کارت‌های سرویس
+document.querySelectorAll('.service-card').forEach(card => {
+    card.style.cursor = 'pointer'; // نمایش نشانگر دست روی کارت
+    card.addEventListener('click', () => {
+        const serviceName = card.querySelector('h3').innerText;
+        const contactSection = document.querySelector('#contact');
+        const messageBox = document.querySelector('.contact-form textarea');
+        
+        // اسکرول به بخش تماس
+        contactSection.scrollIntoView({ behavior: 'smooth' });
+        
+        // پر کردن متن پیام به صورت خودکار
+        messageBox.value = `Hi, I'm interested in your "${serviceName}" service. Please provide more details.`;
+        messageBox.focus();
+    });
+});
