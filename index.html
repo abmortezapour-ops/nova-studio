@@ -4,43 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nova Studio | Creative Agency</title>
-    <!-- گوگل فونت برای تایپوگرافی حرفه‌ای -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     
     <style>
-        /* تعریف رنگ‌های اختصاصی - بدون ذره‌ای آبی */
         :root {
             --primary-neon: #ff007f; /* سرخابی نئون */
             --secondary-neon: #8a2be2; /* بنفش عمیق */
-            --bg-black: #050005; /* مشکی گرم */
+            --bg-black: #050005; 
             --card-bg: rgba(255, 255, 255, 0.03);
             --text-white: #ffffff;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Inter', sans-serif;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        body { background-color: var(--bg-black); color: var(--text-white); line-height: 1.6; overflow-x: hidden; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 
-        body {
-            background-color: var(--bg-black);
-            color: var(--text-white);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* هدر و ناویگیشن */
+        /* Header */
         header {
-            padding: 25px 0;
-            background: rgba(5, 0, 5, 0.8);
+            padding: 20px 0;
+            background: rgba(5, 0, 5, 0.9);
             backdrop-filter: blur(10px);
             position: fixed;
             width: 100%;
@@ -48,42 +30,13 @@
             z-index: 1000;
             border-bottom: 1px solid rgba(255, 0, 127, 0.1);
         }
+        nav { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 22px; font-weight: 900; color: var(--primary-neon); text-decoration: none; letter-spacing: 2px; }
+        .nav-links { display: flex; gap: 25px; list-style: none; }
+        .nav-links a { text-decoration: none; color: white; font-weight: 500; transition: 0.3s; font-size: 14px; }
+        .nav-links a:hover { color: var(--primary-neon); }
 
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 24px;
-            font-weight: 900;
-            color: var(--primary-neon);
-            text-decoration: none;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 30px;
-            list-style: none;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-white);
-            font-weight: 500;
-            opacity: 0.8;
-            transition: 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: var(--primary-neon);
-            opacity: 1;
-        }
-
-        /* بخش اصلی (Hero) - حذف هاله آبی */
+        /* Hero Section */
         .hero {
             height: 100vh;
             display: flex;
@@ -91,94 +44,81 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            /* گرادیانت دایره‌ای ارغوانی تیره به مشکی */
             background: radial-gradient(circle at center, #2b002b 0%, #050005 70%);
-            padding-top: 80px;
         }
-
         .hero h1 {
-            font-size: clamp(40px, 10vw, 85px);
+            font-size: clamp(40px, 8vw, 80px);
             font-weight: 900;
-            margin-bottom: 20px;
             color: #ffffff;
-            /* درخشش صورتی/سرخابی نئون */
-            text-shadow: 0 0 20px rgba(255, 0, 127, 0.5);
+            text-shadow: 0 0 20px rgba(255, 0, 127, 0.4);
             line-height: 1.1;
+            margin: 20px 0;
         }
-
-        .hero p {
-            font-size: clamp(16px, 2vw, 20px);
-            opacity: 0.7;
-            margin-bottom: 40px;
-            max-width: 600px;
-        }
-
-        /* دکمه نئون */
         .btn-primary {
             background: linear-gradient(45deg, var(--primary-neon), var(--secondary-neon));
             color: white;
-            padding: 18px 45px;
+            padding: 15px 40px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: bold;
-            display: inline-block;
-            box-shadow: 0 0 25px rgba(255, 0, 127, 0.4);
+            box-shadow: 0 0 20px rgba(255, 0, 127, 0.3);
             transition: 0.4s;
             border: none;
-            cursor: pointer;
         }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 0 35px rgba(255, 0, 127, 0.6); }
 
-        .btn-primary:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 0 40px rgba(255, 0, 127, 0.7);
-        }
-
-        /* بخش سرویس‌ها */
+        /* Services */
         .services { padding: 100px 0; }
-        
-        .grid {
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 50px; }
+        .card { background: var(--card-bg); padding: 40px; border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.05); transition: 0.3s; }
+        .card:hover { border-color: var(--primary-neon); transform: translateY(-5px); }
+
+        /* Portfolio - بخش اصلاح شده برای مهار عکس ها */
+        .portfolio { padding: 100px 0; background: #080008; }
+        .portfolio-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 30px;
             margin-top: 50px;
         }
-
-        .card {
-            background: var(--card-bg);
-            padding: 40px;
-            border-radius: 25px;
+        .portfolio-item {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden; /* جلوگیری از بیرون زدن عکس */
+            aspect-ratio: 4 / 3; /* تمام باکس ها هم اندازه می شوند */
+            background: #151515;
             border: 1px solid rgba(255, 0, 127, 0.1);
+        }
+        .portfolio-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* عکس کادر را پر میکند بدون دفرمه شدن */
+            transition: 0.5s ease;
+        }
+        .portfolio-item:hover img { transform: scale(1.1); }
+        .portfolio-info {
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            padding: 20px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.9));
+            transform: translateY(100%);
             transition: 0.3s;
         }
+        .portfolio-item:hover .portfolio-info { transform: translateY(0); }
 
-        .card:hover {
-            border-color: var(--primary-neon);
-            background: rgba(255, 0, 127, 0.05);
-            transform: translateY(-10px);
-        }
-
-        /* بخش پورتفولیو */
-        .portfolio { padding: 80px 0; }
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 20px;
-        }
-
-        /* باکس کانتکت اصلاح شده */
+        /* Contact Box */
         .contact-box {
             background: linear-gradient(135deg, rgba(255, 0, 127, 0.1), rgba(138, 43, 226, 0.1));
             border: 1px solid rgba(255, 0, 127, 0.2);
-            border-radius: 40px;
-            padding: 80px 20px;
+            border-radius: 30px;
+            padding: 60px 20px;
             text-align: center;
             margin: 100px 0;
         }
 
-        /* ریسپانسیو گوشی */
         @media (max-width: 768px) {
             .nav-links { display: none; }
-            .hero h1 { font-size: 45px; }
+            .hero h1 { font-size: 42px; }
         }
     </style>
 </head>
@@ -187,7 +127,7 @@
     <header>
         <div class="container">
             <nav>
-                <a href="#" class="logo">Nova Studio</a>
+                <a href="#" class="logo">NOVA STUDIO</a>
                 <ul class="nav-links">
                     <li><a href="#services">Services</a></li>
                     <li><a href="#portfolio">Portfolio</a></li>
@@ -199,52 +139,47 @@
 
     <section class="hero">
         <div class="container">
-            <p style="color: var(--primary-neon); font-weight: bold; letter-spacing: 3px; text-transform: uppercase;">Creative Digital Agency</p>
+            <p style="color: var(--primary-neon); font-weight: bold; letter-spacing: 2px;">PREMIUM DESIGN SOLUTIONS</p>
             <h1>Building Digital<br>Excellence</h1>
-            <p>We create high-end digital experiences using neon aesthetics and modern technology.</p>
-            <a href="#contact" class="btn-primary">Start Your Project</a>
+            <p style="opacity: 0.7; margin-bottom: 30px;">We create high-end digital experiences for modern brands.</p>
+            <a href="#contact" class="btn-primary">Get In Touch</a>
         </div>
     </section>
 
     <section id="services" class="services container">
-        <h2 style="text-align: center; font-size: 35px;">Our Expertise</h2>
+        <h2 style="text-align: center; font-size: 32px;">Expertise</h2>
         <div class="grid">
             <div class="card">
-                <h3 style="color: var(--primary-neon); margin-bottom: 15px;">UI/UX Design</h3>
-                <p>Crafting beautiful and functional interfaces for modern brands.</p>
+                <h3 style="color: var(--primary-neon); margin-bottom: 10px;">Brand Identity</h3>
+                <p style="font-size: 14px; opacity: 0.8;">Creating unique visual languages for your business.</p>
             </div>
             <div class="card">
-                <h3 style="color: var(--primary-neon); margin-bottom: 15px;">Development</h3>
-                <p>Building fast, responsive, and scalable web applications.</p>
+                <h3 style="color: var(--primary-neon); margin-bottom: 10px;">Web Experience</h3>
+                <p style="font-size: 14px; opacity: 0.8;">High-performance websites with stunning visuals.</p>
             </div>
             <div class="card">
-                <h3 style="color: var(--primary-neon); margin-bottom: 15px;">Motion Graphics</h3>
-                <p>Bringing your brand to life with stunning visual animations.</p>
+                <h3 style="color: var(--primary-neon); margin-bottom: 10px;">App Design</h3>
+                <p style="font-size: 14px; opacity: 0.8;">Intuitive mobile interfaces for better engagement.</p>
             </div>
         </div>
     </section>
 
-    <section id="portfolio" class="portfolio container">
-        <h2 style="text-align: center; font-size: 35px; margin-bottom: 50px;">Selected Works</h2>
+    <section id="portfolio" class="container" style="padding-bottom: 100px;">
+        <h2 style="text-align: center; font-size: 32px;">Selected Works</h2>
         <div id="portfolio-grid" class="portfolio-grid">
-            <!-- پروژه‌ها توسط جاوااسکریپت اینجا لود می‌شوند -->
+            <!-- عکس ها از فایل js/main.js اینجا لود می شوند -->
         </div>
     </section>
 
     <section id="contact" class="container">
         <div class="contact-box">
-            <h2 style="font-size: 40px; margin-bottom: 20px;">Let's Work Together</h2>
-            <p style="margin-bottom: 40px;">Ready to start your next big project? We're just one message away.</p>
-            <a href="mailto:hello@novastudio.com" class="btn-primary">Send us a Message</a>
-            <div style="margin-top: 40px; display: flex; justify-content: center; gap: 20px; opacity: 0.6;">
-                <span>Instagram</span>
-                <span>Dribbble</span>
-                <span>LinkedIn</span>
-            </div>
+            <h2 style="font-size: 38px; margin-bottom: 15px;">Have a Project?</h2>
+            <p style="margin-bottom: 30px; opacity: 0.8;">Let's turn your ideas into reality.</p>
+            <a href="mailto:hello@nova.com" class="btn-primary">Email Us</a>
         </div>
     </section>
 
-    <!-- لود کردن فایل پروژه ها -->
+    <!-- فراخوانی اسکریپت پورتفولیو -->
     <script src="js/main.js"></script>
 </body>
 </html>
