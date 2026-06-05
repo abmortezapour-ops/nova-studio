@@ -9,9 +9,8 @@ const projects = [
     { title: "Minimalist Poster", category: "Digital Art", image: "images/p8.png", link: "#", pdf: null }
 ];
 
-const portfolioGrid = document.getElementById('portfolio-grid');
-
 function loadProjects() {
+    const portfolioGrid = document.getElementById('portfolio-grid');
     if(!portfolioGrid) return;
     
     portfolioGrid.innerHTML = projects.map(project => `
@@ -29,39 +28,44 @@ function loadProjects() {
     `).join('');
 }
 
-document.addEventListener('DOMContentLoaded', loadProjects);
-// عملکرد کلیک روی کارت‌های سرویس
-document.querySelectorAll('.service-card').forEach(card => {
-    card.style.cursor = 'pointer'; // نمایش نشانگر دست روی کارت
-    card.addEventListener('click', () => {
-        const serviceName = card.querySelector('h3').innerText;
-        const contactSection = document.querySelector('#contact');
-        const messageBox = document.querySelector('.contact-form textarea');
-        
-        // اسکرول به بخش تماس
-        contactSection.scrollIntoView({ behavior: 'smooth' });
-        
-        // پر کردن متن پیام به صورت خودکار
-        messageBox.value = `Hi, I'm interested in your "${serviceName}" service. Please provide more details.`;
-        messageBox.focus();
+document.addEventListener('DOMContentLoaded', () => {
+    // ۱. بارگذاری پروژه‌ها
+    loadProjects();
+
+    // ۲. عملکرد کلیک روی کارت‌های سرویس
+    document.querySelectorAll('.service-card').forEach(card => {
+        card.style.cursor = 'pointer';
+        card.addEventListener('click', () => {
+            const serviceName = card.querySelector('h3').innerText;
+            const contactSection = document.querySelector('#contact');
+            const messageBox = document.querySelector('.contact-form textarea');
+            
+            if(contactSection && messageBox) {
+                contactSection.scrollIntoView({ behavior: 'smooth' });
+                messageBox.value = `Hi, I'm interested in your "${serviceName}" service. Please provide more details.`;
+                messageBox.focus();
+            }
+        });
     });
-});
-// انیمیشن و پیام برای پرداخت بیعانه
-const depositLink = document.querySelector('.deposit-link a');
-if (depositLink) {
-    depositLink.addEventListener('click', function(e) {
-        e.preventDefault(); // جلوگیری از پرش صفحه
-        
-        // ایجاد یک افکت درخشش لحظه‌ای روی دکمه ارسال
-        const submitBtn = document.querySelector('.contact-form .btn-primary');
-        submitBtn.innerHTML = "Redirecting to Payment...";
-        submitBtn.style.background = "linear-gradient(45deg, #00ff88, #00bd65)"; // تغییر رنگ به سبز به نشانه تایید
-        
-        setTimeout(() => {
-            alert("Redirecting to secure payment gateway...");
-            // window.location.href = "لینک درگاه پرداخت شما"; 
-            submitBtn.innerHTML = "Send Message";
-            submitBtn.style.background = ""; // بازگشت به حالت اول
-        }, 1000);
-    });
-}
+
+    // ۳. انیمیشن و پیام برای پرداخت بیعانه
+    const depositLink = document.querySelector('.deposit-link a');
+    const submitBtn = document.querySelector('.contact-form .btn-primary');
+
+    if (depositLink && submitBtn) {
+        depositLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            const originalText = submitBtn.innerHTML;
+            
+            submitBtn.innerHTML = "Redirecting to Payment...";
+            submitBtn.style.background = "linear-gradient(45deg, #00ff88, #00bd65)";
+            
+            setTimeout(() => {
+                alert("Redirecting to secure payment gateway...");
+                // window.location.href = "لینک درگاه پرداخت شما"; 
+                submitBtn.innerHTML = originalText;
+                submitBtn.style.background = "";
+            }, 1000);
+        });
+    }
+}); // تمام آکولادها اینجا به درستی بسته شدند
