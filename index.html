@@ -265,24 +265,6 @@ btn.disabled=true;
 status.textContent="";
 });
 
-
-/* ============================= */
-/* MAGNETIC BUTTON EFFECT */
-/* ============================= */
-
-document.querySelectorAll(".magnetic").forEach(btn=>{
-btn.addEventListener("mousemove",function(e){
-const rect=this.getBoundingClientRect();
-const x=e.clientX-rect.left-rect.width/2;
-const y=e.clientY-rect.top-rect.height/2;
-this.style.transform=`translate(${x*0.2}px,${y*0.2}px)`;
-});
-btn.addEventListener("mouseleave",function(){
-this.style.transform="translate(0,0)";
-});
-});
-
-</script>
   <script src="js/main.js"></script>
 
 
