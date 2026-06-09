@@ -22,8 +22,18 @@ if (grid) {
 }
 
 // 3. Select Service and Auto-Fill Form (English)
+const serviceSelect = document.getElementById('service-select');
+const messageInput = document.getElementById('message');
 
+if (serviceSelect && messageInput) {
+    serviceSelect.addEventListener('change', () => {
+        const selectedService = serviceSelect.value;
+        if (selectedService && messageInput.value.indexOf(selectedService) === -1) {
+            messageInput.value = `Hello, I'm interested in your ${selectedService} service.`;
+        }
+    });
 }
+
 
 // 4. AJAX Form Submission
 const contactForm = document.getElementById('contact-form');
@@ -55,9 +65,13 @@ if (contactForm) {
                     successMsg.style.display = 'none';
                 }, 5000);
             } else {
+                // Handle non-JSON error responses if necessary
+                const errorData = await response.text(); // Or response.json() if the server sends JSON errors
+                console.error("Form submission error:", errorData);
                 alert("Something went wrong. Please try again.");
             }
         } catch (error) {
+            console.error("Network or fetch error:", error);
             alert("Error sending message. Please check your connection.");
         } finally {
             submitBtn.innerText = originalBtnText;
@@ -73,7 +87,7 @@ function openModal(title, desc) {
         document.getElementById('modal-title').innerText = title;
         document.getElementById('modal-desc').innerText = desc;
         modal.style.display = "flex";
-        document.body.style.overflow = "hidden";
+        document.body.style.overflow = "hidden"; // Prevent background scrolling
     }
 }
 
@@ -81,13 +95,14 @@ function closeModal() {
     const modal = document.getElementById('captionModal');
     if (modal) {
         modal.style.display = "none";
-        document.body.style.overflow = "auto";
+        document.body.style.overflow = "auto"; // Enable background scrolling
     }
 }
 
+// Close modal if clicking outside of its content
 window.onclick = function(event) {
     const modal = document.getElementById('captionModal');
-    if (event.target == modal) {
+    if (modal && event.target == modal) {
         closeModal();
     }
 }
