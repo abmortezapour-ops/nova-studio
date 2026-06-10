@@ -1,267 +1,22 @@
-/* --- Existing styles --- */
-/*
-    اگر استایل‌های دیگری در این فایل دارید، لطفاً آن‌ها را در ابتدای این کد قرار دهید.
-    مثلاً استایل‌های مربوط به .navbar, .hero, .services-grid, .portfolio-grid و غیره.
-    در اینجا فقط استایل‌های جدید و مرتبط با سوال شما آورده شده است.
-*/
-
 /* --- Basic Reset & Variables (Optional but Recommended) --- */
 :root {
-    --primary-color: #00ffff; /* Neon Blue */
+    --primary-color: #00ffff; /* Neon Blue - Existing */
     --secondary-color: #1a1a2e; /* Dark background */
     --text-color: #cccccc;
     --heading-color: #ffffff;
+
+    /* --- New Neon Color Variables --- */
+    --purple-neon-color: #8a2be2; /* Example: BlueViolet */
+    --green-neon-color: #39ff14; /* Example: Neon Green */
     --button-bg: #4a90e2; /* Default button background */
-    --button-hover-bg: #00ffff; /* Neon blue for hover */
+    --button-hover-bg: var(--primary-color); /* Use primary neon for hover */
+
     --card-bg: #1a1a2e;
     --card-hover-bg: #2a2a40;
     --card-active-bg: #3a3a50;
 }
 
-body {
-    font-family: 'Arial', sans-serif; /* Choose a suitable font */
-    background-color: var(--secondary-color);
-    color: var(--text-color);
-    margin: 0;
-    padding: 0;
-    line-height: 1.6;
-    overflow-x: hidden; /* Prevent horizontal scroll */
-}
-
-/* --- Custom Cursor Styles --- */
-.custom-cursor {
-    position: fixed;
-    width: 25px;
-    height: 25px;
-    border: 2px solid var(--primary-color);
-    border-radius: 50%;
-    pointer-events: none; /* Important: makes cursor non-interactive */
-    z-index: 9999;
-    transition: transform 0.1s ease-out, border-color 0.3s ease; /* Smooth movement */
-    transform: translate(-50%, -50%); /* Center the cursor on the mouse pointer */
-    background-color: rgba(0, 255, 255, 0.1); /* Subtle glow */
-}
-
-/* --- Navbar Styles --- */
-.navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 15px 0;
-    z-index: 1000;
-    transition: background-color 0.3s ease, padding 0.3s ease;
-    background-color: transparent; /* Initially transparent */
-}
-
-.navbar.scrolled {
-    background-color: rgba(26, 26, 46, 0.8); /* Semi-transparent dark background when scrolled */
-    padding: 10px 0;
-    backdrop-filter: blur(10px); /* Glass effect */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-}
-
-.nav-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 20px;
-}
-
-.logo {
-    color: var(--heading-color);
-    font-size: 1.8em;
-    font-weight: bold;
-    text-decoration: none;
-    letter-spacing: 1px;
-}
-
-.nav-links {
-    list-style: none;
-    display: flex;
-    margin: 0;
-    padding: 0;
-}
-
-.nav-links li {
-    margin-left: 30px;
-}
-
-.nav-links a {
-    color: var(--heading-color);
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s ease;
-}
-
-.nav-links a:hover {
-    color: var(--primary-color);
-}
-
-.btn-primary {
-    background-color: var(--button-bg);
-    color: white !important;
-    padding: 12px 25px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-    display: inline-block;
-    border: none; /* Remove default button border */
-    cursor: pointer;
-}
-
-.btn-primary:hover {
-    background-color: var(--button-hover-bg);
-    color: var(--secondary-color) !important; /* Dark text on neon */
-    transform: translateY(-3px) scale(1.05);
-    box-shadow: 0 0 15px rgba(0, 255, 255, 0.7);
-}
-
-/* --- Hero Section --- */
-.hero {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 0 20px;
-    background-image: linear-gradient(rgba(26, 26, 46, 0.9), rgba(26, 26, 46, 0.9)), url('images/hero-background.jpg'); /* Add your hero background image */
-    background-size: cover;
-    background-position: center;
-}
-
-.hero h1 {
-    font-size: 4em;
-    margin-bottom: 20px;
-    color: var(--heading-color);
-    line-height: 1.1;
-}
-
-.hero h1 .highlight {
-    color: var(--primary-color);
-}
-
-.hero p {
-    font-size: 1.4em;
-    max-width: 700px;
-    margin-bottom: 40px;
-    color: var(--text-color);
-}
-
-/* --- Scroll Reveal Animation --- */
-.reveal {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-}
-
-.reveal.active {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* --- Services Section --- */
-#services {
-    padding: 80px 20px;
-    text-align: center;
-}
-
-#services h2 {
-    font-size: 3em;
-    margin-bottom: 50px;
-    color: var(--heading-color);
-}
-
-.services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.service-card {
-    background-color: var(--card-bg);
-    border: 2px solid transparent;
-    padding: 30px 20px;
-    border-radius: 10px;
-    transition: all 0.3s ease;
-    cursor: pointer;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    text-align: left; /* Align text to left */
-}
-
-.service-card:hover {
-    transform: translateY(-10px) scale(1.03);
-    border-color: var(--primary-color);
-    box-shadow: 0 8px 25px rgba(0, 255, 255, 0.4);
-    background-color: var(--card-hover-bg);
-}
-
-/* Active state for selected service card - CORRECTED CLASS */
-.service-card.selected {
-    border-color: var(--primary-color);
-    box-shadow: 0 0 15px rgba(0, 255, 255, 0.7), 0 4px 15px rgba(0, 0, 0, 0.3);
-    background-color: var(--card-active-bg);
-    transform: scale(1.02);
-}
-
-.service-card h3 {
-    color: var(--heading-color);
-    margin-bottom: 15px;
-    font-size: 1.7em; /* Slightly larger heading */
-}
-
-.service-card p {
-    color: var(--text-color);
-    font-size: 1em;
-    line-height: 1.6;
-}
-
-/* --- Portfolio Section --- */
-#portfolio {
-    padding: 80px 20px;
-    text-align: center;
-    background-color: #111122; /* Slightly different background for contrast */
-}
-
-#portfolio h2 {
-    font-size: 3em;
-    margin-bottom: 50px;
-    color: var(--heading-color);
-}
-
-.portfolio-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.portfolio-card {
-    position: relative;
-    overflow: hidden;
-    border-radius: 8px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.portfolio-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0, 255, 255, 0.2); /* Subtle neon glow on hover */
-}
-
-.portfolio-card img {
-    width: 100%;
-    height: auto;
-    display: block; /* Remove extra space below image */
-    border-radius: 8px; /* Match card radius */
-}
+/* ... (بقیه استایل‌های قبلی شما) ... */
 
 /* --- New styles for PDF Buttons --- */
 .pdf-btn {
@@ -288,16 +43,17 @@ body {
     background-color: rgba(0, 0, 0, 0.6);
     backdrop-filter: blur(5px);
     padding: 8px 15px;
-    border: 1px solid rgba(0, 255, 255, 0.5);
+    border: 1px solid rgba(0, 255, 255, 0.5); /* Use primary neon for border */
 }
 
 .pdf-btn:hover {
     background-color: var(--button-hover-bg); /* Neon blue on hover */
     color: var(--secondary-color) !important; /* Dark text on neon */
     transform: translateY(-3px) scale(1.05);
-    box-shadow: 0 0 10px rgba(0, 255, 255, 0.7);
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.7); /* Neon blue glow */
     border-color: var(--button-hover-bg); /* Match background */
 }
+
 
 /* --- Contact Section --- */
 #contact {
@@ -336,9 +92,9 @@ body {
 
 #contactForm input:focus,
 #contactForm textarea:focus {
-    border-color: var(--primary-color);
+    border-color: var(--primary-color); /* Neon blue for focus */
     outline: none; /* Remove default outline */
-    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5); /* Neon blue glow */
 }
 
 #contactForm textarea {
@@ -350,37 +106,17 @@ body {
     width: 100%; /* Make submit button full width */
     padding: 15px;
     font-size: 1.1em;
+    /* --- Add initial background color if needed, or let JS handle it --- */
+    /* background-color: var(--button-bg); */
 }
 
 /* Button loading state */
 .btn-loading {
     position: relative;
     opacity: 0.7;
+    cursor: not-allowed; /* Indicate button is not interactive */
     /* --- REMOVED: The :after pseudo-element for the spinning circle --- */
-    /*
-    .btn-loading:after {
-        content: '';
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 20px;
-        height: 20px;
-        margin-top: -10px;
-        margin-left: -10px;
-        border: 3px solid rgba(255, 255, 255, 0.3);
-        border-top-color: #fff;
-        border-radius: 50%;
-        animation: spin 1s linear infinite;
-    }
-    */
 }
-
-/* --- REMOVED: The spin animation as its usage is removed --- */
-/*
-@keyframes spin {
-    to { transform: rotate(360deg); }
-}
-*/
 
 /* Form Status Messages */
 .form-status {
@@ -390,28 +126,33 @@ body {
     text-align: center;
     font-weight: bold;
     display: block; /* Ensure it takes up space */
+    min-height: 20px; /* Ensure it has height even when empty */
 }
 
 .form-status.success {
     background-color: rgba(40, 167, 69, 0.2); /* Greenish background */
-    color: #90ee90; /* Light green text */
-    border: 1px solid #28a745;
+    color: var(--green-neon-color); /* Use the defined neon green */
+    border: 1px solid var(--green-neon-color);
 }
 
 .form-status.error {
     background-color: rgba(220, 53, 69, 0.2); /* Reddish background */
-    color: #f8b7bd; /* Light red text */
-    border: 1px solid #dc3545;
+    color: var(--purple-neon-color); /* Use the defined neon purple for errors */
+    border: 1px solid var(--purple-neon-color);
 }
 
-/* Payment Button Style */
+/* Payment Button Style - Adjust if you want it to have neon colors too */
 .btn-payment {
     background-color: #f39c12; /* Orange color for payment */
     margin-left: 10px; /* Space between submit and payment button */
+    border: none; /* Ensure no default border */
+    color: white !important;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .btn-payment:hover {
     background-color: #e67e22; /* Darker orange on hover */
+    transform: translateY(-3px) scale(1.05);
     box-shadow: 0 0 15px rgba(243, 156, 18, 0.7);
 }
 
@@ -463,4 +204,12 @@ body {
 /* --- Magnetic Button Styles --- */
 .magnetic {
     transition: transform 0.2s ease-out; /* Speed up magnetic effect */
+}
+
+/* --- Adjusting primary button hover for consistency --- */
+.btn-primary:hover {
+    background-color: var(--button-hover-bg); /* This is now var(--primary-color) */
+    color: var(--secondary-color) !important; /* Dark text on neon */
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.7); /* Neon blue glow */
 }
