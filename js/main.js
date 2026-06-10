@@ -62,4 +62,63 @@ document.addEventListener("DOMContentLoaded", function() {
             this.style.transform = "translate(0, 0)";
         });
     });
-});
+
+    // 6. Form handling (now moved from index.html)
+    const form = document.getElementById("contactForm");
+    const btn = document.getElementById("submitBtn");
+    const status = document.getElementById("formStatus");
+
+    form.addEventListener("submit", function(e) {
+        e.preventDefault(); // جلوگیری از ارسال پیش‌فرض فرم
+        
+        btn.classList.add("btn-loading");
+        btn.disabled = true;
+        status.textContent = "Sending...";
+        status.className = "form-status"; // پاک کردن کلاس‌های قبلی
+
+        const formData = new FormData(form);
+        
+        fetch('https://formspree.io/f/maqkalgp', { // استفاده از آیدی فرم صحیح
+            method: 'POST',
+            body: formData,
+            headers: {
+                'Accept': 'application/json' // فرمspree پاسخ JSON می‌دهد
+            }
+        })
+        .then(response => {
+            if (!response.ok) {
+                // اگر پاسخ خطا بود (مثلا 4xx یا 5xx)
+                return response.json().then(data => { throw data; }); // تلاش برای دریافت جزئیات خطا از JSON
+            }
+            return response.json(); // در صورت موفقیت، پاسخ JSON را برگردان
+        })
+        .then(data => {
+            // ارسال موفقیت آمیز بود
+            status.textContent = "Message sent successfully!";
+            status.className = "form-status success";
+            form.reset(); // پاک کردن فیلدهای فرم
+            // در صورت نیاز، می‌توان دکمه پرداخت را نیز اینجا نمایش داد یا فعال کرد
+        })
+        .catch(error => {
+            // خطایی رخ داد (چه در شبکه، چه در پاسخ Formspree)
+            console.error('Form submission error:', error);
+            let errorMessage = "An error occurred. Please check your connection or try again later.";
+            if (error.errors) {
+                // اگر Formspree خطاهای مشخصی برگردانده باشد
+                errorMessage = error.errors.map(e => e.message).join(", "); // دریافت پیام خطاهای مشخص
+            } else if (error.message) {
+                errorMessage = error.message;
+            } else if (typeof error === 'object' && error !== null) {
+                 errorMessage = Object.values(error).join(", "); // نمایش مقادیر خطا در صورت وجود
+            }
+            status.textContent = errorMessage;
+            status.className = "form-status error";
+        })
+        .finally(() => {
+            // در هر صورت، دکمه را به حالت اول برگردان
+            btn.classList.remove("btn-loading");
+            btn.disabled = false;
+        });
+    });
+
+}); // پایان DOMContentLoaded
