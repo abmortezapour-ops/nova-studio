@@ -434,3 +434,67 @@ font-weight:500;
 
 .success{color:#22c55e;}
 .error{color:#ef4444;}
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 40px;
+    padding-bottom: 50px;
+}
+
+.social-btn {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 25px;
+    color: white;
+    background: rgba(255, 255, 255, 0.05); /* حالت شیشه‌ای */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+}
+
+/* افکت درخشش هنگام نگه داشتن موس */
+.social-btn:hover {
+    transform: translateY(-8px);
+    color: #fff;
+}
+
+/* رنگ اختصاصی تلگرام (آبی نئونی) */
+.social-btn.telegram:hover {
+    background: #0088cc;
+    box-shadow: 0 0 25px rgba(0, 136, 204, 0.6);
+    border-color: #0088cc;
+}
+
+/* رنگ اختصاصی روبیکا (صورتی/سرخابی نئونی هماهنگ با تم سایت) */
+.social-btn.rubika:hover {
+    background: #ff007f;
+    box-shadow: 0 0 25px rgba(255, 0, 127, 0.6);
+    border-color: #ff007f;
+}
+
+/* استایل حرف R برای روبیکا */
+.rubika-letter {
+    font-family: 'Arial Black', sans-serif;
+    font-weight: bold;
+    font-size: 22px;
+}
+
+/* افکت لرزش ملایم برای آیکون‌ها در حالت هاور */
+.social-btn:hover i {
+    animation: shake 0.5s infinite;
+}
+
+@keyframes shake {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(10deg); }
+    75% { transform: rotate(-10deg); }
+    100% { transform: rotate(0deg); }
+}
