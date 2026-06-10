@@ -104,7 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         submitButton.classList.remove('btn-loading');
                         // Optionally, you might want to remove magnetic class if it causes issues after submission
                         // submitButton.classList.remove('magnetic');
-                    }, 1500); // Delay in milliseconds
+                    }, 3000); // Delay in milliseconds
 
                 } else {
                     // --- ERROR ---
