@@ -12,22 +12,7 @@
 body { background-color: var(--bg); color: var(--text-color); overflow-x: hidden; }
 
 /* --- Portfolio Grid Layout --- */
-.portfolio-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 30px;
-    padding: 60px 5%;
-}
 
-.portfolio-item {
-    position: relative !important; /* بسیار مهم برای قرارگیری دکمه */
-    border-radius: 20px;
-    overflow: hidden;
-    aspect-ratio: 1 / 1;
-    cursor: pointer;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    transition: 0.4s;
-}
 
 .portfolio-item img {
     width: 100%;
