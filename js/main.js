@@ -1,4 +1,3 @@
-// --- Custom Cursor ---
 document.addEventListener('DOMContentLoaded', () => {
     const cursor = document.querySelector('.custom-cursor');
     if (cursor) {
@@ -69,13 +68,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const submitButton = document.getElementById('submitBtn');
     const formStatus = document.getElementById('formStatus');
 
+    // --- Define CSS Variables for Neon Colors ---
+    // These should match the variables defined in your CSS
+    const primaryNeonColor = getComputedStyle(document.documentElement).getPropertyValue('--primary-color').trim();
+    const greenNeonColor = getComputedStyle(document.documentElement).getPropertyValue('--green-neon-color').trim(); // Assuming you'll define this in CSS
+    const purpleNeonColor = getComputedStyle(document.documentElement).getPropertyValue('--purple-neon-color').trim(); // Assuming you'll define this in CSS
+
     if (contactForm && submitButton && formStatus) {
         contactForm.addEventListener('submit', async (e) => {
             e.preventDefault(); // Prevent default form submission
 
             // Add loading state to the button
             submitButton.classList.add('btn-loading');
-            // Clear previous status messages
+            // Clear previous status messages and reset classes
             formStatus.textContent = '';
             formStatus.className = 'form-status'; // Reset classes
 
@@ -95,15 +100,19 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (response.ok) {
                     // --- SUCCESS ---
                     formStatus.textContent = 'Message sent successfully!';
-                    formStatus.classList.add('success');
+                    formStatus.classList.add('success'); // Add success class for styling
                     contactForm.reset(); // Clear the form
 
-                    // IMPORTANT: Remove loading class and reset button style AFTER status message is visible
-                    // Use a small delay to ensure the success message is seen before button resets
+                    // Apply neon color to the button on success (e.g., green)
+                    submitButton.style.backgroundColor = greenNeonColor || '#00ff00'; // Fallback color
+
+                    // Wait for the success message to be visible before resetting the button
                     setTimeout(() => {
                         submitButton.classList.remove('btn-loading');
-                        // Optionally, you might want to remove magnetic class if it causes issues after submission
-                        // submitButton.classList.remove('magnetic');
+                        submitButton.style.backgroundColor = ''; // Reset to default or hover color
+                        // If you have a separate payment button, you might want to style it differently
+                        // const paymentButton = document.querySelector('.btn-payment');
+                        // if (paymentButton) paymentButton.style.backgroundColor = '';
                     }, 3000); // Delay in milliseconds
 
                 } else {
@@ -111,7 +120,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     const errorData = await response.json();
                     console.error('Form submission error:', errorData);
                     formStatus.textContent = `Error: ${errorData.error || 'Something went wrong. Please try again.'}`;
-                    formStatus.classList.add('error');
+                    formStatus.classList.add('error'); // Add error class for styling
+
+                    // Apply neon color to the button on error (e.g., purple)
+                    submitButton.style.backgroundColor = purpleNeonColor || '#8a2be2'; // Fallback color
 
                     // Remove loading class on error
                     submitButton.classList.remove('btn-loading');
@@ -120,7 +132,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 // --- NETWORK ERROR ---
                 console.error('Network or fetch error:', error);
                 formStatus.textContent = 'Network error. Please check your connection and try again.';
-                formStatus.classList.add('error');
+                formStatus.classList.add('error'); // Add error class for styling
+
+                // Apply neon color to the button on error (e.g., purple)
+                submitButton.style.backgroundColor = purpleNeonColor || '#8a2be2'; // Fallback color
 
                 // Remove loading class on error
                 submitButton.classList.remove('btn-loading');
@@ -128,9 +143,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- Magnetic Button Enhancement (Optional - can be complex) ---
-    // This is a basic example, advanced magnetic effects might need more complex logic
-    // to ensure they reset properly after actions like form submission.
+    // --- Magnetic Button Enhancement ---
     const magneticButtons = document.querySelectorAll('.magnetic');
     magneticButtons.forEach(button => {
         button.addEventListener('mousemove', (e) => {
@@ -142,7 +155,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const moveX = (x - centerX) * 0.2; // Adjust the multiplier for magnetic effect strength
             const moveY = (y - centerY) * 0.2;
 
-            // Apply transform to the button itself or a pseudo-element if needed
             button.style.transform = `translate(${moveX}px, ${moveY}px)`;
         });
 
