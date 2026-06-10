@@ -106,11 +106,10 @@ font-weight:500;
 
 <body>
 
-
 <header class="navbar">
 <div class="nav-container">
 
-<a class="logo" href="#">Nova Studio</a>
+<a class="logo" href="#home">Nova Studio</a>
 
 <ul class="nav-links">
 <li><a href="#services">Services</a></li>
@@ -123,9 +122,8 @@ font-weight:500;
 </div>
 </header>
 
-
-
-<section class="hero reveal">
+<!-- بخش Hero به عنوان صفحه اصلی با ID="home" تعریف شد -->
+<section id="home" class="hero reveal">
 
 <h1>We Build <span class="highlight">Premium</span> Experiences</h1>
 
@@ -139,8 +137,6 @@ View Work
 </a>
 
 </section>
-
-
 
 <section id="services">
 
@@ -170,29 +166,39 @@ View Work
 <section id="portfolio">
     <h2 class="reveal">Portfolio</h2>
     <div class="portfolio-grid">
+        <!-- .portfolio-card کلاس درست است -->
         <div class="portfolio-card reveal">
             <img src="images/p1.png" alt="Project 1">
+            <!-- دکمه PDF: اگر فایل PDF دارید، لینک آن را اینجا قرار دهید -->
+            <a href="path/to/your/pdf1.pdf" class="pdf-btn" target="_blank">PDF</a>
         </div>
         <div class="portfolio-card reveal">
             <img src="images/p2.png" alt="Project 2">
+            <a href="path/to/your/pdf2.pdf" class="pdf-btn" target="_blank">PDF</a>
         </div>
         <div class="portfolio-card reveal">
             <img src="images/p3.png" alt="Project 3">
+            <a href="path/to/your/pdf3.pdf" class="pdf-btn" target="_blank">PDF</a>
         </div>
         <div class="portfolio-card reveal">
             <img src="images/p4.png" alt="Project 4">
+            <a href="path/to/your/pdf4.pdf" class="pdf-btn" target="_blank">PDF</a>
         </div>
         <div class="portfolio-card reveal">
             <img src="images/p5.png" alt="Project 5">
+            <a href="path/to/your/pdf5.pdf" class="pdf-btn" target="_blank">PDF</a>
         </div>
         <div class="portfolio-card reveal">
             <img src="images/p6.png" alt="Project 6">
+            <a href="path/to/your/pdf6.pdf" class="pdf-btn" target="_blank">PDF</a>
         </div>
         <div class="portfolio-card reveal">
             <img src="images/p7.png" alt="Project 7">
+            <a href="path/to/your/pdf7.pdf" class="pdf-btn" target="_blank">PDF</a>
         </div>
         <div class="portfolio-card reveal">
             <img src="images/p8.png" alt="Project 8">
+            <a href="path/to/your/pdf8.pdf" class="pdf-btn" target="_blank">PDF</a>
         </div>
     </div>
 
@@ -202,8 +208,9 @@ View Work
 
 <h2 class="reveal">Contact</h2>
 
+<!-- آیدی فرم Formspree به درستی تنظیم شده است -->
 <form id="contactForm" class="reveal"
-action="https://formspree.io/f/xblkoejr"
+action="https://formspree.io/f/maqkalgp"
 method="POST">
 
 <input id="name" name="name" type="text" placeholder="Your Name" required>
@@ -218,18 +225,31 @@ method="POST">
 Send Message
 </button>
 
+<!-- دکمه پرداخت (مثال - لینک و رنگ را مطابق نیاز خود تغییر دهید) -->
+<a href="YOUR_PAYMENT_LINK" target="_blank" class="btn-primary magnetic btn-payment">
+    Support Us / Pay
+</a>
+
+<!-- لینک‌های شبکه‌های اجتماعی -->
+<div class="social-links">
+    <a href="YOUR_RUBLIKA_LINK" target="_blank" class="social-icon rublika">
+        <img src="images/rublika_icon.png" alt="Rublika"> <!-- آیکون روبیکا -->
+    </a>
+    <a href="YOUR_TELEGRAM_LINK" target="_blank" class="social-icon telegram">
+        <img src="images/telegram_icon.png" alt="Telegram"> <!-- آیکون تلگرام -->
+    </a>
+</div>
+
 <p id="formStatus" class="form-status"></p>
 
 </form>
 
 </section>
 
-
-
+<!-- اسکریپت‌های داخلی -->
 <script>
 
 /* Scroll reveal */
-
 const observer = new IntersectionObserver(entries=>{
 entries.forEach(entry=>{
 if(entry.isIntersecting){
@@ -242,25 +262,18 @@ document.querySelectorAll(".reveal").forEach(el=>{
 observer.observe(el);
 });
 
-
 /* Service click auto fill */
-
 const cards=document.querySelectorAll(".service-card");
-const subject=document.getElementById("subject");
-const message=document.getElementById("message");
+const subjectInput=document.getElementById("subject"); // نام متغیر را به subjectInput تغییر دادم
+const messageInput=document.getElementById("message"); // نام متغیر را به messageInput تغییر دادم
 
 cards.forEach(card=>{
-
 card.addEventListener("click",function(){
-
 cards.forEach(c=>c.classList.remove("selected"));
 this.classList.add("selected");
-
 const service=this.dataset.service;
-
-subject.value="Inquiry about "+service;
-
-message.value=
+subjectInput.value="Inquiry about "+service;
+messageInput.value=
 `Hello Nova Studio,
 
 I am interested in your "${service}" service.
@@ -268,36 +281,74 @@ I am interested in your "${service}" service.
 Please send pricing and process details.
 
 Best regards`;
-
 document.getElementById("contact")
 .scrollIntoView({behavior:"smooth"});
-
 setTimeout(()=>{
-message.focus();
+messageInput.focus();
 },600);
-
+});
 });
 
-});
-
-
-/* Form loading */
-
+/* Form handling */
 const form=document.getElementById("contactForm");
 const btn=document.getElementById("submitBtn");
 const status=document.getElementById("formStatus");
 
-form.addEventListener("submit",function(){
+form.addEventListener("submit", function(e) {
+    e.preventDefault(); // جلوگیری از ارسال پیش‌فرض فرم
+    
+    btn.classList.add("btn-loading");
+    btn.disabled=true;
+    status.textContent="Sending...";
+    status.className = "form-status"; // پاک کردن کلاس‌های قبلی
 
-btn.classList.add("btn-loading");
-btn.disabled=true;
-status.textContent="Sending...";
-
+    const formData = new FormData(form);
+    
+    fetch('https://formspree.io/f/maqkalgp', { // استفاده از آیدی فرم صحیح
+        method: 'POST',
+        body: formData,
+        headers: {
+            'Accept': 'application/json' // فرمspree پاسخ JSON می‌دهد
+        }
+    })
+    .then(response => {
+        if (!response.ok) {
+            // اگر پاسخ خطا بود (مثلا 4xx یا 5xx)
+            return response.json().then(data => { throw data; }); // تلاش برای دریافت جزئیات خطا از JSON
+        }
+        return response.json(); // در صورت موفقیت، پاسخ JSON را برگردان
+    })
+    .then(data => {
+        // ارسال موفقیت آمیز بود
+        status.textContent="Message sent successfully!";
+        status.className = "form-status success";
+        form.reset(); // پاک کردن فیلدهای فرم
+        // در صورت نیاز، می‌توان دکمه پرداخت را نیز اینجا نمایش داد یا فعال کرد
+    })
+    .catch(error => {
+        // خطایی رخ داد (چه در شبکه، چه در پاسخ Formspree)
+        console.error('Form submission error:', error);
+        let errorMessage = "An error occurred. Please check your connection or try again later.";
+        if (error.errors) {
+            // اگر Formspree خطاهای مشخصی برگردانده باشد
+            errorMessage = error.errors.join(", ");
+        } else if (error.message) {
+            errorMessage = error.message;
+        }
+        status.textContent = errorMessage;
+        status.className = "form-status error";
+    })
+    .finally(() => {
+        // در هر صورت، دکمه را به حالت اول برگردان
+        btn.classList.remove("btn-loading");
+        btn.disabled=false;
+    });
 });
 
 </script>
 
-<script src="js/main.js"></script>
+<!-- اسکریپت خارجی (اگر دارید، مثلاً برای افکت‌های بیشتر) -->
+<!-- <script src="js/main.js"></script> -->
 
 </body>
 </html>
