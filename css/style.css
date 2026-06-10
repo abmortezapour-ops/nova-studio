@@ -5,6 +5,8 @@
     --secondary: #ff00ff; /* بنفش */
     --bg: #050005; /* پس‌زمینه تیره */
     --text-color: #ffffff; /* رنگ متن سفید */
+    --accent-blue: #00d4ff; /* رنگ آبی برای پرداخت */
+    --accent-purple: #0946ff; /* رنگ بنفش برای پرداخت */
 }
 
 * { 
@@ -113,6 +115,18 @@ body {
     box-shadow: 0 0 30px var(--secondary); /* سایه بیشتر */
 }
 
+/* استایل برای دکمه پرداخت */
+.btn-payment {
+    background: linear-gradient(45deg, var(--accent-blue), var(--accent-purple)); /* رنگ آبی */
+    box-shadow: 0 0 20px var(--accent-blue);
+    margin-top: 15px; /* فاصله از دکمه ارسال */
+}
+
+.btn-payment:hover {
+    box-shadow: 0 0 30px var(--accent-purple);
+}
+
+
 /* --- Services Section --- */
 #services {
     padding: 100px 5%; /* فاصله بالا/پایین و کناری */
@@ -167,7 +181,6 @@ body {
 
 .portfolio-grid {
     display: grid;
-    /* تنظیم ستون‌ها: 3 ستون در دسکتاپ، 2 ستون در تبلت، 1 ستون در موبایل */
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
     gap: 30px; /* فاصله بین کارت‌ها */
     max-width: 1300px; /* کمی عریض‌تر از گرید سرویس‌ها */
@@ -292,21 +305,62 @@ body {
     resize: vertical; /* اجازه تغییر اندازه عمودی */
 }
 
-/* --- Other Elements --- */
-
-/* Custom Cursor (اگر بخواهید اضافه کنید) */
-.custom-cursor {
-    width: 20px;
-    height: 20px;
-    background: rgba(99, 102, 241, 0.5);
-    border-radius: 50%;
-    position: fixed;
-    pointer-events: none;
-    z-index: 9999;
-    transition: transform 0.1s ease;
+/* استایل برای دکمه پرداخت */
+.btn-payment {
+    background: linear-gradient(45deg, var(--accent-blue), var(--accent-purple)); /* رنگ آبی */
+    box-shadow: 0 0 20px var(--accent-blue);
+    margin-top: 15px; /* فاصله از دکمه ارسال */
 }
 
-/* Glass Navbar on Scroll */
+.btn-payment:hover {
+    box-shadow: 0 0 30px var(--accent-purple);
+}
+
+/* استایل برای لینک‌های شبکه‌های اجتماعی */
+.social-links {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* فاصله بین آیکون‌ها */
+}
+
+.social-icon {
+    display: inline-block;
+    width: 40px; /* اندازه آیکون */
+    height: 40px;
+    border-radius: 50%; /* گرد کردن آیکون */
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: background-color 0.3s ease;
+    overflow: hidden; /* برای اینکه تصویر داخل دایره قرار گیرد */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.social-icon img {
+    width: 70%; /* اندازه تصویر داخل آیکون */
+    height: 70%;
+    display: block;
+    margin: 15% auto; /* وسط چین کردن تصویر */
+    object-fit: contain; /* حفظ نسبت تصویر */
+}
+
+.social-icon.rublika {
+    border-color: #1ba1f2; /* رنگ مرزی روبیکا */
+}
+.social-icon.rublika:hover {
+    background-color: #1ba1f2;
+}
+
+.social-icon.telegram {
+    border-color: #0088cc; /* رنگ مرزی تلگرام */
+}
+.social-icon.telegram:hover {
+    background-color: #0088cc;
+}
+
+
+/* --- Other Elements --- */
+
+/* GlassNavbar on Scroll */
 .navbar.scrolled {
     background: rgba(5, 0, 5, 0.85); /* پس‌زمینه تیره با بلور */
     backdrop-filter: blur(15px);
