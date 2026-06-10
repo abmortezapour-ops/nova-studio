@@ -25,34 +25,34 @@ body {
 /* --- Custom Cursor Style --- */
 .custom-cursor {
     position: fixed;
-    width: 20px; /* اندازه نشانگر */
+    width: 20px;
     height: 20px;
     border-radius: 50%;
-    background-color: var(--primary); /* رنگ نشانگر */
-    pointer-events: none; /* برای اینکه نشانگر مانع کلیک نشود */
-    z-index: 9999; /* اطمینان از اینکه بالای همه عناصر است */
-    transition: transform 0.1s ease-out, background-color 0.2s ease; /* انیمیشن ظریف */
-    opacity: 0.7; /* کمی شفافیت */
+    background-color: var(--primary);
+    pointer-events: none;
+    z-index: 9999;
+    transition: transform 0.1s ease-out, background-color 0.2s ease;
+    opacity: 0.7;
 }
 
 /* --- Navigation Bar --- */
 .navbar {
-    position: fixed; /* ثابت در بالا */
+    position: fixed;
     width: 100%;
     top: 0;
     left: 0;
-    padding: 20px 0; /* فاصله بالا و پایین */
-    z-index: 1000; /* اطمینان از اینکه بالای همه عناصر است */
+    padding: 20px 0;
+    z-index: 1000;
     transition: background-color 0.3s ease, padding 0.3s ease, border-bottom 0.3s ease;
 }
 
 .nav-container {
-    max-width: 1200px; /* عرض حداکثر برای محتوای ناوبری */
-    margin: 0 auto; /* وسط چین کردن */
-    padding: 0 20px; /* فاصله کناری */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
     display: flex;
-    justify-content: space-between; /* پخش کردن لوگو و لینک‌ها */
-    align-items: center; /* هم‌ترازی عمودی */
+    justify-content: space-between;
+    align-items: center;
 }
 
 .logo {
@@ -60,13 +60,13 @@ body {
     font-weight: bold;
     color: var(--text-color);
     text-decoration: none;
-    text-shadow: 0 0 10px var(--primary); /* افکت نئونی */
+    text-shadow: 0 0 10px var(--primary);
 }
 
 .nav-links {
-    list-style: none; /* حذف نقطه لیست */
+    list-style: none;
     display: flex;
-    gap: 30px; /* فاصله بین لینک‌ها */
+    gap: 30px;
 }
 
 .nav-links a {
@@ -77,72 +77,70 @@ body {
 }
 
 .nav-links a:hover {
-    color: var(--primary); /* تغییر رنگ هنگام هاور */
+    color: var(--primary);
 }
 
 /* --- Hero Section --- */
 .hero {
-    height: 100vh; /* تمام صفحه */
+    height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: center; /* وسط چین عمودی */
-    align-items: center; /* وسط چین افقی */
-    text-align: center; /* وسط چین متن */
-    background: radial-gradient(circle at center, #2b002b 0%, var(--bg) 100%); /* گرادیانت پس‌زمینه */
-    padding: 0 20px; /* فاصله کناری */
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: radial-gradient(circle at center, #2b002b 0%, var(--bg) 100%);
+    padding: 0 20px;
 }
 
 .hero h1 { 
-    font-size: clamp(40px, 8vw, 80px); /* اندازه فونت تطبیقی */
-    text-shadow: 0 0 20px var(--primary); /* افکت سایه نئونی */
+    font-size: clamp(40px, 8vw, 80px);
+    text-shadow: 0 0 20px var(--primary);
     margin-bottom: 20px;
 }
 
 .hero .highlight {
-    color: var(--primary); /* رنگ برجسته برای Premium */
+    color: var(--primary);
 }
 
 .hero p {
-    font-size: clamp(16px, 2.5vw, 20px); /* اندازه فونت پاراگراف */
-    max-width: 600px; /* حداکثر عرض پاراگراف */
+    font-size: clamp(16px, 2.5vw, 20px);
+    max-width: 600px;
     margin-bottom: 40px;
-    line-height: 1.6; /* فاصله بین خطوط */
+    line-height: 1.6;
 }
 
 /* --- Buttons --- */
 .btn-primary {
     background: linear-gradient(45deg, var(--primary), var(--secondary));
     padding: 15px 40px;
-    border-radius: 50px; /* گرد کردن گوشه‌ها */
+    border-radius: 50px;
     color: white;
     text-decoration: none;
     box-shadow: 0 0 20px var(--primary);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    display: inline-block; /* برای اعمال transform */
-    border: none; /* حذف حاشیه پیش‌فرض */
-    cursor: pointer; /* نشانگر ماوس */
+    display: inline-block;
+    border: none;
+    cursor: pointer;
 }
 
 .btn-primary:hover {
-    transform: translateY(-5px); /* کمی بالا آمدن هنگام هاور */
-    box-shadow: 0 0 30px var(--secondary); /* سایه بیشتر */
+    transform: translateY(-5px);
+    box-shadow: 0 0 30px var(--secondary);
 }
 
-/* استایل برای دکمه پرداخت */
 .btn-payment {
-    background: linear-gradient(45deg, var(--accent-blue), var(--accent-purple)); /* رنگ آبی */
+    background: linear-gradient(45deg, var(--accent-blue), var(--accent-purple));
     box-shadow: 0 0 20px var(--accent-blue);
-    margin-top: 15px; /* فاصله از دکمه ارسال */
+    margin-top: 15px;
 }
 
 .btn-payment:hover {
     box-shadow: 0 0 30px var(--accent-purple);
 }
 
-
 /* --- Services Section --- */
 #services {
-    padding: 100px 5%; /* فاصله بالا/پایین و کناری */
+    padding: 100px 5%;
     text-align: center;
 }
 
@@ -154,18 +152,18 @@ body {
 
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* ستون‌های تطبیقی */
-    gap: 30px; /* فاصله بین کارت‌ها */
-    max-width: 1100px; /* حداکثر عرض گرید */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 1100px;
     margin: 0 auto;
 }
 
 .service-card {
-    background: rgba(255, 255, 255, 0.05); /* پس‌زمینه کمی شفاف */
+    background: rgba(255, 255, 255, 0.05);
     padding: 40px 30px;
     border-radius: 15px;
     transition: all 0.3s ease;
-    border: 1px solid rgba(255, 255, 255, 0.1); /* حاشیه ظریف */
+    border: 1px solid rgba(255, 255, 255, 0.1);
     cursor: pointer;
 }
 
@@ -175,14 +173,9 @@ body {
     color: var(--primary);
 }
 
-.service-card p {
-    font-size: 16px;
-    line-height: 1.6;
-}
-
-/* --- Portfolio Grid Layout --- */
+/* --- Portfolio --- */
 #portfolio {
-    padding: 100px 0; /* فاصله بالا/پایین */
+    padding: 100px 0;
     text-align: center;
 }
 
@@ -195,84 +188,55 @@ body {
 .portfolio-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-    gap: 30px; /* فاصله بین کارت‌ها */
-    max-width: 1300px; /* کمی عریض‌تر از گرید سرویس‌ها */
+    gap: 30px;
+    max-width: 1300px;
     margin: 0 auto;
-    padding: 0 20px; /* فاصله کناری */
+    padding: 0 20px;
 }
 
 .portfolio-card {
-    position: relative !important; /* برای قرارگیری دکمه PDF */
+    position: relative !important;
     border-radius: 20px;
     overflow: hidden;
-    aspect-ratio: 1 / 1; /* نسبت تصویر مربعی */
+    aspect-ratio: 1 / 1;
     cursor: pointer;
     border: 1px solid rgba(255, 255, 255, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    background-color: rgba(255, 255, 255, 0.03); /* پس‌زمینه تیره */
+    background-color: rgba(255, 255, 255, 0.03);
 }
 
 .portfolio-card:hover {
-    transform: translateY(-5px); /* کمی بالا آمدن */
-    box-shadow: 0 10px 30px rgba(99, 102, 241, 0.4); /* سایه بیشتر */
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(255, 0, 127, 0.4);
 }
 
 .portfolio-card img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* برای اینکه تصاویر برش بخورند و کشیده نشوند */
-    display: block; /* حذف فضای اضافی زیر تصویر */
+    object-fit: cover;
+    display: block;
     transition: transform 0.6s ease;
 }
 
 .portfolio-card:hover img {
-    transform: scale(1.08); /* افکت زوم */
+    transform: scale(1.08);
 }
 
-/* افکت گرادیانت روی کارت‌ها */
-.portfolio-card::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, rgba(99, 102, 241, 0.4), transparent);
-    opacity: 0;
-    transition: opacity 0.4s ease;
-    z-index: 1; /* زیر محتوا */
-}
-
-.portfolio-card:hover::after {
-    opacity: 1;
-}
-
-/* --- The PDF Button Fix (Neon Pink & Positioned) --- */
 .pdf-btn {
     position: absolute !important;
     bottom: 15px !important;
     right: 15px !important;
-    left: auto !important; 
-    top: auto !important;  
-    transform: none !important;
-    z-index: 100 !important; /* اطمینان از اینکه بالای تصویر است */
-    
+    z-index: 100 !important;
     padding: 8px 16px !important;
     font-size: 11px !important;
     font-weight: bold !important;
     color: #ffffff !important;
     text-decoration: none !important;
     background: rgba(0, 0, 0, 0.8) !important;
-    
-    border: 2px solid #ff00ff !important; /* لبه صورتی نئون */
-    border-radius: 8px !important; /* تبدیل از بیضی به مستطیل شیک */
+    border: 2px solid #ff00ff !important;
+    border-radius: 8px !important;
     box-shadow: 0 0 15px rgba(255, 0, 255, 0.6) !important;
-    transition: 0.3s all ease !important;
 }
-
-.pdf-btn:hover {
-    background: #ff00ff !important;
-    color: #000 !important;
-    box-shadow: 0 0 25px #ff00ff !important;
-}
-
 
 /* --- Contact Section --- */
 #contact {
@@ -291,149 +255,20 @@ body {
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    gap: 20px; /* فاصله بین فیلدها */
+    gap: 20px;
 }
 
 #contactForm input,
 #contactForm textarea {
     width: 100%;
     padding: 15px;
-    border: 1px solid rgba(255, 255, 255, 0.2); /* حاشیه کمی شفاف */
-    background: rgba(255, 255, 255, 0.05); /* پس‌زمینه تیره شفاف */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.05);
     color: var(--text-color);
     border-radius: 8px;
-    font-size: 16px;
-    transition: border-color 0.3s ease, background-color 0.3s ease;
 }
 
-#contactForm input:focus,
-#contactForm textarea:focus {
-    outline: none;
-    border-color: var(--primary); /* تغییر رنگ حاشیه هنگام فوکوس */
-    background-color: rgba(255, 255, 255, 0.1); /* کمی روشن‌تر */
-}
-
-#contactForm textarea {
-    min-height: 150px; /* حداقل ارتفاع تکست‌اریا */
-    resize: vertical; /* اجازه تغییر اندازه عمودی */
-}
-
-/* استایل برای دکمه پرداخت */
-.btn-payment {
-    background: linear-gradient(45deg, var(--accent-blue), var(--accent-purple)); /* رنگ آبی */
-    box-shadow: 0 0 20px var(--accent-blue);
-    margin-top: 15px; /* فاصله از دکمه ارسال */
-}
-
-.btn-payment:hover {
-    box-shadow: 0 0 30px var(--accent-purple);
-}
-
-/* استایل برای لینک‌های شبکه‌های اجتماعی */
-.social-links {
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
-    gap: 20px; /* فاصله بین آیکون‌ها */
-}
-
-.social-icon {
-    display: inline-block;
-    width: 40px; /* اندازه آیکون */
-    height: 40px;
-    border-radius: 50%; /* گرد کردن آیکون */
-    background-color: rgba(255, 255, 255, 0.1);
-    transition: background-color 0.3s ease;
-    overflow: hidden; /* برای اینکه تصویر داخل دایره قرار گیرد */
-    border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.social-icon img {
-    width: 70%; /* اندازه تصویر داخل آیکون */
-    height: 70%;
-    display: block;
-    margin: 15% auto; /* وسط چین کردن تصویر */
-    object-fit: contain; /* حفظ نسبت تصویر */
-}
-
-.social-icon.rublika {
-    border-color: #1ba1f2; /* رنگ مرزی روبیکا */
-}
-.social-icon.rublika:hover {
-    background-color: #1ba1f2;
-}
-
-.social-icon.telegram {
-    border-color: #0088cc; /* رنگ مرزی تلگرام */
-}
-.social-icon.telegram:hover {
-    background-color: #0088cc;
-}
-
-
-/* --- Other Elements --- */
-
-/* GlassNavbar on Scroll */
-.navbar.scrolled {
-    background: rgba(5, 0, 5, 0.85); /* پس‌زمینه تیره با بلور */
-    backdrop-filter: blur(15px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* حاشیه ظریف */
-    padding: 10px 0;
-}
-
-/* استایل‌های داخلی HTML برای Reveal Animation و Service Card و ... */
-/* این استایل‌ها در style.css نیازی نیستند اگر در HTML باشند، */
-/* اما برای اطمینان و یکپارچگی، می‌توان آن‌ها را اینجا هم قرار داد */
-
-.reveal{
-opacity:0;
-transform:translateY(60px);
-transition:all 1s cubic-bezier(.16,1,.3,1);
-}
-
-.reveal.active{
-opacity:1;
-transform:translateY(0);
-}
-
-.service-card.selected{
-outline:2px solid #6366f1;
-transform:scale(1.05);
-box-shadow:0 20px 60px rgba(99,102,241,.35);
-transition:.3s ease;
-}
-
-.btn-loading{
-position:relative;
-pointer-events:none;
-opacity:.8;
-}
-
-.btn-loading::after{
-content:"";
-width:18px;
-height:18px;
-border:3px solid #fff;
-border-top:3px solid transparent;
-border-radius:50%;
-position:absolute;
-right:15px;
-top:50%;
-transform:translateY(-50%);
-animation:spin .8s linear infinite;
-}
-
-@keyframes spin{
-to{transform:translateY(-50%) rotate(360deg);}
-}
-
-.form-status{
-margin-top:15px;
-font-weight:500;
-}
-
-.success{color:#22c55e;}
-.error{color:#ef4444;}
+/* --- New Social Buttons Style --- */
 .social-links {
     display: flex;
     justify-content: center;
@@ -452,42 +287,34 @@ font-weight:500;
     text-decoration: none;
     font-size: 25px;
     color: white;
-    background: rgba(255, 255, 255, 0.05); /* حالت شیشه‌ای */
+    background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(5px);
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    position: relative;
-    overflow: hidden;
 }
 
-/* افکت درخشش هنگام نگه داشتن موس */
 .social-btn:hover {
     transform: translateY(-8px);
-    color: #fff;
 }
 
-/* رنگ اختصاصی تلگرام (آبی نئونی) */
 .social-btn.telegram:hover {
     background: #0088cc;
     box-shadow: 0 0 25px rgba(0, 136, 204, 0.6);
     border-color: #0088cc;
 }
 
-/* رنگ اختصاصی روبیکا (صورتی/سرخابی نئونی هماهنگ با تم سایت) */
 .social-btn.rubika:hover {
     background: #ff007f;
     box-shadow: 0 0 25px rgba(255, 0, 127, 0.6);
     border-color: #ff007f;
 }
 
-/* استایل حرف R برای روبیکا */
 .rubika-letter {
     font-family: 'Arial Black', sans-serif;
     font-weight: bold;
     font-size: 22px;
 }
 
-/* افکت لرزش ملایم برای آیکون‌ها در حالت هاور */
 .social-btn:hover i {
     animation: shake 0.5s infinite;
 }
@@ -497,4 +324,22 @@ font-weight:500;
     25% { transform: rotate(10deg); }
     75% { transform: rotate(-10deg); }
     100% { transform: rotate(0deg); }
+}
+
+/* --- Reveal Animation --- */
+.reveal {
+    opacity: 0;
+    transform: translateY(60px);
+    transition: all 1s cubic-bezier(.16,1,.3,1);
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.navbar.scrolled {
+    background: rgba(5, 0, 5, 0.85);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
