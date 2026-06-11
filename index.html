@@ -1,166 +1,47 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+/* Reset & Base */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: #050505; color: white; font-family: sans-serif; line-height: 1.6; }
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+/* Navbar */
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    background: #000;
+}
+.nav-links { display: flex; list-style: none; gap: 20px; }
+.nav-links a { color: white; text-decoration: none; }
 
-<title>Nova Studio | Premium Front-End Studio</title>
-<meta name="description" content="High-end front-end studio building modern, responsive, conversion-focused websites.">
+/* Grid Layouts - اصلاح بخش خدمات و نمونه کارها */
+.services-container, .portfolio-grid {
+    display: grid !important; /* اجبار به استفاده از گرید */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    gap: 20px;
+    padding: 40px 5%;
+}
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-   <<link rel="stylesheet" href="css/style.css?v=1.3">
+.service-card, .portfolio-item {
+    background: #111;
+    padding: 20px;
+    border: 1px solid #222;
+    border-radius: 12px;
+    text-align: center;
+}
 
+/* اصلاح ابعاد تصاویر نمونه کار */
+.portfolio-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+}
 
-
-
-</head>
-
-<body>
-
-<header class="navbar">
-<div class="nav-container">
-
-<a class="logo" href="#home">Nova Studio</a>
-
-<ul class="nav-links">
-<li><a href="#services">Services</a></li>
-<li><a href="#portfolio">Portfolio</a></li>
-<li><a href="#contact">Contact</a></li>
-</ul>
-
-<a class="btn-primary magnetic" href="#contact">Start a Project</a>
-
-</div>
-</header>
-
-<!-- بخش Hero به عنوان صفحه اصلی با ID="home" تعریف شد -->
-<section id="home" class="hero reveal">
-
-<h1>We Build <span class="highlight">Premium</span> Experiences</h1>
-
-<p>
-High-end front-end development focused on smooth UI,
-performance and conversions.
-</p>
-
-<a href="#portfolio" class="btn-primary magnetic">
-View Work
-</a>
-
-</section>
-
-<section id="services">
-
-<h2 class="reveal">Services</h2>
-
-<div class="services-grid">
-
-<article class="service-card reveal" data-service="Front-End Development">
-<h3>Front-End Development</h3>
-<p>Modern responsive websites.</p>
-</article>
-
-<article class="service-card reveal" data-service="UI Implementation">
-<h3>UI Implementation</h3>
-<p>Pixel-perfect UI builds.</p>
-</article>
-
-<article class="service-card reveal" data-service="Landing Page Development">
-<h3>Landing Pages</h3>
-<p>High-converting landing pages.</p>
-</article>
-
-</div>
-
-</section>
-
-<section id="portfolio">
-    <h2 class="reveal">Portfolio</h2>
-    <div class="portfolio-grid">
-        <!-- .portfolio-card کلاس درست است -->
-        <div class="portfolio-card reveal">
-            <img src="images/p1.png" alt="Project 1">
-            <!-- دکمه PDF: اگر فایل PDF دارید، لینک آن را اینجا قرار دهید -->
-            <a href="path/to/your/pdf1.pdf" class="pdf-btn" target="_blank">PDF</a>
-        </div>
-        <div class="portfolio-card reveal">
-            <img src="images/p2.png" alt="Project 2">
-            <a href="path/to/your/pdf2.pdf" class="pdf-btn" target="_blank">PDF</a>
-        </div>
-        <div class="portfolio-card reveal">
-            <img src="images/p3.png" alt="Project 3">
-            <a href="path/to/your/pdf3.pdf" class="pdf-btn" target="_blank">PDF</a>
-        </div>
-        <div class="portfolio-card reveal">
-            <img src="images/p4.png" alt="Project 4">
-            <a href="path/to/your/pdf4.pdf" class="pdf-btn" target="_blank">PDF</a>
-        </div>
-        <div class="portfolio-card reveal">
-            <img src="images/p5.png" alt="Project 5">
-            <a href="path/to/your/pdf5.pdf" class="pdf-btn" target="_blank">PDF</a>
-        </div>
-        <div class="portfolio-card reveal">
-            <img src="images/p6.png" alt="Project 6">
-            <a href="path/to/your/pdf6.pdf" class="pdf-btn" target="_blank">PDF</a>
-        </div>
-        <div class="portfolio-card reveal">
-            <img src="images/p7.png" alt="Project 7">
-            <a href="path/to/your/pdf7.pdf" class="pdf-btn" target="_blank">PDF</a>
-        </div>
-        <div class="portfolio-card reveal">
-            <img src="images/p8.png" alt="Project 8">
-            <a href="path/to/your/pdf8.pdf" class="pdf-btn" target="_blank">PDF</a>
-        </div>
-    </div>
-
-</section>
-
-<section id="contact">
-
-<h2 class="reveal">Contact</h2>
-
-<!-- آیدی فرم Formspree به درستی تنظیم شده است -->
-<form id="contactForm" class="reveal"
-action="https://formspree.io/f/maqkalgp"
-method="POST">
-
-<input id="name" name="name" type="text" placeholder="Your Name" required>
-
-<input id="email" name="email" type="email" placeholder="Your Email" required>
-
-<input id="subject" name="subject" type="text" placeholder="Subject" required>
-
-<textarea id="message" name="message" placeholder="Your message..." required></textarea>
-    
-<div id="formStatus" class="form-status"></div>
-    
-<button id="submitBtn" class="btn-primary magnetic" type="submit">
-Send Message
-</button>
-
-<!-- دکمه پرداخت (مثال - لینک و رنگ را مطابق نیاز خود تغییر دهید) -->
-<a href="YOUR_PAYMENT_LINK" target="_blank" class="btn-primary magnetic btn-payment">
-    Support Us / Pay
-</a>
-
-<div class="social-links">
-    <!-- دکمه تلگرام با آیکون استاندارد -->
-    <a href="https://t.me/novastudio_design" target="_blank" class="social-btn telegram">
-        <i class="fab fa-telegram-plane"></i>
-    </a>
-
-    <!-- دکمه روبیکا (با حرف R استایل داده شده چون آیکون رسمی ندارد) -->
-    <a href="https://rubika.ir/novastudio_design" target="_blank" class="social-btn rubika">
-        <span class="rubika-letter">R</span>
-    </a>
-</div>
-
-
-</section>
-
-<!-- لینک به فایل جاوا اسکریپت خارجی -->
-<script src="js/main.js"></script>
-
-</body>
-</html>
+/* Neon Titles */
+h2 {
+    color: #bc13fe;
+    text-shadow: 0 0 10px #bc13fe;
+    text-align: center;
+    margin: 40px 0;
+    font-size: 2rem;
+}
