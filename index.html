@@ -1,47 +1,47 @@
-/* Reset & Base */
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { background: #050505; color: white; font-family: sans-serif; line-height: 1.6; }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nova Studio | Premium Web Gen</title>
+    <link rel="stylesheet" href="css/style.css?v=1.5">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">Nova Studio</a>
+            <ul class="nav-links">
+                <li><a href="#services">Services</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
 
-/* Navbar */
-.nav-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 5%;
-    background: #000;
-}
-.nav-links { display: flex; list-style: none; gap: 20px; }
-.nav-links a { color: white; text-decoration: none; }
+    <header id="home">
+        <h1>We Build Premium Experiences</h1>
+        <p>High-end development focused on smooth UI and performance.</p>
+    </header>
 
-/* Grid Layouts - اصلاح بخش خدمات و نمونه کارها */
-.services-container, .portfolio-grid {
-    display: grid !important; /* اجبار به استفاده از گرید */
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-    gap: 20px;
-    padding: 40px 5%;
-}
+    <section id="services">
+        <h2>Services</h2>
+        <div class="services-container">
+            <div class="service-card"><h3>Front-End</h3><p>Pixel-perfect UI builds.</p></div>
+            <div class="service-card"><h3>UI Design</h3><p>Modern & Clean layouts.</p></div>
+        </div>
+    </section>
 
-.service-card, .portfolio-item {
-    background: #111;
-    padding: 20px;
-    border: 1px solid #222;
-    border-radius: 12px;
-    text-align: center;
-}
+    <section id="portfolio">
+        <h2>Portfolio</h2>
+        <div class="portfolio-grid">
+            <!-- آیتم‌های نمونه کار اینجا قرار می‌گیرند -->
+            <div class="portfolio-item">
+                <img src="https://via.placeholder.com/300" alt="Work 1">
+                <h3>Project One</h3>
+            </div>
+        </div>
+    </section>
 
-/* اصلاح ابعاد تصاویر نمونه کار */
-.portfolio-item img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 8px;
-}
-
-/* Neon Titles */
-h2 {
-    color: #bc13fe;
-    text-shadow: 0 0 10px #bc13fe;
-    text-align: center;
-    margin: 40px 0;
-    font-size: 2rem;
-}
+    <script src="js/main.js"></script>
+</body>
+</html>
