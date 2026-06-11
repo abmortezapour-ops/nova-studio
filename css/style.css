@@ -40,3 +40,19 @@ h2 {
     margin: 40px 0;
     font-size: 2rem;
 }
+header {
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: radial-gradient(circle, #1a002a 0%, #050505 100%);
+}
+
+header h1 {
+    font-size: 3rem;
+    color: #fff;
+    text-shadow: 0 0 20px #bc13fe;
+    margin-bottom: 10px;
+}
