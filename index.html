@@ -145,15 +145,41 @@
     .btn-pdf:hover { transform: scale(1.1); background: white; color: var(--primary-neon); }
 
     /* استایل دکمه پرداخت */
-    .payment-section { margin-top: 15px; text-align: center; }
-    .btn-pay {
-        display: block; width: 100%; padding: 18px;
-        background: linear-gradient(45deg, #00c853, #b2ff59);
-        color: #000; text-decoration: none; border-radius: 15px;
-        font-weight: 900; text-transform: uppercase; transition: 0.3s;
-        box-shadow: 0 0 20px rgba(0, 200, 83, 0.4);
-    }
-    .btn-pay:hover { transform: scale(1.02); box-shadow: 0 0 30px #00c853; }
+    /* استایل جدید دکمه‌های تماس و پرداخت */
+.social-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    justify-content: space-between;
+}
+
+.btn-social, .btn-pay {
+    flex: 1;
+    padding: 15px 5px;
+    text-align: center;
+    border-radius: 12px;
+    font-weight: bold;
+    font-size: 13px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+    border: none;
+    color: white;
+}
+
+.btn-pay {
+    background: linear-gradient(45deg, #2ecc71, #27ae60);
+    color: #000 !important; /* برای خوانایی بهتر متن روی سبز */
+    box-shadow: 0 0 15px rgba(46, 204, 113, 0.4);
+    cursor: pointer;
+}
+
+.btn-pay:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 25px rgba(46, 204, 113, 0.6);
+}
 
     /* --- CONTACT --- */
     .contact-container {
@@ -183,15 +209,6 @@
         transition: 0.3s;
     }
     button[type="submit"]:hover { box-shadow: 0 0 20px var(--primary-neon); }
-
-    .social-buttons { display: flex; gap: 10px; margin-top: 20px; }
-    .btn-social { 
-        flex: 1; padding: 12px; border-radius: 10px; text-decoration: none; 
-        font-weight: bold; color: white; text-align: center;
-    }
-    .telegram { background: #0088cc; }
-    .rubika { background: #bc13fe; }
-
    
 </style>
 
@@ -277,12 +294,12 @@
                 </form>
 
                 <!-- دکمه‌های اجتماعی - منتقل شده به بخش تماس -->
-                <div class="social-buttons">
-                    <a href="https://t.me/novastudio_design" target="_blank" class="btn-social telegram">Telegram Support</a>
-                    <a href="https://rubika.ir/novastudio_design" target="_blank" class="btn-social rubika">Rubika Channel</a>
-                       <!-- دکمه پرداخت آنلاین -->
-    <div class="payment-section">
-        <a href="#" class="btn-pay">💳 SECURE PAYMENT</a>
+                     <!-- دکمه‌های اجتماعی و پرداخت در یک ردیف -->
+        <div class="social-buttons">
+            <a href="https://t.me/novastudio_design" target="_blank" class="btn-social telegram">Telegram</a>
+            <a href="https://rubika.ir/novastudio_design" target="_blank" class="btn-social rubika">Rubika</a>
+            <a href="#" class="btn-pay">💳 SECURE PAYMENT</a>
+        </div>
 
     </div>
 
