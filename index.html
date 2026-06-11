@@ -4,50 +4,160 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nova Studio | Premium Digital Agency</title>
+  
+  <style>
+    :root {
+        --primary-neon: #bc13fe;
+        --secondary-neon: #ff00e0;
+        --dark-bg: #0a0a0a;
+        --glass-bg: rgba(255, 255, 255, 0.05);
+    }
 
-    <link rel="stylesheet" href="css/style.css">
-    <style>
-        :root {
-            --primary-neon: #bc13fe;
-            --secondary-neon: #ff00e0;
-            --dark-bg: #0a0a0a;
-            --glass-bg: rgba(255, 255, 255, 0.05);
-        }
+    body { 
+        background-color: var(--dark-bg); 
+        color: white; 
+        font-family: 'Inter', sans-serif; 
+        margin: 0; 
+        line-height: 1.6; 
+        overflow-x: hidden; 
+    }
 
-        body { background-color: var(--dark-bg); color: white; font-family: 'Inter', sans-serif; margin: 0; line-height: 1.6; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
-        .section-title { text-align: center; margin-top: 50px; font-size: 2.5rem; text-shadow: 0 0 10px var(--primary-neon); color: var(--primary-neon); }
+    /* --- NAVIGATION --- */
+    header { 
+        background: rgba(0,0,0,0.95); 
+        padding: 20px 5%; 
+        display: flex; 
+        justify-content: space-between; 
+        align-items: center;
+        border-bottom: 2px solid var(--primary-neon); 
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+    }
+    .logo { 
+        color: var(--primary-neon); 
+        font-weight: 900; 
+        font-size: 1.8rem; 
+        text-shadow: 0 0 15px var(--primary-neon); 
+        text-decoration: none;
+        text-transform: uppercase;
+    }
+    nav a { color: white; margin-left: 25px; text-decoration: none; font-weight: 500; transition: 0.3s; font-size: 0.9rem; }
+    nav a:hover { color: var(--secondary-neon); text-shadow: 0 0 10px var(--secondary-neon); }
 
-        /* استایل دکمه‌های اجتماعی */
-        .social-buttons { 
-            display: flex; 
-            justify-content: center; 
-            gap: 15px; 
-            margin-top: 30px; 
-            padding-bottom: 20px;
-        }
-        .btn-social { 
-            padding: 12px 25px; 
-            border-radius: 12px; 
-            text-decoration: none; 
-            font-weight: bold; 
-            font-size: 0.9rem;
-            transition: 0.3s; 
-            display: flex;
-            align-items: center;
-            color: white;
-            border: 1px solid rgba(255,255,255,0.1);
-        }
-        .telegram { background: #0088cc; box-shadow: 0 0 15px rgba(0, 136, 204, 0.3); }
-        .rubika { background: linear-gradient(45deg, var(--primary-neon), var(--secondary-neon)); box-shadow: 0 0 15px rgba(188, 19, 254, 0.3); }
-        .btn-social:hover { transform: translateY(-5px); filter: brightness(1.2); border-color: white; }
+    /* --- HERO SECTION --- */
+    .hero {
+        height: 70vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        background: radial-gradient(circle at center, rgba(188, 19, 254, 0.1) 0%, transparent 70%);
+        padding: 0 20px;
+    }
+    .hero h1 {
+        font-size: 4.5rem;
+        margin: 0;
+        background: linear-gradient(to right, #fff, var(--primary-neon));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-transform: uppercase;
+        letter-spacing: -2px;
+        line-height: 1.1;
+    }
+    .hero p {
+        font-size: 1.2rem;
+        color: #aaa;
+        max-width: 600px;
+        margin-top: 20px;
+    }
 
-        /* استایل هدر */
-        header { background: rgba(0,0,0,0.9); padding: 15px 5%; display: flex; justify-content: space-between; border-bottom: 2px solid var(--primary-neon); }
-        .logo { color: var(--primary-neon); font-weight: bold; font-size: 1.5rem; text-shadow: 0 0 10px var(--primary-neon); }
-        nav a { color: white; margin-left: 20px; text-decoration: none; transition: 0.3s; }
-        nav a:hover { color: var(--secondary-neon); }
-    </style>
+    /* --- CONTAINERS --- */
+    .container { max-width: 1200px; margin: 0 auto; padding: 80px 20px; }
+    .section-title { 
+        text-align: center; 
+        margin-bottom: 50px; 
+        font-size: 2.8rem; 
+        text-shadow: 0 0 20px var(--primary-neon); 
+        color: var(--primary-neon); 
+        text-transform: uppercase; 
+    }
+
+    /* --- SERVICES --- */
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+    .service-card {
+        background: #111;
+        padding: 40px;
+        border-radius: 20px;
+        border: 1px solid rgba(255,255,255,0.05);
+        cursor: pointer;
+        transition: 0.4s ease;
+    }
+    .service-card:hover { 
+        border-color: var(--primary-neon); 
+        transform: translateY(-10px); 
+        box-shadow: 0 10px 30px rgba(188, 19, 254, 0.2);
+    }
+    .service-card.selected { border-color: var(--secondary-neon); background: rgba(255, 0, 224, 0.05); }
+
+    /* --- PORTFOLIO --- */
+    .portfolio-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 25px;
+    }
+    .portfolio-grid img {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+        border-radius: 20px;
+        border: 1px solid rgba(255,255,255,0.1);
+        transition: 0.5s;
+    }
+    .portfolio-grid img:hover {
+        transform: scale(1.03);
+        border-color: var(--secondary-neon);
+    }
+
+    /* --- CONTACT --- */
+    .contact-container {
+        max-width: 600px;
+        margin: 0 auto;
+        background: #111;
+        padding: 40px;
+        border-radius: 25px;
+        border: 1px solid var(--primary-neon);
+    }
+    form { display: flex; flex-direction: column; gap: 15px; }
+    input, textarea {
+        background: #000;
+        border: 1px solid #333;
+        padding: 15px;
+        border-radius: 12px;
+        color: white;
+    }
+    button[type="submit"] {
+        background: linear-gradient(45deg, var(--primary-neon), var(--secondary-neon));
+        color: white;
+        border: none;
+        padding: 15px;
+        border-radius: 12px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+    button[type="submit"]:hover { box-shadow: 0 0 20px var(--primary-neon); }
+
+    .social-buttons { display: flex; gap: 10px; margin-top: 20px; }
+    .btn-social { 
+        flex: 1; padding: 12px; border-radius: 10px; text-decoration: none; 
+        font-weight: bold; color: white; text-align: center;
+    }
+    .telegram { background: #0088cc; }
+    .rubika { background: #bc13fe; }
+</style>
+
 </head>
 <body>
 
