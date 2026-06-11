@@ -1,166 +1,107 @@
 /* Variables */
 :root {
-    --primary-color: #000000;
-    --text-color: #ffffff;
-    --purple-neon: #bc13fe; 
-    --green-neon: #39ff14; 
+    --purple-neon: #bc13fe;
+    --green-neon: #39ff14;
     --bg-dark: #050505;
-    --card-bg: #111111;
 }
 
-/* Global Styles */
+/* Global Reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Inter', sans-serif;
 }
 
 body {
     background-color: var(--bg-dark);
-    color: var(--text-color);
+    color: white;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
     line-height: 1.6;
-    overflow-x: hidden;
 }
 
-/* Header & Navigation */
-header {
-    padding: 20px 10%;
+/* Navbar Fix - این بخش منوی شما را از حالت لیست خارج می‌کند */
+.navbar .nav-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: rgba(0,0,0,0.8);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+    padding: 20px 5%;
+    background: rgba(0,0,0,0.9);
 }
 
-nav ul {
+.nav-links {
     display: flex;
     list-style: none;
-    gap: 30px;
+    gap: 25px;
 }
 
-nav a {
-    color: white;
+.nav-links a {
     text-decoration: none;
-    font-weight: 500;
+    color: white;
     transition: 0.3s;
 }
 
-nav a:hover {
+.nav-links a:hover {
     color: var(--purple-neon);
     text-shadow: 0 0 8px var(--purple-neon);
 }
 
 /* Hero Section */
-.hero {
-    height: 80vh;
+#home {
+    height: 70vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 0 10%;
 }
 
-.hero h1 {
-    font-size: 4rem;
-    margin-bottom: 20px;
-}
+h1 { font-size: 3.5rem; margin-bottom: 20px; }
+h2 { color: var(--purple-neon); text-shadow: 0 0 10px var(--purple-neon); margin: 40px 0; text-align: center; }
 
-/* Services Grid (اصلاح بخش کارت‌ها) */
-.services-container {
+/* Portfolio & Services Grid */
+.portfolio-grid, .services-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-    margin-top: 40px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px 5%;
 }
 
-.service-card {
-    background: var(--card-bg);
-    padding: 40px;
-    border-radius: 15px;
+.portfolio-item, .service-card {
+    background: #111;
+    padding: 20px;
+    border-radius: 10px;
     border: 1px solid #222;
-    transition: 0.3s;
-}
-
-.service-card:hover {
-    border-color: var(--purple-neon);
-    transform: translateY(-10px);
-    box-shadow: 0 10px 30px rgba(188, 19, 254, 0.1);
-}
-
-/* Titles with Neon Effect */
-h2 {
-    font-size: 2.5rem;
-    color: var(--purple-neon);
-    text-shadow: 0 0 15px var(--purple-neon);
-    margin-bottom: 40px;
-    text-align: center;
 }
 
 /* Form Styles */
-section#contact {
-    padding: 100px 10%;
-}
-
-form {
-    max-width: 600px;
+#contact-form {
+    max-width: 500px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 15px;
 }
 
 input, textarea {
-    padding: 15px;
+    padding: 12px;
     background: #1a1a1a;
     border: 1px solid #333;
     color: white;
-    border-radius: 8px;
-    outline: none;
+    border-radius: 5px;
 }
 
-input:focus, textarea:focus {
-    border-color: var(--purple-neon);
-}
-
-/* Button & Success Message */
 #submit-btn {
-    padding: 15px;
+    padding: 12px;
     background: transparent;
     color: var(--purple-neon);
     border: 2px solid var(--purple-neon);
     cursor: pointer;
     font-weight: bold;
-    border-radius: 8px;
     transition: 0.4s;
 }
 
 #submit-btn:hover {
     background: var(--purple-neon);
     color: white;
-    box-shadow: 0 0 20px var(--purple-neon);
-}
-
-#submit-btn.success {
-    border-color: var(--green-neon) !important;
-    color: var(--green-neon) !important;
-    box-shadow: 0 0 20px var(--green-neon) !important;
-}
-
-.form-status {
-    padding: 15px;
-    margin-top: 20px;
-    border-radius: 8px;
-    text-align: center;
-    display: none;
-}
-
-.form-status.success {
-    display: block;
-    color: var(--green-neon);
-    border: 1px solid var(--green-neon);
-    text-shadow: 0 0 8px var(--green-neon);
+    box-shadow: 0 0 15px var(--purple-neon);
 }
