@@ -1,215 +1,109 @@
-/* --- Basic Reset & Variables (Optional but Recommended) --- */
+/* Variables */
 :root {
-    --primary-color: #00ffff; /* Neon Blue - Existing */
-    --secondary-color: #1a1a2e; /* Dark background */
-    --text-color: #cccccc;
-    --heading-color: #ffffff;
-
-    /* --- New Neon Color Variables --- */
-    --purple-neon-color: #8a2be2; /* Example: BlueViolet */
-    --green-neon-color: #39ff14; /* Example: Neon Green */
-    --button-bg: #4a90e2; /* Default button background */
-    --button-hover-bg: var(--primary-color); /* Use primary neon for hover */
-
-    --card-bg: #1a1a2e;
-    --card-hover-bg: #2a2a40;
-    --card-active-bg: #3a3a50;
+    --primary-color: #000000;
+    --text-color: #ffffff;
+    --accent-color: #6200ea; /* بنفش اصلی */
+    --purple-neon: #bc13fe; /* بنفش نئونی */
+    --green-neon: #39ff14; /* سبز فسفری نئونی */
+    --bg-dark: #0a0a0a;
 }
 
-/* ... (بقیه استایل‌های قبلی شما) ... */
-
-/* --- New styles for PDF Buttons --- */
-.pdf-btn {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: var(--button-bg); /* Use variable */
-    color: white !important;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-    transition: all 0.3s ease;
-    cursor: pointer;
-    border: 2px solid transparent;
-    text-align: center;
-    min-width: 100px;
-    font-size: 0.9em; /* Slightly smaller font for buttons within cards */
+/* Reset & Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Positioning PDF button within the portfolio card */
-.portfolio-card .pdf-btn {
-    position: absolute;
-    bottom: 15px;
-    right: 15px;
-    background-color: rgba(0, 0, 0, 0.6);
-    backdrop-filter: blur(5px);
-    padding: 8px 15px;
-    border: 1px solid rgba(0, 255, 255, 0.5); /* Use primary neon for border */
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-color);
+    line-height: 1.6;
 }
 
-.pdf-btn:hover {
-    background-color: var(--button-hover-bg); /* Neon blue on hover */
-    color: var(--secondary-color) !important; /* Dark text on neon */
-    transform: translateY(-3px) scale(1.05);
-    box-shadow: 0 0 10px rgba(0, 255, 255, 0.7); /* Neon blue glow */
-    border-color: var(--button-hover-bg); /* Match background */
+/* Sections */
+section {
+    padding: 80px 10%;
 }
 
-
-/* --- Contact Section --- */
-#contact {
-    padding: 80px 20px;
-    text-align: center;
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: var(--purple-neon);
+    text-shadow: 0 0 10px var(--purple-neon);
 }
 
-#contact h2 {
-    font-size: 3em;
-    margin-bottom: 50px;
-    color: var(--heading-color);
-}
-
-#contactForm {
+/* Form Styles */
+form {
     max-width: 600px;
     margin: 0 auto;
-    text-align: left;
-    background-color: rgba(26, 26, 46, 0.5); /* Semi-transparent background for form */
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
-#contactForm input,
-#contactForm textarea {
-    width: 100%;
+input, textarea {
     padding: 15px;
-    margin-bottom: 20px;
-    border: 1px solid #444; /* Darker border */
+    background: #1a1a1a;
+    border: 1px solid #333;
+    color: white;
     border-radius: 5px;
-    background-color: #2a2a40; /* Slightly lighter input background */
-    color: var(--text-color);
-    box-sizing: border-box; /* Include padding and border in the element's total width and height */
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    outline: none;
+    transition: 0.3s;
 }
 
-#contactForm input:focus,
-#contactForm textarea:focus {
-    border-color: var(--primary-color); /* Neon blue for focus */
-    outline: none; /* Remove default outline */
-    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5); /* Neon blue glow */
+input:focus, textarea:focus {
+    border-color: var(--purple-neon);
+    box-shadow: 0 0 10px var(--purple-neon);
 }
 
-#contactForm textarea {
-    min-height: 150px;
-    resize: vertical; /* Allow vertical resizing */
-}
-
-#submitBtn {
-    width: 100%; /* Make submit button full width */
+/* Submit Button & Neon Effects */
+#submit-btn {
     padding: 15px;
-    font-size: 1.1em;
-    /* --- Add initial background color if needed, or let JS handle it --- */
-    /* background-color: var(--button-bg); */
+    background: transparent;
+    color: var(--purple-neon);
+    border: 2px solid var(--purple-neon);
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: 0.4s;
+    border-radius: 5px;
 }
 
-/* Button loading state */
-.btn-loading {
-    position: relative;
-    opacity: 0.7;
-    cursor: not-allowed; /* Indicate button is not interactive */
-    /* --- REMOVED: The :after pseudo-element for the spinning circle --- */
+#submit-btn:hover {
+    background: var(--purple-neon);
+    color: white;
+    box-shadow: 0 0 20px var(--purple-neon);
 }
 
 /* Form Status Messages */
 .form-status {
+    padding: 15px;
     margin-top: 20px;
-    padding: 10px;
     border-radius: 5px;
     text-align: center;
+    display: none;
     font-weight: bold;
-    display: block; /* Ensure it takes up space */
-    min-height: 20px; /* Ensure it has height even when empty */
 }
 
 .form-status.success {
-    background-color: rgba(40, 167, 69, 0.2); /* Greenish background */
-    color: var(--green-neon-color); /* Use the defined neon green */
-    border: 1px solid var(--green-neon-color);
+    display: block;
+    color: var(--green-neon);
+    border: 1px solid var(--green-neon);
+    text-shadow: 0 0 8px var(--green-neon);
+    box-shadow: inset 0 0 10px rgba(57, 255, 20, 0.2);
 }
 
 .form-status.error {
-    background-color: rgba(220, 53, 69, 0.2); /* Reddish background */
-    color: var(--purple-neon-color); /* Use the defined neon purple for errors */
-    border: 1px solid var(--purple-neon-color);
+    display: block;
+    color: #ff3131;
+    border: 1px solid #ff3131;
 }
 
-/* Payment Button Style - Adjust if you want it to have neon colors too */
-.btn-payment {
-    background-color: #f39c12; /* Orange color for payment */
-    margin-left: 10px; /* Space between submit and payment button */
-    border: none; /* Ensure no default border */
-    color: white !important;
-    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.btn-payment:hover {
-    background-color: #e67e22; /* Darker orange on hover */
-    transform: translateY(-3px) scale(1.05);
-    box-shadow: 0 0 15px rgba(243, 156, 18, 0.7);
-}
-
-
-/* Social Links */
-.social-links {
-    margin-top: 30px;
-    text-align: center;
-}
-
-.social-btn {
-    display: inline-flex; /* Use flex to center icon */
-    align-items: center;
-    justify-content: center;
-    width: 45px;
-    height: 45px;
-    margin: 0 10px;
-    border-radius: 50%;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    color: white !important; /* Ensure text color is white */
-    font-size: 1.3em; /* Icon size */
-}
-
-.social-btn.telegram {
-    background-color: #28a7e2; /* Telegram blue */
-}
-
-.social-btn.telegram:hover {
-    background-color: #1fa0e8;
-    transform: translateY(-3px) scale(1.1);
-}
-
-/* Rubika button style */
-.social-btn.rubika {
-    background-color: #27b1ff; /* Rubika's typical blue */
-}
-
-.social-btn.rubika:hover {
-    background-color: #00a0e0;
-    transform: translateY(-3px) scale(1.1);
-}
-
-.rubika-letter {
-    line-height: 1; /* Ensure 'R' is centered */
-}
-
-
-/* --- Magnetic Button Styles --- */
-.magnetic {
-    transition: transform 0.2s ease-out; /* Speed up magnetic effect */
-}
-
-/* --- Adjusting primary button hover for consistency --- */
-.btn-primary:hover {
-    background-color: var(--button-hover-bg); /* This is now var(--primary-color) */
-    color: var(--secondary-color) !important; /* Dark text on neon */
-    transform: translateY(-3px) scale(1.05);
-    box-shadow: 0 0 15px rgba(0, 255, 255, 0.7); /* Neon blue glow */
+/* Button Success State */
+#submit-btn.success {
+    border-color: var(--green-neon) !important;
+    color: var(--green-neon) !important;
+    box-shadow: 0 0 20px var(--green-neon) !important;
 }
