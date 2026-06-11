@@ -4,8 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nova Studio | Premium Digital Agency</title>
-    <link rel="stylesheet" href="style.css">
+
+      <link rel="stylesheet" href="css/style.css">
     <style>
+    /* استایل مستقیم برای اطمینان از لود شدن */
+    :root { --primary-neon: #bc13fe; --secondary-neon: #ff00e0; --dark-bg: #0a0a0a; }
+    body { background-color: #0a0a0a; color: white; font-family: sans-serif; margin: 0; }
+    header { background: #000; padding: 20px; display: flex; justify-content: space-between; border-bottom: 1px solid var(--primary-neon); }
+    .logo { color: var(--primary-neon); font-weight: bold; font-size: 1.5rem; text-shadow: 0 0 10px var(--primary-neon); }
+    nav a { color: white; margin-left: 15px; text-decoration: none; font-size: 0.9rem; }
+    .hero { height: 50vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: radial-gradient(circle, #250035 0%, #0a0a0a 100%); }
+    .hero h1 { font-size: 3rem; text-shadow: 0 0 20px var(--primary-neon); }
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; padding: 40px; }
+    .service-card { background: #151515; padding: 25px; border-radius: 15px; border: 1px solid #333; text-align: center; cursor: pointer; transition: 0.3s; }
+    .service-card:hover { border-color: var(--secondary-neon); transform: translateY(-5px); }
+    .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; padding: 40px; }
+    .portfolio-grid img { width: 100%; border-radius: 10px; border: 1px solid #222; }
+    .contact-section { padding: 60px 20px; max-width: 600px; margin: 0 auto; }
+    .contact-container { background: #151515; padding: 30px; border-radius: 20px; border: 1px dashed var(--primary-neon); }
+    form { display: flex; flex-direction: column; gap: 15px; }
+    input, textarea { width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #444; background: #000; color: white; }
+    button { background: linear-gradient(45deg, var(--primary-neon), var(--secondary-neon)); color: white; padding: 15px; border: none; border-radius: 30px; font-weight: bold; cursor: pointer; }
+    .section-title { text-align: center; color: var(--primary-neon); font-size: 2rem; margin-top: 40px; }
+    </style>
+
+
         /* استایل‌های تکمیلی برای اطمینان از چیدمان */
         .section-title { text-align: center; margin-top: 50px; font-size: 2.5rem; text-shadow: 0 0 10px var(--primary-neon); }
         .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
