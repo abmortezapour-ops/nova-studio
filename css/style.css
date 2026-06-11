@@ -2,39 +2,109 @@
 :root {
     --primary-color: #000000;
     --text-color: #ffffff;
-    --accent-color: #6200ea; /* بنفش اصلی */
-    --purple-neon: #bc13fe; /* بنفش نئونی */
-    --green-neon: #39ff14; /* سبز فسفری نئونی */
-    --bg-dark: #0a0a0a;
+    --purple-neon: #bc13fe; 
+    --green-neon: #39ff14; 
+    --bg-dark: #050505;
+    --card-bg: #111111;
 }
 
-/* Reset & Global Styles */
+/* Global Styles */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Inter', sans-serif;
 }
 
 body {
     background-color: var(--bg-dark);
     color: var(--text-color);
     line-height: 1.6;
+    overflow-x: hidden;
 }
 
-/* Sections */
-section {
-    padding: 80px 10%;
+/* Header & Navigation */
+header {
+    padding: 20px 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(0,0,0,0.8);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: var(--purple-neon);
+    text-shadow: 0 0 8px var(--purple-neon);
+}
+
+/* Hero Section */
+.hero {
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 10%;
+}
+
+.hero h1 {
+    font-size: 4rem;
+    margin-bottom: 20px;
+}
+
+/* Services Grid (اصلاح بخش کارت‌ها) */
+.services-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.service-card {
+    background: var(--card-bg);
+    padding: 40px;
+    border-radius: 15px;
+    border: 1px solid #222;
+    transition: 0.3s;
+}
+
+.service-card:hover {
+    border-color: var(--purple-neon);
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(188, 19, 254, 0.1);
+}
+
+/* Titles with Neon Effect */
 h2 {
     font-size: 2.5rem;
-    margin-bottom: 30px;
     color: var(--purple-neon);
-    text-shadow: 0 0 10px var(--purple-neon);
+    text-shadow: 0 0 15px var(--purple-neon);
+    margin-bottom: 40px;
+    text-align: center;
 }
 
 /* Form Styles */
+section#contact {
+    padding: 100px 10%;
+}
+
 form {
     max-width: 600px;
     margin: 0 auto;
@@ -48,17 +118,15 @@ input, textarea {
     background: #1a1a1a;
     border: 1px solid #333;
     color: white;
-    border-radius: 5px;
+    border-radius: 8px;
     outline: none;
-    transition: 0.3s;
 }
 
 input:focus, textarea:focus {
     border-color: var(--purple-neon);
-    box-shadow: 0 0 10px var(--purple-neon);
 }
 
-/* Submit Button & Neon Effects */
+/* Button & Success Message */
 #submit-btn {
     padding: 15px;
     background: transparent;
@@ -66,9 +134,8 @@ input:focus, textarea:focus {
     border: 2px solid var(--purple-neon);
     cursor: pointer;
     font-weight: bold;
-    text-transform: uppercase;
+    border-radius: 8px;
     transition: 0.4s;
-    border-radius: 5px;
 }
 
 #submit-btn:hover {
@@ -77,14 +144,18 @@ input:focus, textarea:focus {
     box-shadow: 0 0 20px var(--purple-neon);
 }
 
-/* Form Status Messages */
+#submit-btn.success {
+    border-color: var(--green-neon) !important;
+    color: var(--green-neon) !important;
+    box-shadow: 0 0 20px var(--green-neon) !important;
+}
+
 .form-status {
     padding: 15px;
     margin-top: 20px;
-    border-radius: 5px;
+    border-radius: 8px;
     text-align: center;
     display: none;
-    font-weight: bold;
 }
 
 .form-status.success {
@@ -92,18 +163,4 @@ input:focus, textarea:focus {
     color: var(--green-neon);
     border: 1px solid var(--green-neon);
     text-shadow: 0 0 8px var(--green-neon);
-    box-shadow: inset 0 0 10px rgba(57, 255, 20, 0.2);
-}
-
-.form-status.error {
-    display: block;
-    color: #ff3131;
-    border: 1px solid #ff3131;
-}
-
-/* Button Success State */
-#submit-btn.success {
-    border-color: var(--green-neon) !important;
-    color: var(--green-neon) !important;
-    box-shadow: 0 0 20px var(--green-neon) !important;
 }
