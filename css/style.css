@@ -1,119 +1,42 @@
-/* --- Variables --- */
-:root {
-    --purple-neon: #bc13fe;
-    --green-neon: #39ff14;
-    --bg-dark: #050505;
-    --card-bg: #111111;
-}
-
-/* --- Global Settings --- */
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { 
-    background-color: var(--bg-dark); 
-    color: white; 
-    font-family: 'Segoe UI', sans-serif; 
-    overflow-x: hidden;
-}
+body { background: #050505; color: white; font-family: sans-serif; line-height: 1.6; }
 
-/* --- Header & Nav --- */
-.navbar .nav-container {
+.nav-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 8%;
-    background: rgba(0,0,0,0.95);
+    padding: 20px 5%;
+    background: #000;
 }
-.nav-links { display: flex; list-style: none; gap: 30px; }
-.nav-links a { text-decoration: none; color: white; font-weight: 500; transition: 0.3s; }
-.nav-links a:hover { color: var(--purple-neon); text-shadow: 0 0 10px var(--purple-neon); }
+.nav-links { display: flex; list-style: none; gap: 20px; }
+.nav-links a { color: white; text-decoration: none; }
 
-/* --- Hero Section --- */
-#home {
-    height: 60vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 0 15%;
-}
-h1 { font-size: 3.5rem; line-height: 1.2; margin-bottom: 20px; }
-
-/* --- Services & Portfolio (اصلاح اصلی چیدمان) --- */
 .services-container, .portfolio-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* ایجاد حالت چند ستونه */
-    gap: 30px;
-    padding: 40px 8%;
-    max-width: 1200px;
-    margin: 0 auto;
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    gap: 20px;
+    padding: 40px 5%;
 }
 
 .service-card, .portfolio-item {
-    background: var(--card-bg);
-    padding: 30px;
-    border-radius: 15px;
+    background: #111;
+    padding: 20px;
     border: 1px solid #222;
+    border-radius: 12px;
     text-align: center;
-    transition: 0.4s;
 }
 
 .portfolio-item img {
     width: 100%;
     height: 200px;
-    object-fit: cover; /* جلوگیری از کشیدگی تصاویر */
-    border-radius: 10px;
-    margin-bottom: 15px;
+    object-fit: cover;
+    border-radius: 8px;
 }
 
-.service-card:hover, .portfolio-item:hover {
-    border-color: var(--purple-neon);
-    transform: translateY(-10px);
-    box-shadow: 0 10px 30px rgba(188, 19, 254, 0.2);
-}
-
-/* --- Titles --- */
 h2 {
-    font-size: 2.5rem;
-    color: var(--purple-neon);
-    text-shadow: 0 0 15px var(--purple-neon);
+    color: #bc13fe;
+    text-shadow: 0 0 10px #bc13fe;
     text-align: center;
-    margin: 60px 0 20px 0;
-    text-transform: uppercase;
-}
-
-/* --- Contact Form (اصلاح نهایی) --- */
-#contact { padding: 80px 8%; }
-#contact-form {
-    max-width: 600px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-input, textarea {
-    padding: 15px;
-    background: #151515;
-    border: 1px solid #333;
-    color: white;
-    border-radius: 8px;
-    font-size: 1rem;
-}
-input:focus, textarea:focus {
-    border-color: var(--purple-neon);
-    outline: none;
-}
-#submit-btn {
-    padding: 15px;
-    background: transparent;
-    color: var(--purple-neon);
-    border: 2px solid var(--purple-neon);
-    cursor: pointer;
-    font-weight: bold;
-    border-radius: 8px;
-    text-transform: uppercase;
-}
-#submit-btn:hover {
-    background: var(--purple-neon);
-    color: white;
+    margin: 40px 0;
+    font-size: 2rem;
 }
