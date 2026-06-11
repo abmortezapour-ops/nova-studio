@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nova Studio | Premium Web Design</title>
-    <link rel="stylesheet" href="css/style.css?v=1.6">
+    <!-- v=2.1 برای شکستن کش مرورگر و اعمال سریع تغییرات -->
+    <link rel="stylesheet" href="css/style.css?v=2.1">
 </head>
 <body>
     <nav class="navbar">
@@ -26,65 +27,56 @@
     <section id="services">
         <h2>Services</h2>
         <div class="services-container">
-            <div class="service-card">
+            <!-- کارت‌های سرویس با قابلیت انتخاب -->
+            <div class="service-card" data-service="Front-End Development">
                 <h3>Front-End</h3>
-                <p>Pixel-perfect UI builds with modern frameworks.</p>
+                <p>Pixel-perfect UI builds.</p>
             </div>
-            <div class="service-card">
+
+            <div class="service-card" data-service="UI Design">
                 <h3>UI Design</h3>
-                <p>Modern, clean and user-centric layouts.</p>
+                <p>Modern and clean layouts.</p>
             </div>
-            <div class="service-card">
+
+            <div class="service-card" data-service="SEO Optimization">
                 <h3>SEO</h3>
-                <p>Optimizing your site for maximum visibility.</p>
+                <p>Maximizing your visibility.</p>
             </div>
         </div>
     </section>
 
-     <section id="portfolio">
+    <section id="portfolio">
         <h2>Our Masterpieces</h2>
         <div class="portfolio-grid">
-            <div class="portfolio-item">
-                <img src="images/p1.png" alt="Project 1">
-                <h3>Creative Design</h3>
-            </div>
-            <div class="portfolio-item">
-                <img src="images/p2.png" alt="Project 2">
-                <h3>Web Solutions</h3>
-            </div>
-            <div class="portfolio-item">
-                <img src="images/p3.png" alt="Project 3">
-                <h3>UI/UX Strategy</h3>
-            </div>
-            <div class="portfolio-item">
-                <img src="images/p4.png" alt="Project 4">
-                <h3>Brand Identity</h3>
-            </div>
-            <div class="portfolio-item">
-                <img src="images/p5.png" alt="Project 5">
-                <h3>Mobile Experience</h3>
-            </div>
-            <div class="portfolio-item">
-                <img src="images/p6.png" alt="Project 6">
-                <h3>Digital Marketing</h3>
-            </div>
-            <div class="portfolio-item">
-                <img src="images/p7.png" alt="Project 7">
-                <h3>E-Commerce System</h3>
-            </div>
-            <div class="portfolio-item">
-                <img src="images/p8.png" alt="Project 8">
-                <h3>Cloud Platform</h3>
-            </div>
+            <div class="portfolio-item"><img src="images/p1.png" alt="P1"><h3>Project 1</h3></div>
+            <div class="portfolio-item"><img src="images/p2.png" alt="P2"><h3>Project 2</h3></div>
+            <div class="portfolio-item"><img src="images/p3.png" alt="P3"><h3>Project 3</h3></div>
+            <div class="portfolio-item"><img src="images/p4.png" alt="P4"><h3>Project 4</h3></div>
+            <div class="portfolio-item"><img src="images/p5.png" alt="P5"><h3>Project 5</h3></div>
+            <div class="portfolio-item"><img src="images/p6.png" alt="P6"><h3>Project 6</h3></div>
+            <div class="portfolio-item"><img src="images/p7.png" alt="P7"><h3>Project 7</h3></div>
+            <div class="portfolio-item"><img src="images/p8.png" alt="P8"><h3>Project 8</h3></div>
         </div>
     </section>
-
 
     <section id="contact">
         <h2>Get In Touch</h2>
         <div class="contact-container">
             <p>Ready to start your project? Let's talk.</p>
-            <a href="mailto:info@novastudio.com" class="contact-btn">Send Message</a>
+
+            <!-- باکس نمایش سرویس انتخاب شده -->
+            <div class="selected-service-box" id="selectedServiceBox">
+                Selected Service: <span id="selectedServiceText">None</span>
+            </div>
+
+            <form action="https://formspree.io/f/maqkalgp" method="POST" class="contact-form">
+                <!-- فیلد مخفی برای ارسال نام سرویس به ایمیل شما -->
+                <input type="hidden" name="selected_service" id="selectedServiceInput" value="">
+                
+                <input type="email" name="email" placeholder="Your Email Address" required>
+                <textarea name="message" placeholder="Your Message..." required></textarea>
+                <button type="submit" class="contact-btn">Send Message</button>
+            </form>
         </div>
     </section>
 
@@ -92,6 +84,29 @@
         <p>&copy; 2026 Nova Studio. All rights reserved.</p>
     </footer>
 
-    <script src="js/main.js"></script>
+    <!-- اسکریپت مدیریت کلیک روی سرویس‌ها و هایلایت -->
+    <script>
+        const serviceCards = document.querySelectorAll('.service-card');
+        const selectedServiceText = document.getElementById('selectedServiceText');
+        const selectedServiceInput = document.getElementById('selectedServiceInput');
+
+        serviceCards.forEach(card => {
+            card.addEventListener('click', () => {
+                // حذف کلاس اکتیو از بقیه و اضافه کردن به کارت کلیک شده
+                serviceCards.forEach(item => item.classList.remove('active'));
+                card.classList.add('active');
+
+                // استخراج نام سرویس و قرار دادن در فرم
+                const serviceName = card.getAttribute('data-service');
+                selectedServiceText.textContent = serviceName;
+                selectedServiceInput.value = serviceName;
+
+                // اسکرول آرام به سمت فرم تماس
+                document.getElementById('contact').scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 </body>
 </html>
