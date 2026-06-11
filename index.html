@@ -101,24 +101,59 @@
     }
     .service-card.selected { border-color: var(--secondary-neon); background: rgba(255, 0, 224, 0.05); }
 
-    /* --- PORTFOLIO --- */
+      /* --- PORTFOLIO WITH PDF BUTTON --- */
     .portfolio-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
         gap: 25px;
     }
-    .portfolio-grid img {
-        width: 100%;
-        height: 300px;
-        object-fit: cover;
-        border-radius: 20px;
+    .portfolio-item { 
+        position: relative; 
+        overflow: hidden; 
+        border-radius: 20px; 
         border: 1px solid rgba(255,255,255,0.1);
         transition: 0.5s;
     }
-    .portfolio-grid img:hover {
-        transform: scale(1.03);
-        border-color: var(--secondary-neon);
+    .portfolio-item img { width: 100%; height: 300px; object-fit: cover; display: block; transition: 0.5s; }
+    
+    .portfolio-overlay {
+        position: absolute;
+        top: 0; left: 0; width: 100%; height: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        transition: 0.5s;
     }
+    .portfolio-item:hover .portfolio-overlay { opacity: 1; }
+    .portfolio-item:hover img { transform: scale(1.1); filter: blur(2px); }
+    .portfolio-item:hover { border-color: var(--primary-neon); box-shadow: 0 0 20px var(--primary-neon); }
+
+    .btn-pdf {
+        background: var(--primary-neon);
+        color: white;
+        padding: 10px 20px;
+        border-radius: 30px;
+        text-decoration: none;
+        font-weight: bold;
+        text-transform: uppercase;
+        font-size: 0.8rem;
+        box-shadow: 0 0 15px var(--primary-neon);
+        transition: 0.3s;
+    }
+    .btn-pdf:hover { transform: scale(1.1); background: white; color: var(--primary-neon); }
+
+    /* استایل دکمه پرداخت */
+    .payment-section { margin-top: 15px; text-align: center; }
+    .btn-pay {
+        display: block; width: 100%; padding: 18px;
+        background: linear-gradient(45deg, #00c853, #b2ff59);
+        color: #000; text-decoration: none; border-radius: 15px;
+        font-weight: 900; text-transform: uppercase; transition: 0.3s;
+        box-shadow: 0 0 20px rgba(0, 200, 83, 0.4);
+    }
+    .btn-pay:hover { transform: scale(1.02); box-shadow: 0 0 30px #00c853; }
 
     /* --- CONTACT --- */
     .contact-container {
@@ -156,6 +191,8 @@
     }
     .telegram { background: #0088cc; }
     .rubika { background: #bc13fe; }
+
+   
 </style>
 
 </head>
@@ -195,17 +232,33 @@
 
     <div class="container" id="portfolio">
         <h2 class="section-title">Portfolio</h2>
-        <div class="portfolio-grid">
-            <img src="images/p1.png" alt="Work 1">
-            <img src="images/p2.png" alt="Work 2">
-            <img src="images/p3.png" alt="Work 3">
-            <img src="images/p4.png" alt="Work 4">
-            <img src="images/p5.png" alt="Work 5">
-            <img src="images/p6.png" alt="Work 6">
-            <img src="images/p7.png" alt="Work 7">
-            <img src="images/p8.png" alt="Work 8">
+     <div class="portfolio-grid">
+    <!-- پروژه ۱ -->
+    <div class="portfolio-item">
+        <img src="images/p1.png" alt="AI Project">
+        <div class="portfolio-overlay">
+            <a href="files/Artificial-Intelligence-The-Future-of-Technology.pdf" target="_blank" class="btn-pdf">Open PDF</a>
         </div>
     </div>
+
+    <!-- پروژه ۲ -->
+    <div class="portfolio-item">
+        <img src="images/p2.png" alt="Timeless Value">
+        <div class="portfolio-overlay">
+            <a href="files/Timeless-Value.pdf" target="_blank" class="btn-pdf">Open PDF</a>
+        </div>
+    </div>
+
+    <!-- بقیه پروژه‌ها -->
+    <div class="portfolio-item"><img src="images/p3.png"></div>
+    <div class="portfolio-item"><img src="images/p4.png"></div>
+    <div class="portfolio-item"><img src="images/p5.png"></div>
+    <div class="portfolio-item"><img src="images/p6.png"></div>
+    <div class="portfolio-item"><img src="images/p7.png"></div>
+    <div class="portfolio-item"><img src="images/p8.png"></div>
+</div>
+
+   </div>
 
     <section class="contact-section" id="contact">
         <div class="container">
@@ -227,6 +280,11 @@
                 <div class="social-buttons">
                     <a href="https://t.me/novastudio_design" target="_blank" class="btn-social telegram">Telegram Support</a>
                     <a href="https://rubika.ir/novastudio_design" target="_blank" class="btn-social rubika">Rubika Channel</a>
+                       <!-- دکمه پرداخت آنلاین -->
+    <div class="payment-section">
+        <a href="#" class="btn-pay">💳 Secure Payment / پرداخت آنلاین</a>
+    </div>
+
                 </div>
             </div>
         </div>
