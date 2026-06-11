@@ -3,79 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nova Studio | Premium Web Design</title>
-    <!-- v=2.1 برای شکستن کش مرورگر و اعمال سریع تغییرات -->
-    <link rel="stylesheet" href="css/style.css?v=2.1">
+    <title>Nova Studio | Premium Digital Agency</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* استایل‌های تکمیلی برای اطمینان از چیدمان */
+        .section-title { text-align: center; margin-top: 50px; font-size: 2.5rem; text-shadow: 0 0 10px var(--primary-neon); }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+    </style>
 </head>
 <body>
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="#" class="logo">Nova Studio</a>
-            <ul class="nav-links">
-                <li><a href="#services">Services</a></li>
-                <li><a href="#portfolio">Portfolio</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
 
-    <header id="home">
-        <h1>We Build Premium Experiences</h1>
-        <p>High-end development focused on smooth UI and performance.</p>
+    <header>
+        <div class="logo">Nova Studio</div>
+        <nav>
+            <a href="#services">SERVICES</a>
+            <a href="#portfolio">PORTFOLIO</a>
+            <a href="#contact">CONTACT</a>
+        </nav>
     </header>
 
-    <section id="services">
-        <h2>Services</h2>
-        <div class="services-container">
-            <!-- کارت‌های سرویس با قابلیت انتخاب -->
-            <div class="service-card" data-service="Front-End Development">
-                <h3>Front-End</h3>
-                <p>Pixel-perfect UI builds.</p>
-            </div>
-
-            <div class="service-card" data-service="UI Design">
-                <h3>UI Design</h3>
-                <p>Modern and clean layouts.</p>
-            </div>
-
-            <div class="service-card" data-service="SEO Optimization">
-                <h3>SEO</h3>
-                <p>Maximizing your visibility.</p>
-            </div>
-        </div>
+    <section class="hero">
+        <h1>We Build Premium Experiences</h1>
+        <p>High-end development focused on smooth UI and performance.</p>
     </section>
 
-    <section id="portfolio">
-        <h2>Our Masterpieces</h2>
+    <div class="container" id="services">
+        <h2 class="section-title">Our Services</h2>
+        <div class="services-grid">
+            <div class="service-card" onclick="selectService('Web Design')">
+                <h3>Web Design</h3>
+                <p>Modern, responsive, and neon-infused layouts.</p>
+            </div>
+            <div class="service-card" onclick="selectService('Development')">
+                <h3>Development</h3>
+                <p>Clean code with high performance optimization.</p>
+            </div>
+            <div class="service-card" onclick="selectService('Branding')">
+                <h3>Branding</h3>
+                <p>Unique visual identities for your digital presence.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="portfolio">
+        <h2 class="section-title">Portfolio</h2>
         <div class="portfolio-grid">
-            <div class="portfolio-item"><img src="images/p1.png" alt="P1"><h3>Project 1</h3></div>
-            <div class="portfolio-item"><img src="images/p2.png" alt="P2"><h3>Project 2</h3></div>
-            <div class="portfolio-item"><img src="images/p3.png" alt="P3"><h3>Project 3</h3></div>
-            <div class="portfolio-item"><img src="images/p4.png" alt="P4"><h3>Project 4</h3></div>
-            <div class="portfolio-item"><img src="images/p5.png" alt="P5"><h3>Project 5</h3></div>
-            <div class="portfolio-item"><img src="images/p6.png" alt="P6"><h3>Project 6</h3></div>
-            <div class="portfolio-item"><img src="images/p7.png" alt="P7"><h3>Project 7</h3></div>
-            <div class="portfolio-item"><img src="images/p8.png" alt="P8"><h3>Project 8</h3></div>
+            <img src="images/p1.png" alt="Work 1">
+            <img src="images/p2.png" alt="Work 2">
+            <img src="images/p3.png" alt="Work 3">
+            <img src="images/p4.png" alt="Work 4">
+            <img src="images/p5.png" alt="Work 5">
+            <img src="images/p6.png" alt="Work 6">
+            <img src="images/p7.png" alt="Work 7">
+            <img src="images/p8.png" alt="Work 8">
         </div>
-    </section>
+    </div>
 
-    <section id="contact">
-        <h2>Get In Touch</h2>
+    <section class="contact-section" id="contact">
+        <h2 class="section-title">Get In Touch</h2>
         <div class="contact-container">
-            <p>Ready to start your project? Let's talk.</p>
-
-            <!-- باکس نمایش سرویس انتخاب شده -->
-            <div class="selected-service-box" id="selectedServiceBox">
-                Selected Service: <span id="selectedServiceText">None</span>
+            <div class="status-box">
+                <p>Ready to start your project? Let's talk.</p>
+                <p>Selected Service: <span id="selected-service-display">None</span></p>
             </div>
 
-            <form action="https://formspree.io/f/maqkalgp" method="POST" class="contact-form">
-                <!-- فیلد مخفی برای ارسال نام سرویس به ایمیل شما -->
-                <input type="hidden" name="selected_service" id="selectedServiceInput" value="">
+            <!-- جایگزین کردن آدرس ایمیل خودتان در Formspree -->
+            <form action="https://formspree.io/f/https://formspree.io/f/maqkalgp" method="POST">
+                <input type="hidden" name="service" id="service-input" value="None">
                 
                 <input type="email" name="email" placeholder="Your Email Address" required>
-                <textarea name="message" placeholder="Your Message..." required></textarea>
-                <button type="submit" class="contact-btn">Send Message</button>
+                <textarea name="message" rows="5" placeholder="Your Message..." required></textarea>
+                
+                <button type="submit">Send Message</button>
             </form>
         </div>
     </section>
@@ -84,29 +83,25 @@
         <p>&copy; 2026 Nova Studio. All rights reserved.</p>
     </footer>
 
-    <!-- اسکریپت مدیریت کلیک روی سرویس‌ها و هایلایت -->
     <script>
-        const serviceCards = document.querySelectorAll('.service-card');
-        const selectedServiceText = document.getElementById('selectedServiceText');
-        const selectedServiceInput = document.getElementById('selectedServiceInput');
-
-        serviceCards.forEach(card => {
-            card.addEventListener('click', () => {
-                // حذف کلاس اکتیو از بقیه و اضافه کردن به کارت کلیک شده
-                serviceCards.forEach(item => item.classList.remove('active'));
-                card.classList.add('active');
-
-                // استخراج نام سرویس و قرار دادن در فرم
-                const serviceName = card.getAttribute('data-service');
-                selectedServiceText.textContent = serviceName;
-                selectedServiceInput.value = serviceName;
-
-                // اسکرول آرام به سمت فرم تماس
-                document.getElementById('contact').scrollIntoView({
-                    behavior: 'smooth'
-                });
+        function selectService(serviceName) {
+            // آپدیت متن نمایشی
+            document.getElementById('selected-service-display').innerText = serviceName;
+            // آپدیت فیلد مخفی فرم برای ایمیل
+            document.getElementById('service-input').value = serviceName;
+            
+            // هایلایت کردن کارت انتخاب شده
+            const cards = document.querySelectorAll('.service-card');
+            cards.forEach(card => {
+                card.classList.remove('selected');
+                if(card.querySelector('h3').innerText === serviceName) {
+                    card.classList.add('selected');
+                }
             });
-        });
+
+            // اسکرول نرم به فرم تماس
+            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+        }
     </script>
 </body>
 </html>
