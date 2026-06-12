@@ -319,8 +319,7 @@
         document.getElementById('service-input').value = serviceName;
         
         const messageBox = document.querySelector('textarea[name="message"]');
-        messageBox.value = "سلام نووا استودیو، من به سرویس " + serviceName + " علاقمند هستم. لطفاً در این مورد من را راهنمایی کنید.";
-
+        messageBox.value = "Hello Nova Studio, I am interested in the " + serviceName + " service. Please provide me with more information regarding this.";
         const cards = document.querySelectorAll('.service-card');
         cards.forEach(card => {
             card.classList.remove('selected');
