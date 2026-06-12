@@ -170,9 +170,9 @@
 }
 
 .btn-pay {
-    background: linear-gradient(45deg, #2ecc71, #27ae60);
-    color: #000 !important; /* برای خوانایی بهتر متن روی سبز */
-    box-shadow: 0 0 15px rgba(46, 204, 113, 0.4);
+    background: rgba(46, 204, 113, 0.1) !important;
+    border: 1px solid #2ecc71 !important;
+    color: #2ecc71 !important;
     cursor: pointer;
 }
 
@@ -302,7 +302,8 @@
                     <p>Selected Service: <span id="selected-service-display">None</span></p>
                 </div>
 
-                <form action="https://formspree.io/f/maqkalgp" method="POST">
+              <form id="contact-form" action="https://formspree.io/f/maqkalgp" method="POST">
+
                     <input type="hidden" name="service" id="service-input" value="None">
                     <input type="email" name="email" placeholder="Your Email Address" required>
                     <textarea name="message" rows="5" placeholder="Your Message..." required></textarea>
@@ -344,5 +345,50 @@
             document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
         }
     </script>
+    <script>
+  const contactForm = document.getElementById('contact-form');
+  
+  contactForm.addEventListener('submit', async function(e) {
+    e.preventDefault(); 
+    const submitBtn = this.querySelector('button[type="submit"]');
+    const originalText = submitBtn.innerText;
+    
+    // نمایش وضعیت در حال ارسال
+    submitBtn.innerText = "در حال ارسال...";
+    submitBtn.disabled = true;
+
+    try {
+      const formData = new FormData(this);
+      const response = await fetch(this.action, {
+        method: 'POST',
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (response.ok) {
+        // پیام موفقیت
+        submitBtn.innerText = "✓ با موفقیت ارسال شد!";
+        submitBtn.style.background = "#2ecc71";
+        submitBtn.style.color = "white";
+        this.reset(); 
+        
+        // بازگشت به حالت عادی بعد از ۵ ثانیه
+        setTimeout(() => {
+          submitBtn.innerText = originalText;
+          submitBtn.style.background = ""; 
+          submitBtn.style.color = "";
+          submitBtn.disabled = false;
+        }, 5000);
+      } else {
+        throw new Error();
+      }
+    } catch (error) {
+      alert("خطایی رخ داد! لطفاً دوباره تلاش کنید.");
+      submitBtn.innerText = originalText;
+      submitBtn.disabled = false;
+    }
+  });
+</script>
+
 </body>
 </html>
