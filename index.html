@@ -4,227 +4,371 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nova Studio | Premium Digital Agency</title>
-  
-  <style>
-    :root {
-        --primary-neon: #bc13fe;
-        --secondary-neon: #ff00e0;
-        --dark-bg: #0a0a0a;
-        --glass-bg: rgba(255, 255, 255, 0.05);
-    }
 
-    body { 
-        background-color: var(--dark-bg); 
-        color: white; 
-        font-family: 'Inter', sans-serif; 
-        margin: 0; 
-        line-height: 1.6; 
-        overflow-x: hidden; 
-    }
+    <style>
+        :root {
+            --primary-neon: #bc13fe;
+            --secondary-neon: #ff00e0;
+            --dark-bg: #0a0a0a;
+            --glass-bg: rgba(255, 255, 255, 0.05);
+        }
 
-    /* --- NAVIGATION --- */
-    header { 
-        background: rgba(0,0,0,0.95); 
-        padding: 20px 5%; 
-        display: flex; 
-        justify-content: space-between; 
-        align-items: center;
-        border-bottom: 2px solid var(--primary-neon); 
-        position: sticky;
-        top: 0;
-        z-index: 1000;
-    }
-    .logo { 
-        color: var(--primary-neon); 
-        font-weight: 900; 
-        font-size: 1.8rem; 
-        text-shadow: 0 0 15px var(--primary-neon); 
-        text-decoration: none;
-        text-transform: uppercase;
-    }
-    nav a { color: white; margin-left: 25px; text-decoration: none; font-weight: 500; transition: 0.3s; font-size: 0.9rem; }
-    nav a:hover { color: var(--secondary-neon); text-shadow: 0 0 10px var(--secondary-neon); }
+        body {
+            background-color: var(--dark-bg);
+            color: white;
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
 
-    /* --- HERO SECTION --- */
-    .hero {
-        height: 70vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        background: radial-gradient(circle at center, rgba(188, 19, 254, 0.1) 0%, transparent 70%);
-        padding: 0 20px;
-    }
-    .hero h1 {
-        font-size: 4.5rem;
-        margin: 0;
-        background: linear-gradient(to right, #fff, var(--primary-neon));
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        text-transform: uppercase;
-        letter-spacing: -2px;
-        line-height: 1.1;
-    }
-    .hero p {
-        font-size: 1.2rem;
-        color: #aaa;
-        max-width: 600px;
-        margin-top: 20px;
-    }
+        /* --- NAVIGATION --- */
+        header {
+            background: rgba(0, 0, 0, 0.95);
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid var(--primary-neon);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
 
-    /* --- CONTAINERS --- */
-    .container { max-width: 1200px; margin: 0 auto; padding: 80px 20px; }
-    .section-title { 
-        text-align: center; 
-        margin-bottom: 50px; 
-        font-size: 2.8rem; 
-        text-shadow: 0 0 20px var(--primary-neon); 
-        color: var(--primary-neon); 
-        text-transform: uppercase; 
-    }
+        .logo {
+            color: var(--primary-neon);
+            font-weight: 900;
+            font-size: 1.8rem;
+            text-shadow: 0 0 15px var(--primary-neon);
+            text-decoration: none;
+            text-transform: uppercase;
+        }
 
-    /* --- SERVICES --- */
-    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-    .service-card {
-        background: #111;
-        padding: 40px;
-        border-radius: 20px;
-        border: 1px solid rgba(255,255,255,0.05);
-        cursor: pointer;
-        transition: 0.4s ease;
-    }
-    .service-card:hover { 
-        border-color: var(--primary-neon); 
-        transform: translateY(-10px); 
-        box-shadow: 0 10px 30px rgba(188, 19, 254, 0.2);
-    }
-    .service-card.selected { border-color: var(--secondary-neon); background: rgba(255, 0, 224, 0.05); }
+        nav a {
+            color: white;
+            margin-left: 25px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.3s;
+            font-size: 0.9rem;
+        }
 
-    /* --- PORTFOLIO --- */
-    .portfolio-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 25px;
-    }
-    .portfolio-item { 
-        position: relative; 
-        overflow: hidden; 
-        border-radius: 20px; 
-        border: 1px solid rgba(255,255,255,0.1);
-        transition: 0.5s;
-    }
-    .portfolio-item img { width: 100%; height: 300px; object-fit: cover; display: block; transition: 0.5s; }
-    
-    .portfolio-overlay {
-        position: absolute;
-        top: 0; left: 0; width: 100%; height: 100%;
-        background: rgba(0, 0, 0, 0.7);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        opacity: 0;
-        transition: 0.5s;
-    }
-    .portfolio-item:hover .portfolio-overlay { opacity: 1; }
-    .portfolio-item:hover img { transform: scale(1.1); filter: blur(2px); }
-    .portfolio-item:hover { border-color: var(--primary-neon); box-shadow: 0 0 20px var(--primary-neon); }
+        nav a:hover {
+            color: var(--secondary-neon);
+            text-shadow: 0 0 10px var(--secondary-neon);
+        }
 
-    .btn-pdf {
-        background: var(--primary-neon);
-        color: white;
-        padding: 10px 20px;
-        border-radius: 30px;
-        text-decoration: none;
-        font-weight: bold;
-        text-transform: uppercase;
-        font-size: 0.8rem;
-        box-shadow: 0 0 15px var(--primary-neon);
-        transition: 0.3s;
-    }
-    .btn-pdf:hover { transform: scale(1.1); background: white; color: var(--primary-neon); }
+        /* --- HERO SECTION --- */
+        .hero {
+            height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: radial-gradient(circle at center, rgba(188, 19, 254, 0.1) 0%, transparent 70%);
+            padding: 0 20px;
+        }
 
-    /* --- SOCIAL & PAYMENT BUTTONS --- */
-    .social-buttons {
-        display: flex;
-        gap: 10px;
-        margin-top: 20px;
-        justify-content: space-between;
-    }
+        .hero h1 {
+            font-size: 4.5rem;
+            margin: 0;
+            background: linear-gradient(to right, #fff, var(--primary-neon));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-transform: uppercase;
+            letter-spacing: -2px;
+            line-height: 1.1;
+        }
 
-    .btn-social, .btn-pay {
-        flex: 1;
-        padding: 15px 5px;
-        text-align: center;
-        border-radius: 12px;
-        font-weight: bold;
-        font-size: 13px;
-        text-decoration: none;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: 0.3s;
-        border: none;
-        color: white;
-    }
+        .hero p {
+            font-size: 1.2rem;
+            color: #aaa;
+            max-width: 600px;
+            margin-top: 20px;
+        }
 
-    .btn-pay {
-        background: rgba(46, 204, 113, 0.1) !important;
-        border: 1px solid #2ecc71 !important;
-        color: #2ecc71 !important;
-        cursor: pointer;
-    }
+        /* --- CONTAINERS --- */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
 
-    .btn-pay:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 0 25px rgba(46, 204, 113, 0.6);
-    }
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2.8rem;
+            text-shadow: 0 0 20px var(--primary-neon);
+            color: var(--primary-neon);
+            text-transform: uppercase;
+        }
 
-    .telegram { 
-        background: rgba(0, 136, 204, 0.1) !important; 
-        border: 1px solid #0088cc !important; 
-        color: #0088cc !important; 
-    }
-    .telegram:hover { background: #0088cc !important; color: white !important; }
+        /* --- SERVICES --- */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
 
-    .rubika { 
-        background: rgba(188, 19, 254, 0.1) !important; 
-        border: 1px solid #bc13fe !important; 
-        color: #bc13fe !important; 
-    }
-    .rubika:hover { background: #bc13fe !important; color: white !important; }
+        .service-card {
+            background: #111;
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            cursor: pointer;
+            transition: 0.4s ease;
+        }
 
-    /* --- CONTACT FORM --- */
-    .contact-container {
-        max-width: 600px;
-        margin: 0 auto;
-        background: #111;
-        padding: 40px;
-        border-radius: 25px;
-        border: 1px solid var(--primary-neon);
-    }
-    form { display: flex; flex-direction: column; gap: 15px; }
-    input, textarea {
-        background: #000;
-        border: 1px solid #333;
-        padding: 15px;
-        border-radius: 12px;
-        color: white;
-    }
-    button[type="submit"] {
-        background: linear-gradient(45deg, var(--primary-neon), var(--secondary-neon));
-        color: white;
-        border: none;
-        padding: 15px;
-        border-radius: 12px;
-        font-weight: bold;
-        cursor: pointer;
-        transition: 0.3s;
-    }
-    button[type="submit"]:hover { box-shadow: 0 0 20px var(--primary-neon); }
-   
-</style>
+        .service-card:hover {
+            border-color: var(--primary-neon);
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(188, 19, 254, 0.2);
+        }
 
+        .service-card.selected {
+            border-color: var(--secondary-neon);
+            background: rgba(255, 0, 224, 0.05);
+        }
+
+        /* --- PORTFOLIO --- */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .portfolio-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: 0.5s;
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+            transition: 0.5s;
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            box-sizing: border-box;
+            opacity: 0;
+            transition: 0.5s;
+            backdrop-filter: blur(3px);
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+
+        .portfolio-item:hover img {
+            transform: scale(1.1);
+            filter: blur(2px);
+        }
+
+        .portfolio-item:hover {
+            border-color: var(--primary-neon);
+            box-shadow: 0 0 20px var(--primary-neon);
+        }
+
+        .overlay-content h3 {
+            color: var(--primary-neon);
+            margin: 0 0 10px 0;
+            font-size: 1.3rem;
+            text-transform: uppercase;
+        }
+
+        .overlay-content p {
+            color: #eee;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .btn-pdf {
+            display: inline-block;
+            background: var(--primary-neon);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            box-shadow: 0 0 15px var(--primary-neon);
+            transition: 0.3s;
+        }
+
+        .btn-pdf:hover {
+            transform: scale(1.1);
+            background: white;
+            color: var(--primary-neon);
+        }
+
+        /* --- SOCIAL & PAYMENT BUTTONS --- */
+        .social-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .btn-social,
+        .btn-pay {
+            flex: 1;
+            min-width: 140px;
+            padding: 15px 5px;
+            text-align: center;
+            border-radius: 12px;
+            font-weight: bold;
+            font-size: 13px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.3s;
+            border: none;
+            color: white;
+            box-sizing: border-box;
+        }
+
+        .btn-pay {
+            background: rgba(46, 204, 113, 0.1) !important;
+            border: 1px solid #2ecc71 !important;
+            color: #2ecc71 !important;
+            cursor: pointer;
+        }
+
+        .btn-pay:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 25px rgba(46, 204, 113, 0.6);
+        }
+
+        .telegram {
+            background: rgba(0, 136, 204, 0.1) !important;
+            border: 1px solid #0088cc !important;
+            color: #0088cc !important;
+        }
+
+        .telegram:hover {
+            background: #0088cc !important;
+            color: white !important;
+        }
+
+        .rubika {
+            background: rgba(188, 19, 254, 0.1) !important;
+            border: 1px solid #bc13fe !important;
+            color: #bc13fe !important;
+        }
+
+        .rubika:hover {
+            background: #bc13fe !important;
+            color: white !important;
+        }
+
+        /* --- CONTACT FORM --- */
+        .contact-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #111;
+            padding: 40px;
+            border-radius: 25px;
+            border: 1px solid var(--primary-neon);
+        }
+
+        .status-box {
+            margin-bottom: 20px;
+            color: #ccc;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        input,
+        textarea {
+            background: #000;
+            border: 1px solid #333;
+            padding: 15px;
+            border-radius: 12px;
+            color: white;
+            font-size: 1rem;
+        }
+
+        input:focus,
+        textarea:focus {
+            outline: none;
+            border-color: var(--primary-neon);
+            box-shadow: 0 0 10px rgba(188, 19, 254, 0.3);
+        }
+
+        button[type="submit"] {
+            background: linear-gradient(45deg, var(--primary-neon), var(--secondary-neon));
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 12px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+            font-size: 1rem;
+        }
+
+        button[type="submit"]:hover {
+            box-shadow: 0 0 20px var(--primary-neon);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #aaa;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav a {
+                margin: 0 10px;
+            }
+
+            .hero h1 {
+                font-size: 2.7rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .contact-container {
+                padding: 25px;
+            }
+        }
+    </style>
 </head>
 <body>
 
@@ -263,24 +407,95 @@
     <div class="container" id="portfolio">
         <h2 class="section-title">Portfolio</h2>
         <div class="portfolio-grid">
+
             <div class="portfolio-item">
                 <img src="images/p1.png" alt="AI Project">
                 <div class="portfolio-overlay">
-                    <a href="files/Artificial-Intelligence-The-Future-of-Technology.pdf" target="_blank" class="btn-pdf">Open PDF</a>
+                    <div class="overlay-content">
+                        <h3>AI Future</h3>
+                        <p>Exploring the next generation of AI technology.</p>
+                        <a href="files/Artificial-Intelligence-The-Future-of-Technology.pdf" target="_blank" class="btn-pdf">Open PDF</a>
+                    </div>
                 </div>
             </div>
+
             <div class="portfolio-item">
-                <img src="images/p2.png" alt="Timeless Value">
+                <img src="images/p2.png" alt="Digital Design">
                 <div class="portfolio-overlay">
-                    <a href="files/Timeless-Value.pdf" target="_blank" class="btn-pdf">Open PDF</a>
+                    <div class="overlay-content">
+                        <h3>Digital Art</h3>
+                        <p>Modern visual concepts and UI elements.</p>
+                        <a href="#" class="btn-pdf">View Project</a>
+                    </div>
                 </div>
             </div>
-            <div class="portfolio-item"><img src="images/p3.png"></div>
-            <div class="portfolio-item"><img src="images/p4.png"></div>
-            <div class="portfolio-item"><img src="images/p5.png"></div>
-            <div class="portfolio-item"><img src="images/p6.png"></div>
-            <div class="portfolio-item"><img src="images/p7.png"></div>
-            <div class="portfolio-item"><img src="images/p8.png"></div>
+
+            <div class="portfolio-item">
+                <img src="images/p3.png" alt="Creative Case">
+                <div class="portfolio-overlay">
+                    <div class="overlay-content">
+                        <h3>Creative Case</h3>
+                        <p>Deep dive into the creative process.</p>
+                        <a href="#" class="btn-pdf">Explore</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="portfolio-item">
+                <img src="images/p4.png" alt="Motion Graphics">
+                <div class="portfolio-overlay">
+                    <div class="overlay-content">
+                        <h3>Motion Graphics</h3>
+                        <p>Smooth animations and transitions.</p>
+                        <a href="#" class="btn-pdf">Watch Video</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="portfolio-item">
+                <img src="images/p5.png" alt="Web Apps">
+                <div class="portfolio-overlay">
+                    <div class="overlay-content">
+                        <h3>Web Apps</h3>
+                        <p>High-performance web applications.</p>
+                        <a href="#" class="btn-pdf">Details</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="portfolio-item">
+                <img src="images/p6.png" alt="Branding">
+                <div class="portfolio-overlay">
+                    <div class="overlay-content">
+                        <h3>Branding</h3>
+                        <p>Building strong visual identities.</p>
+                        <a href="#" class="btn-pdf">View Specs</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="portfolio-item">
+                <img src="images/p7.png" alt="Timeless Value">
+                <div class="portfolio-overlay">
+                    <div class="overlay-content">
+                        <h3>Timeless Value</h3>
+                        <p>Strategic branding and core values.</p>
+                        <a href="files/Timeless-Value.pdf" target="_blank" class="btn-pdf">Open PDF</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="portfolio-item">
+                <img src="images/p8.png" alt="Studio Work">
+                <div class="portfolio-overlay">
+                    <div class="overlay-content">
+                        <h3>Studio Work</h3>
+                        <p>Internal projects and research & development.</p>
+                        <a href="#" class="btn-pdf">Read More</a>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 
@@ -310,66 +525,79 @@
     </section>
 
     <footer>
-        <p style="text-align: center; padding: 20px;">&copy; 2026 Nova Studio. All rights reserved.</p>
+        <p>&copy; 2026 Nova Studio. All rights reserved.</p>
     </footer>
 
     <script>
-    function selectService(serviceName) {
-        document.getElementById('selected-service-display').innerText = serviceName;
-        document.getElementById('service-input').value = serviceName;
-        
-        const messageBox = document.querySelector('textarea[name="message"]');
-        messageBox.value = "Hello Nova Studio, I am interested in the " + serviceName + " service. Please provide me with more information regarding this.";
-        const cards = document.querySelectorAll('.service-card');
-        cards.forEach(card => {
-            card.classList.remove('selected');
-            if(card.querySelector('h3').innerText === serviceName) {
-                card.classList.add('selected');
-            }
-        });
+        function selectService(serviceName) {
+            document.getElementById('selected-service-display').innerText = serviceName;
+            document.getElementById('service-input').value = serviceName;
 
-        document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
-    }
+            const messageBox = document.querySelector('textarea[name="message"]');
+            messageBox.value = "Hello Nova Studio, I am interested in the " + serviceName + " service. Please provide me with more information regarding this.";
 
-    const contactForm = document.getElementById('contact-form');
-    contactForm.addEventListener('submit', function(e) {
-        e.preventDefault(); 
-        const submitBtn = this.querySelector('button[type="submit"]');
-        const originalText = submitBtn.innerText;
-        
-        submitBtn.innerText = "در حال ارسال...";
-        submitBtn.disabled = true;
+            const cards = document.querySelectorAll('.service-card');
+            cards.forEach(card => {
+                card.classList.remove('selected');
+                const title = card.querySelector('h3');
+                if (title && title.innerText === serviceName) {
+                    card.classList.add('selected');
+                }
+            });
 
-        const formData = new FormData(this);
-        fetch(this.action, {
-            method: 'POST',
-            body: formData,
-            headers: { 'Accept': 'application/json' }
-        })
-        .then(response => {
-            if (response.ok) {
-                submitBtn.innerText = "✓ پیام شما با موفقیت ارسال شد";
-                submitBtn.style.background = "#2ecc71"; 
-                submitBtn.style.color = "white";
-                this.reset(); 
-                setTimeout(() => {
+            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        const contactForm = document.getElementById('contact-form');
+
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerText;
+
+            submitBtn.innerText = "Sending...";
+            submitBtn.disabled = true;
+
+            const formData = new FormData(this);
+
+            fetch(this.action, {
+                method: 'POST',
+                body: formData,
+                headers: { 'Accept': 'application/json' }
+            })
+            .then(response => {
+                if (response.ok) {
+                    submitBtn.innerText = "✓ Message sent successfully";
+                    submitBtn.style.background = "#2ecc71";
+                    submitBtn.style.color = "white";
+                    this.reset();
+
+                    document.getElementById('selected-service-display').innerText = 'None';
+                    document.getElementById('service-input').value = 'None';
+
+                    document.querySelectorAll('.service-card').forEach(card => {
+                        card.classList.remove('selected');
+                    });
+
+                    setTimeout(() => {
+                        submitBtn.innerText = originalText;
+                        submitBtn.style.background = "";
+                        submitBtn.style.color = "";
+                        submitBtn.disabled = false;
+                    }, 5000);
+                } else {
+                    alert("Something went wrong. Please try again.");
                     submitBtn.innerText = originalText;
-                    submitBtn.style.background = ""; 
-                    submitBtn.style.color = "";
                     submitBtn.disabled = false;
-                }, 5000);
-            } else {
-                alert("خطایی رخ داد. مجدد تلاش کنید.");
+                }
+            })
+            .catch(() => {
+                alert("Connection error!");
                 submitBtn.innerText = originalText;
                 submitBtn.disabled = false;
-            }
-        })
-        .catch(error => {
-            alert("خطا در اتصال!");
-            submitBtn.innerText = originalText;
-            submitBtn.disabled = false;
+            });
         });
-    });
     </script>
 </body>
 </html>
