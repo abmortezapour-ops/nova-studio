@@ -101,7 +101,7 @@
     }
     .service-card.selected { border-color: var(--secondary-neon); background: rgba(255, 0, 224, 0.05); }
 
-      /* --- PORTFOLIO WITH PDF BUTTON --- */
+    /* --- PORTFOLIO --- */
     .portfolio-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -144,60 +144,57 @@
     }
     .btn-pdf:hover { transform: scale(1.1); background: white; color: var(--primary-neon); }
 
-    /* استایل دکمه پرداخت */
-    /* استایل جدید دکمه‌های تماس و پرداخت */
-.social-buttons {
-    display: flex;
-    gap: 10px;
-    margin-top: 20px;
-    justify-content: space-between;
-}
+    /* --- SOCIAL & PAYMENT BUTTONS --- */
+    .social-buttons {
+        display: flex;
+        gap: 10px;
+        margin-top: 20px;
+        justify-content: space-between;
+    }
 
-.btn-social, .btn-pay {
-    flex: 1;
-    padding: 15px 5px;
-    text-align: center;
-    border-radius: 12px;
-    font-weight: bold;
-    font-size: 13px;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: 0.3s;
-    border: none;
-    color: white;
-}
+    .btn-social, .btn-pay {
+        flex: 1;
+        padding: 15px 5px;
+        text-align: center;
+        border-radius: 12px;
+        font-weight: bold;
+        font-size: 13px;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: 0.3s;
+        border: none;
+        color: white;
+    }
 
-.btn-pay {
-    background: rgba(46, 204, 113, 0.1) !important;
-    border: 1px solid #2ecc71 !important;
-    color: #2ecc71 !important;
-    cursor: pointer;
-}
+    .btn-pay {
+        background: rgba(46, 204, 113, 0.1) !important;
+        border: 1px solid #2ecc71 !important;
+        color: #2ecc71 !important;
+        cursor: pointer;
+    }
 
-.btn-pay:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 0 25px rgba(46, 204, 113, 0.6);
-}
-/* رنگ اختصاصی تلگرام */
-.telegram { 
-    background: rgba(0, 136, 204, 0.1) !important; 
-    border: 1px solid #0088cc !important; 
-    color: #0088cc !important; 
-}
-.telegram:hover { background: #0088cc !important; color: white !important; }
+    .btn-pay:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 0 25px rgba(46, 204, 113, 0.6);
+    }
 
-/* رنگ اختصاصی روبیکا */
-.rubika { 
-    background: rgba(188, 19, 254, 0.1) !important; 
-    border: 1px solid #bc13fe !important; 
-    color: #bc13fe !important; 
-}
-.rubika:hover { background: #bc13fe !important; color: white !important; }
+    .telegram { 
+        background: rgba(0, 136, 204, 0.1) !important; 
+        border: 1px solid #0088cc !important; 
+        color: #0088cc !important; 
+    }
+    .telegram:hover { background: #0088cc !important; color: white !important; }
 
-      
-    /* --- CONTACT --- */
+    .rubika { 
+        background: rgba(188, 19, 254, 0.1) !important; 
+        border: 1px solid #bc13fe !important; 
+        color: #bc13fe !important; 
+    }
+    .rubika:hover { background: #bc13fe !important; color: white !important; }
+
+    /* --- CONTACT FORM --- */
     .contact-container {
         max-width: 600px;
         margin: 0 auto;
@@ -265,33 +262,27 @@
 
     <div class="container" id="portfolio">
         <h2 class="section-title">Portfolio</h2>
-     <div class="portfolio-grid">
-    <!-- پروژه ۱ -->
-    <div class="portfolio-item">
-        <img src="images/p1.png" alt="AI Project">
-        <div class="portfolio-overlay">
-            <a href="files/Artificial-Intelligence-The-Future-of-Technology.pdf" target="_blank" class="btn-pdf">Open PDF</a>
+        <div class="portfolio-grid">
+            <div class="portfolio-item">
+                <img src="images/p1.png" alt="AI Project">
+                <div class="portfolio-overlay">
+                    <a href="files/Artificial-Intelligence-The-Future-of-Technology.pdf" target="_blank" class="btn-pdf">Open PDF</a>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <img src="images/p2.png" alt="Timeless Value">
+                <div class="portfolio-overlay">
+                    <a href="files/Timeless-Value.pdf" target="_blank" class="btn-pdf">Open PDF</a>
+                </div>
+            </div>
+            <div class="portfolio-item"><img src="images/p3.png"></div>
+            <div class="portfolio-item"><img src="images/p4.png"></div>
+            <div class="portfolio-item"><img src="images/p5.png"></div>
+            <div class="portfolio-item"><img src="images/p6.png"></div>
+            <div class="portfolio-item"><img src="images/p7.png"></div>
+            <div class="portfolio-item"><img src="images/p8.png"></div>
         </div>
     </div>
-
-    <!-- پروژه ۲ -->
-    <div class="portfolio-item">
-        <img src="images/p2.png" alt="Timeless Value">
-        <div class="portfolio-overlay">
-            <a href="files/Timeless-Value.pdf" target="_blank" class="btn-pdf">Open PDF</a>
-        </div>
-    </div>
-
-    <!-- بقیه پروژه‌ها -->
-    <div class="portfolio-item"><img src="images/p3.png"></div>
-    <div class="portfolio-item"><img src="images/p4.png"></div>
-    <div class="portfolio-item"><img src="images/p5.png"></div>
-    <div class="portfolio-item"><img src="images/p6.png"></div>
-    <div class="portfolio-item"><img src="images/p7.png"></div>
-    <div class="portfolio-item"><img src="images/p8.png"></div>
-</div>
-
-   </div>
 
     <section class="contact-section" id="contact">
         <div class="container">
@@ -302,93 +293,84 @@
                     <p>Selected Service: <span id="selected-service-display">None</span></p>
                 </div>
 
-              <form id="contact-form" action="https://formspree.io/f/maqkalgp" method="POST">
-
+                <form id="contact-form" action="https://formspree.io/f/maqkalgp" method="POST">
                     <input type="hidden" name="service" id="service-input" value="None">
                     <input type="email" name="email" placeholder="Your Email Address" required>
                     <textarea name="message" rows="5" placeholder="Your Message..." required></textarea>
                     <button type="submit">Send Message</button>
                 </form>
 
-                <!-- دکمه‌های اجتماعی - منتقل شده به بخش تماس -->
-                     <!-- دکمه‌های اجتماعی و پرداخت در یک ردیف -->
-        <div class="social-buttons">
-            <a href="https://t.me/novastudio_design" target="_blank" class="btn-social telegram">Telegram</a>
-            <a href="https://rubika.ir/novastudio_design" target="_blank" class="btn-social rubika">Rubika</a>
-            <a href="#" class="btn-pay">💳 SECURE PAYMENT</a>
-        </div>
-
-    </div>
-
+                <div class="social-buttons">
+                    <a href="https://t.me/novastudio_design" target="_blank" class="btn-social telegram">Telegram</a>
+                    <a href="https://rubika.ir/novastudio_design" target="_blank" class="btn-social rubika">Rubika</a>
+                    <a href="#" class="btn-pay">💳 SECURE PAYMENT</a>
                 </div>
             </div>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2026 Nova Studio. All rights reserved.</p>
+        <p style="text-align: center; padding: 20px;">&copy; 2026 Nova Studio. All rights reserved.</p>
     </footer>
 
     <script>
-        function selectService(serviceName) {
-            document.getElementById('selected-service-display').innerText = serviceName;
-            document.getElementById('service-input').value = serviceName;
-            
-            const cards = document.querySelectorAll('.service-card');
-            cards.forEach(card => {
-                card.classList.remove('selected');
-                if(card.querySelector('h3').innerText === serviceName) {
-                    card.classList.add('selected');
-                }
-            });
-
-            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
-        }
-    </script>
-    <script>
-  const contactForm = document.getElementById('contact-form');
-  
-  contactForm.addEventListener('submit', async function(e) {
-    e.preventDefault(); 
-    const submitBtn = this.querySelector('button[type="submit"]');
-    const originalText = submitBtn.innerText;
-    
-    // نمایش وضعیت در حال ارسال
-    submitBtn.innerText = "در حال ارسال...";
-    submitBtn.disabled = true;
-
-    try {
-      const formData = new FormData(this);
-      const response = await fetch(this.action, {
-        method: 'POST',
-        body: formData,
-        headers: { 'Accept': 'application/json' }
-      });
-
-      if (response.ok) {
-        // پیام موفقیت
-        submitBtn.innerText = "✓ با موفقیت ارسال شد!";
-        submitBtn.style.background = "#2ecc71";
-        submitBtn.style.color = "white";
-        this.reset(); 
+    function selectService(serviceName) {
+        document.getElementById('selected-service-display').innerText = serviceName;
+        document.getElementById('service-input').value = serviceName;
         
-        // بازگشت به حالت عادی بعد از ۵ ثانیه
-        setTimeout(() => {
-          submitBtn.innerText = originalText;
-          submitBtn.style.background = ""; 
-          submitBtn.style.color = "";
-          submitBtn.disabled = false;
-        }, 5000);
-      } else {
-        throw new Error();
-      }
-    } catch (error) {
-      alert("خطایی رخ داد! لطفاً دوباره تلاش کنید.");
-      submitBtn.innerText = originalText;
-      submitBtn.disabled = false;
-    }
-  });
-</script>
+        const messageBox = document.querySelector('textarea[name="message"]');
+        messageBox.value = "سلام نووا استودیو، من به سرویس " + serviceName + " علاقمند هستم. لطفاً در این مورد من را راهنمایی کنید.";
 
+        const cards = document.querySelectorAll('.service-card');
+        cards.forEach(card => {
+            card.classList.remove('selected');
+            if(card.querySelector('h3').innerText === serviceName) {
+                card.classList.add('selected');
+            }
+        });
+
+        document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    const contactForm = document.getElementById('contact-form');
+    contactForm.addEventListener('submit', function(e) {
+        e.preventDefault(); 
+        const submitBtn = this.querySelector('button[type="submit"]');
+        const originalText = submitBtn.innerText;
+        
+        submitBtn.innerText = "در حال ارسال...";
+        submitBtn.disabled = true;
+
+        const formData = new FormData(this);
+        fetch(this.action, {
+            method: 'POST',
+            body: formData,
+            headers: { 'Accept': 'application/json' }
+        })
+        .then(response => {
+            if (response.ok) {
+                submitBtn.innerText = "✓ پیام شما با موفقیت ارسال شد";
+                submitBtn.style.background = "#2ecc71"; 
+                submitBtn.style.color = "white";
+                this.reset(); 
+                setTimeout(() => {
+                    submitBtn.innerText = originalText;
+                    submitBtn.style.background = ""; 
+                    submitBtn.style.color = "";
+                    submitBtn.disabled = false;
+                }, 5000);
+            } else {
+                alert("خطایی رخ داد. مجدد تلاش کنید.");
+                submitBtn.innerText = originalText;
+                submitBtn.disabled = false;
+            }
+        })
+        .catch(error => {
+            alert("خطا در اتصال!");
+            submitBtn.innerText = originalText;
+            submitBtn.disabled = false;
+        });
+    });
+    </script>
 </body>
 </html>
